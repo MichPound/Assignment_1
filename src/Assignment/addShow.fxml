@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="359.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.Controller">
+   <children>
+      <Label layoutX="139.0" layoutY="14.0" text="Add Show" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="137.0" layoutY="171.0" text="Running Time">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField layoutX="46.0" layoutY="53.0" prefHeight="25.0" prefWidth="267.0" promptText="Show Title" />
+      <DatePicker layoutX="46.0" layoutY="94.0" prefHeight="25.0" prefWidth="267.0" promptText="Start Date" />
+      <DatePicker layoutX="46.0" layoutY="134.0" prefHeight="25.0" prefWidth="267.0" promptText="End Date" />
+      <Slider layoutX="75.0" layoutY="196.0" prefHeight="14.0" prefWidth="209.0" />
+      <Label layoutX="141.0" layoutY="220.0" text="Ticket Cost">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <SplitMenuButton layoutX="22.0" layoutY="261.0" mnemonicParsing="false" popupSide="TOP" prefHeight="25.0" prefWidth="89.0" text="Balcony">
+        <items>
+          <MenuItem mnemonicParsing="false" text="€12.00" />
+          <MenuItem mnemonicParsing="false" text="€13.00" />
+            <MenuItem mnemonicParsing="false" text="€14.00" />
+            <MenuItem mnemonicParsing="false" text="€15.00" />
+            <MenuItem mnemonicParsing="false" text="€16.00" />
+            <MenuItem mnemonicParsing="false" text="€17.00" />
+            <MenuItem mnemonicParsing="false" text="€18.00" />
+            <MenuItem mnemonicParsing="false" text="€19.00" />
+            <MenuItem mnemonicParsing="false" text="€20.00" />
+        </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="135.0" layoutY="261.0" mnemonicParsing="false" popupSide="TOP" prefHeight="25.0" prefWidth="89.0" text="Circle">
+         <items>
+            <MenuItem mnemonicParsing="false" text="€12.00" />
+            <MenuItem mnemonicParsing="false" text="€13.00" />
+            <MenuItem mnemonicParsing="false" text="€14.00" />
+            <MenuItem mnemonicParsing="false" text="€15.00" />
+            <MenuItem mnemonicParsing="false" text="€16.00" />
+            <MenuItem mnemonicParsing="false" text="€17.00" />
+            <MenuItem mnemonicParsing="false" text="€18.00" />
+            <MenuItem mnemonicParsing="false" text="€19.00" />
+            <MenuItem mnemonicParsing="false" text="€20.00" />
+         </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="240.0" layoutY="261.0" mnemonicParsing="false" popupSide="TOP" prefHeight="25.0" prefWidth="89.0" text="Stalls">
+         <items>
+            <MenuItem mnemonicParsing="false" text="€12.00" />
+            <MenuItem mnemonicParsing="false" text="€13.00" />
+            <MenuItem mnemonicParsing="false" text="€14.00" />
+            <MenuItem mnemonicParsing="false" text="€15.00" />
+            <MenuItem mnemonicParsing="false" text="€16.00" />
+            <MenuItem mnemonicParsing="false" text="€17.00" />
+            <MenuItem mnemonicParsing="false" text="€18.00" />
+            <MenuItem mnemonicParsing="false" text="€19.00" />
+            <MenuItem mnemonicParsing="false" text="€20.00" />
+         </items>
+      </SplitMenuButton>
+      <Button layoutX="116.0" layoutY="303.0" mnemonicParsing="false" text="Add" />
+      <Button layoutX="212.0" layoutY="303.0" mnemonicParsing="false" onAction="#cancel1" text="Back" />
+   </children>
+</Pane>

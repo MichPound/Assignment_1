@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="904.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.Controller">
+   <children>
+      <Label layoutX="245.0" layoutY="25.0" text="View Facilities" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <SplitMenuButton layoutX="138.0" layoutY="67.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Show">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="250.0" layoutY="67.0" mnemonicParsing="false" text="Performance">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </SplitMenuButton>
+      <TableView layoutX="103.0" layoutY="110.0" prefHeight="77.0" prefWidth="401.0">
+        <columns>
+          <TableColumn prefWidth="50.0" text="C1" />
+          <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView layoutX="53.0" layoutY="290.0" prefHeight="94.0" prefWidth="501.0">
+         <columns>
+            <TableColumn prefWidth="50.0" text="C1" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+         </columns>
+      </TableView>
+      <TableView layoutX="53.0" layoutY="200.0" prefHeight="77.0" prefWidth="501.0">
+         <columns>
+            <TableColumn prefWidth="50.0" text="C1" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+            <TableColumn prefWidth="50.0" text="C2" />
+         </columns>
+      </TableView>
+      <Label layoutX="689.0" layoutY="71.0" text="Show Details" underline="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="707.0" layoutY="102.0" text="Show Title" />
+      <Label layoutX="705.0" layoutY="119.0" text="Show Time" />
+      <Label layoutX="708.0" layoutY="140.0" text="Start Date" />
+      <Label layoutX="709.0" layoutY="157.0" text="End Date" />
+      <Label layoutX="618.0" layoutY="192.0" text="Balcony: Cost" />
+      <Label layoutX="704.0" layoutY="192.0" text="Circle: Cost" />
+      <Label layoutX="780.0" layoutY="192.0" text="Stall: Cost" />
+      <Label layoutX="663.0" layoutY="226.0" text="Performance Details" underline="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="688.0" layoutY="260.0" text="Performance Title" />
+      <Label layoutX="686.0" layoutY="282.0" text="Performance Date" />
+      <Label layoutX="686.0" layoutY="305.0" text="Performance Time" />
+      <Label layoutX="79.0" layoutY="403.0" text="Bookings Made: No." />
+      <Label layoutX="88.0" layoutY="428.0" text="Show Total: Cost" />
+      <Button layoutX="432.0" layoutY="433.0" mnemonicParsing="false" onAction="#cancel4" text="Back" />
+      <SplitMenuButton layoutX="357.0" layoutY="67.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Booking">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </SplitMenuButton>
+      <Label layoutX="678.0" layoutY="337.0" text="Booking Details" underline="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="718.0" layoutY="376.0" text="Name" />
+      <Label layoutX="708.0" layoutY="420.0" text="Seat Type" />
+      <Label layoutX="689.0" layoutY="395.0" text="Number of Seats" />
+   </children>
+</Pane>
