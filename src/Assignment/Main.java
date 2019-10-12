@@ -48,39 +48,39 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void setMain() {
+    static void setMain() {
         setStage.setScene(main);
     }
 
-    public static void setAddShow() {
+    static void setAddShow() {
         setStage.setScene(addShow);
     }
 
-    public static void setAddPerformance() {
+    static void setAddPerformance() {
         setStage.setScene(addPerformance);
     }
 
-    public static void setAddBooking() {
+    static void setAddBooking() {
         setStage.setScene(addBooking);
     }
 
-    public static void setViewFacility() {
+    static void setViewFacility() {
         setStage.setScene(viewFacility);
     }
 
-    public static void setCancelFacility() {
+    static void setCancelFacility() {
         setStage.setScene(cancelFacility);
     }
 
-    public static void setCancelShow() {
+    static void setCancelShow() {
         setStage.setScene(cancelShow);
     }
 
-    public static void setCancelPerformance() {
+    static void setCancelPerformance() {
         setStage.setScene(cancelPerformance);
     }
 
-    public static void setCancelBooking() {
+    static void setCancelBooking() {
         setStage.setScene(cancelBooking);
     }
 
