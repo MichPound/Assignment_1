@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class CustomList<C> implements Iterable<C> {
     public CustomNode<C> head = null;
 
-    public void addItem(C e){
+    public void addItem(C e) {
         CustomNode<C> cn = new CustomNode<>();
         cn.setContents(e);
         cn.next = head;
@@ -13,11 +13,11 @@ public class CustomList<C> implements Iterable<C> {
     }
 
     @Override
-    public Iterator<C> iterator(){
+    public Iterator<C> iterator() {
         return new CustomIterator<>(head);
     }
 
-    public void clear(){
+    public void clear() {
         head = null;
     }
 

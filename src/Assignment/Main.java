@@ -1,5 +1,6 @@
 package Assignment;
 
+import Lists.CustomList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,20 +9,21 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    private static Scene main, addShow, addPerformance, addBooking, viewFacility, cancelFacility, cancelShow, cancelPerformance, cancelBooking;
+    public static Scene main, addShow, addPerformance, addBooking, viewFacility, cancelFacility, cancelShow, cancelPerformance, cancelBooking;
     private static Stage setStage;
+    public static CustomList<Show> shows = new CustomList<>();
 
     @Override
-    public void start(Stage primaryStage)throws Exception{
+    public void start(Stage primaryStage) throws Exception {
 
         setStage = primaryStage;
         primaryStage.setTitle("Assignment_1");
 
         Parent root1 = FXMLLoader.load(getClass().getResource("main.fxml"));
-        main = new Scene(root1, 212, 400);
+        main = new Scene(root1, 650, 400);
 
         Parent root2 = FXMLLoader.load(getClass().getResource("addShow.fxml"));
-        addShow = new Scene(root2, 359, 342);
+        addShow = new Scene(root2, 704, 342);
 
         Parent root3 = FXMLLoader.load(getClass().getResource("addPerformance.fxml"));
         addPerformance = new Scene(root3, 359, 326);
