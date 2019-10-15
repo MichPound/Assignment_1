@@ -1,5 +1,7 @@
 package Lists;
 
+import Assignment.Show;
+
 import java.util.Iterator;
 
 public class CustomList<C> implements Iterable<C> {
@@ -21,4 +23,23 @@ public class CustomList<C> implements Iterable<C> {
         head = null;
     }
 
-}
+
+    public Object get (int index){
+        if(index < 0)
+            return null;
+        CustomNode current = null;
+        if(head != null){
+            current = head;
+            if(index ==0)
+                return current;
+            else{
+            for(int i = 1;i < index; i++){
+                if(current.next == null)
+                    return null;
+                current = current.next;
+            }
+            return current.getContents();
+        }}
+        return null;
+    }
+ }

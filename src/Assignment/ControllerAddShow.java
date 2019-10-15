@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 import static Assignment.Main.*;
 
 public class ControllerAddShow {
-    ControllerMain controllerMain;
+
 
     public ListView<String> showList;
 
@@ -173,7 +173,7 @@ public class ControllerAddShow {
             showList.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
            // ((ListView)main.getRoot().lookup("#mainlist")).getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");//Method one
             ControllerMain.maincontroller.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");         //Method Two
-
+            ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
 
 
         }

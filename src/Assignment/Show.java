@@ -4,7 +4,7 @@ public class Show {
     private String title, sDate, eDate;
     private int time, bCost, cCost, sCost;
     private Object performance;
-
+    //maybe add performances in here-------------------------------------------------------------------------------------
 
     public Show(String title, String sDate, String eDate, int time, int bCost, int cCost, int sCost, Object performance) {
         this.title = title;

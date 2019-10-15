@@ -68,6 +68,7 @@ public class Main extends Application {
 
     static void setViewFacility() {
         setStage.setScene(viewFacility);
+        ControllerViewFacilities.viewFacilitiesController.startView();
     }
 
     static void setCancelFacility() {

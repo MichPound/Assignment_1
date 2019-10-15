@@ -6,7 +6,6 @@ import javafx.scene.control.TextField;
 
 
 public class ControllerMain {
-    public ControllerAddShow controllerAddShow;
     public static ControllerMain maincontroller;
 
     public ListView<String> listShows;

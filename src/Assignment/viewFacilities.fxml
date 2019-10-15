@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="904.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.ControllerViewFacilities">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="904.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.ControllerViewFacilities">
    <children>
       <Label layoutX="245.0" layoutY="25.0" text="View Facilities" underline="true">
          <font>
@@ -73,13 +73,13 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="707.0" layoutY="102.0" text="Show Title" />
-      <Label layoutX="705.0" layoutY="119.0" text="Show Time" />
-      <Label layoutX="708.0" layoutY="140.0" text="Start Date" />
-      <Label layoutX="709.0" layoutY="157.0" text="End Date" />
-      <Label layoutX="618.0" layoutY="192.0" text="Balcony: Cost" />
-      <Label layoutX="704.0" layoutY="192.0" text="Circle: Cost" />
-      <Label layoutX="780.0" layoutY="192.0" text="Stall: Cost" />
+      <Label fx:id="showTitle" layoutX="707.0" layoutY="102.0" text="Show Title" />
+      <Label fx:id="showTime" layoutX="705.0" layoutY="119.0" text="Show Time" />
+      <Label fx:id="startDate" layoutX="708.0" layoutY="140.0" text="Start Date" />
+      <Label fx:id="endDate" layoutX="709.0" layoutY="157.0" text="End Date" />
+      <Label fx:id="bCost" layoutX="618.0" layoutY="192.0" text="Balcony: Cost" />
+      <Label fx:id="cCost" layoutX="704.0" layoutY="192.0" text="Circle: Cost" />
+      <Label fx:id="sCost" layoutX="780.0" layoutY="192.0" text="Stall: Cost" />
       <Label layoutX="663.0" layoutY="226.0" text="Performance Details" underline="true">
          <font>
             <Font size="16.0" />
