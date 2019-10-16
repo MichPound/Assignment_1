@@ -1,10 +1,8 @@
 package Assignment;
 
-import Lists.CustomList;
-import Lists.CustomNode;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
-import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseEvent;
 
 import java.time.format.DateTimeFormatter;
 
@@ -13,9 +11,9 @@ import static Assignment.Main.*;
 public class ControllerAddShow {
 
 
-    public ListView<String> showList;
+   // public ListView<String> showList;
 
-    private CustomList<Performance> performances = new CustomList<>();
+
     public TextField showTitle;
     public DatePicker startDate;
     public DatePicker endDate;
@@ -30,7 +28,10 @@ public class ControllerAddShow {
         Main.setMain();
     }
 
-    public void setTime(DragEvent mouseEvent) {
+    //public void setTime(DragEvent mouseEvent) {
+    //    time.setText("(" + (((int) runTime.getValue())) + ") " + "Minutes");
+    //}
+    public void setTime(MouseEvent dragEvent) {
         time.setText("(" + (((int) runTime.getValue())) + ") " + "Minutes");
     }
 
@@ -148,7 +149,10 @@ public class ControllerAddShow {
         String sDate = startDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         String eDate = endDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         int rTime = ((int) runTime.getValue());
-        shows.addItem(new Show(title, sDate, eDate, rTime, balconyCost, circleCost, stallsCost, performances));
+        shows.addItem(new Show(title, sDate, eDate, rTime, balconyCost, circleCost, stallsCost));
+        shows.addItem(new Show("Lion King", "01-10-2019", "07-10-2019",10, 18, 16, 12));
+        shows.addItem(new Show("Godzilla", "11-10-2019", "15-10-2019",20, 19, 17, 13));
+        shows.addItem(new Show("Avengers", "16-10-2019", "24-10-2019",30, 20, 18, 14));
         // showList.getItems().add("Title: " + title + ", Start Date: " + eDate + ", End Date: " + eDate + ", Run Time: " + rTime + " Minutes" + ", Balcony Cost: $" + balconyCost + ", Circle Cost: $" + circleCost + ", Stalls Cost: $" + stallsCost);
         // controllerMain.addList("Title: " + title + ", Start Date: " + eDate + ", End Date: " + eDate + ", Run Time: " + rTime + " Minutes" + ", Balcony Cost: $" + balconyCost + ", Circle Cost: $" + circleCost + ", Stalls Cost: $" + stallsCost);
 
@@ -166,17 +170,22 @@ public class ControllerAddShow {
 //            controllerMain.listShows.getItems().add(s.getTitle()+", "+s.getsDate()+" to "+s.geteDate()+", "+s.getTime()+" Minutes");
 //        }
         list();
-        //Main.setMain();
+        Main.setMain();
     }
     public void list() {
         for (Show s : shows) {
-            showList.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
+            //showList.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
            // ((ListView)main.getRoot().lookup("#mainlist")).getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");//Method one
             ControllerMain.maincontroller.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");         //Method Two
             ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
+            ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().add(s.getTitle());
 
-
+            for (Performance p : s.getPerformances()) {
+                System.out.println(p.getTitle() + p.getDate() + p.getTime());
+            }
         }
     }
+
+
 
 }

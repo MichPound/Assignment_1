@@ -1,12 +1,15 @@
 package Assignment;
 
+import Lists.CustomList;
+
 public class Show {
     private String title, sDate, eDate;
     private int time, bCost, cCost, sCost;
-    private Object performance;
+
+    private CustomList<Performance> performances=new CustomList<>();
     //maybe add performances in here-------------------------------------------------------------------------------------
 
-    public Show(String title, String sDate, String eDate, int time, int bCost, int cCost, int sCost, Object performance) {
+    public Show(String title, String sDate, String eDate, int time, int bCost, int cCost, int sCost) {
         this.title = title;
         this.sDate = sDate;
         this.eDate = eDate;
@@ -14,7 +17,6 @@ public class Show {
         this.bCost = bCost;
         this.cCost = cCost;
         this.sCost = sCost;
-        this.performance = performance;
     }
 
     public String getTitle() {
@@ -73,11 +75,12 @@ public class Show {
         this.sCost = sCost;
     }
 
-    public Object getPerformance() {
-        return performance;
+
+    public void addPerformance(Performance performance) {
+        this.performances.addItem(performance);
     }
 
-    public void setPerformance(Object performance) {
-        this.performance = performance;
+    public CustomList<Performance> getPerformances() {
+        return performances;
     }
 }

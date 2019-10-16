@@ -30,20 +30,30 @@ public class ControllerAddPerformance {
     public void addPerformance(ActionEvent actionEvent) {
        // selectShow.getItems().add(pTitle.getText() + ", " + pDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ", " + pTime.getText());
        int selected = selectShow.getSelectionModel().getSelectedIndex();
-       System.out.println(selected);
+       //System.out.println(selected);
 
-       System.out.println(shows.get(selected));
+       //System.out.println(shows.get(selected));
 
 
-        CustomNode temp = (CustomNode)shows.get(selected);
-        if(temp.getContents() instanceof Show){
-            System.out.println("Yes its a show");
-        }
+        CustomNode temp = (CustomNode)shows.get(selected+1);
+//        if(temp.getContents() instanceof Show){
+//            System.out.println("Yes its a show");
+//        }
         Show theShow = (Show) temp.getContents();
         System.out.println(theShow.getTitle()+ " <----------------------------------------");
+
+        String title = pTitle.getText();
+        String date = pDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        String time = pTime.getText();
+
+
+        theShow.addPerformance(new Performance(title,date,time));
         //System.out.println((Show)temp.getContents()+ " <----------------------------------------");
 
-
+        //System.out.println(theShow.getPerformances());
+        for (Performance p : theShow.getPerformances()) {
+            System.out.println(p.getTitle() + p.getDate() + p.getTime());
+        }
 
 
 
@@ -67,7 +77,7 @@ public class ControllerAddPerformance {
 
 
 
-
+        Main.setMain();
     }
 
     public void cancel2(ActionEvent actionEvent) {

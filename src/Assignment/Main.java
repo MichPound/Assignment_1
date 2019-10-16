@@ -12,6 +12,7 @@ public class Main extends Application {
     public static Scene main, addShow, addPerformance, addBooking, viewFacility, cancelFacility, cancelShow, cancelPerformance, cancelBooking;
     private static Stage setStage;
     public static CustomList<Show> shows = new CustomList<>();
+    public static CustomList<Performance> performances = new CustomList<>();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -23,7 +24,7 @@ public class Main extends Application {
         main = new Scene(root1, 650, 400);
 
         Parent root2 = FXMLLoader.load(getClass().getResource("addShow.fxml"));
-        addShow = new Scene(root2, 704, 342);
+        addShow = new Scene(root2, 369, 342);
 
         Parent root3 = FXMLLoader.load(getClass().getResource("addPerformance.fxml"));
         addPerformance = new Scene(root3, 359, 326);

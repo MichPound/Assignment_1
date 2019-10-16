@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
@@ -16,12 +17,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <SplitMenuButton layoutX="138.0" layoutY="67.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Show">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </SplitMenuButton>
       <SplitMenuButton layoutX="250.0" layoutY="67.0" mnemonicParsing="false" text="Performance">
          <items>
             <MenuItem mnemonicParsing="false" text="Action 1" />
@@ -105,5 +100,7 @@
       <Label layoutX="718.0" layoutY="376.0" text="Name" />
       <Label layoutX="708.0" layoutY="420.0" text="Seat Type" />
       <Label layoutX="689.0" layoutY="395.0" text="Number of Seats" />
+      <ListView fx:id="viewShows" layoutX="103.0" layoutY="52.0" prefHeight="47.0" prefWidth="142.0" />
+      <Button layoutX="504.0" layoutY="67.0" mnemonicParsing="false" onAction="#viewItems" text="View" />
    </children>
 </Pane>
