@@ -48,6 +48,8 @@ public class ControllerAddPerformance {
 
 
         theShow.addPerformance(new Performance(title,date,time));
+        //theShow.addPerformance(new Performance("Avenge 2", "02-10-2019", "Evening"));
+        //theShow.addPerformance(new Performance("Avenge 3", "03-10-2019", "Evening"));
         //System.out.println((Show)temp.getContents()+ " <----------------------------------------");
 
         //System.out.println(theShow.getPerformances());

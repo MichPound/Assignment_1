@@ -5,7 +5,6 @@ import Lists.CustomList;
 public class Show {
     private String title, sDate, eDate;
     private int time, bCost, cCost, sCost;
-
     private CustomList<Performance> performances=new CustomList<>();
     //maybe add performances in here-------------------------------------------------------------------------------------
 

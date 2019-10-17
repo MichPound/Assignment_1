@@ -12,7 +12,7 @@ public class Main extends Application {
     public static Scene main, addShow, addPerformance, addBooking, viewFacility, cancelFacility, cancelShow, cancelPerformance, cancelBooking;
     private static Stage setStage;
     public static CustomList<Show> shows = new CustomList<>();
-    public static CustomList<Performance> performances = new CustomList<>();
+    //public static CustomList<Performance> performances = new CustomList<>();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
