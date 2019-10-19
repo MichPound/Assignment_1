@@ -60,4 +60,8 @@ public class CustomList<C> implements Iterable<C> {
         }
         return null;
     }
+
+//    public void remove(int index){
+//
+//    }
 }

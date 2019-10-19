@@ -169,24 +169,27 @@ public class ControllerAddShow {
 //            showList.getItems().add(s.getTitle()+", "+s.getsDate()+" to "+s.geteDate()+", "+s.getTime()+" Minutes");
 //            controllerMain.listShows.getItems().add(s.getTitle()+", "+s.getsDate()+" to "+s.geteDate()+", "+s.getTime()+" Minutes");
 //        }
-        list();
+        //list();
+        Main.updateLists();
         Main.setMain();
     }
     public void list() {
-        ControllerMain.maincontroller.listShows.getItems().clear();
-        ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
-        ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().clear();
-        for (Show s : shows) {
-            //showList.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
-           // ((ListView)main.getRoot().lookup("#mainlist")).getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");//Method one
-            ControllerMain.maincontroller.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");         //Method Two
-            ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
-            ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().add(s.getTitle());
-            //System.out.println(s);
-
-            for (Performance p : s.getPerformances()) {
-                System.out.println(p.getTitle() + p.getDate() + p.getTime());
-            }
-        }
+//        ControllerMain.maincontroller.listShows.getItems().clear();
+//        ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
+//        ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().clear();
+//        ControllerCancelShow.cancelShowController.removeShow.getItems().clear();
+//        for (Show s : shows) {
+//            //showList.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
+//           // ((ListView)main.getRoot().lookup("#mainlist")).getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");//Method one
+//            ControllerMain.maincontroller.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");         //Method Two
+//            ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
+//            ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().add(s.getTitle());
+//            ControllerCancelShow.cancelShowController.removeShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());
+//            //System.out.println(s);
+//
+//            for (Performance p : s.getPerformances()) {
+//                System.out.println(p.getTitle() + p.getDate() + p.getTime());
+//            }
+//        }
     }
 }

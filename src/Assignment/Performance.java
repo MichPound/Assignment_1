@@ -1,7 +1,10 @@
 package Assignment;
 
+import Lists.CustomList;
+
 public class Performance {
     private String title, date, time;
+    private CustomList<Booking> bookings = new CustomList<>();
 
     public Performance(String title, String date, String time) {
         this.title = title;
@@ -31,5 +34,13 @@ public class Performance {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public void addBooking(Booking booking) {
+        this.bookings.addItem(booking);
+    }
+
+    public CustomList<Booking> getBooking() {
+        return bookings;
     }
 }
