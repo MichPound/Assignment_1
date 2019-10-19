@@ -63,5 +63,6 @@ public class ControllerAddBooking {
         Performance thePerformance = (Performance) tempPer.getContents();
 
         thePerformance.addBooking(new Booking(bookName.getText(), Integer.valueOf(bookSeats.getText()), seatType));
+        Main.setMain();
     }
 }

@@ -19,6 +19,8 @@
       <Button layoutX="51.0" layoutY="218.0" mnemonicParsing="false" onAction="#viewFacilities" prefHeight="25.0" prefWidth="108.0" text="View Facilites" />
       <Button layoutX="51.0" layoutY="265.0" mnemonicParsing="false" onAction="#cancelFacilities" prefHeight="25.0" prefWidth="108.0" text="Cancel Facilites" />
       <Button layoutX="51.0" layoutY="314.0" mnemonicParsing="false" onAction="#resetFacilities" prefHeight="25.0" prefWidth="108.0" text="Reset Facilites" />
-      <ListView fx:id="listShows" id="mainlist" layoutX="215.0" layoutY="100.0" prefHeight="200.0" prefWidth="376.0" />
+      <ListView id="mainlist" fx:id="listShows" layoutX="215.0" layoutY="100.0" prefHeight="200.0" prefWidth="376.0" />
+      <Button layoutX="51.0" layoutY="353.0" mnemonicParsing="false" onAction="#saveLists" text="Save" />
+      <Button layoutX="117.0" layoutY="353.0" mnemonicParsing="false" onAction="#loadLists" text="Load" />
    </children>
 </Pane>

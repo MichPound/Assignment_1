@@ -1,11 +1,19 @@
 package Assignment;
 
 import Lists.CustomList;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 public class Main extends Application {
 
@@ -112,9 +120,21 @@ public class Main extends Application {
     }
 
 
+//save and load methods
 
+    public static void save() throws Exception {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("shows.xml"));
+        out.writeObject(shows);
+        out.close();
+    }
 
-
+    public static void load() throws Exception {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("shows.xml"));
+        shows = (CustomList<Show>) is.readObject();
+        is.close();
+    }
 
 
 

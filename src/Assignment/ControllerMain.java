@@ -42,4 +42,13 @@ public class ControllerMain {
     public void initialize(){
         maincontroller=this;
     }
+
+    public void saveLists(ActionEvent actionEvent) throws Exception {
+        Main.save();
+    }
+
+    public void loadLists(ActionEvent actionEvent) throws Exception{
+        Main.load();
+        Main.updateLists();
+    }
 }

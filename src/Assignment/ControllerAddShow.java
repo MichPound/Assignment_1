@@ -31,7 +31,7 @@ public class ControllerAddShow {
     //public void setTime(DragEvent mouseEvent) {
     //    time.setText("(" + (((int) runTime.getValue())) + ") " + "Minutes");
     //}
-    public void setTime(MouseEvent dragEvent) {
+    public void setTime(MouseEvent mouseEvent) {
         time.setText("(" + (((int) runTime.getValue())) + ") " + "Minutes");
     }
 
@@ -173,7 +173,7 @@ public class ControllerAddShow {
         Main.updateLists();
         Main.setMain();
     }
-    public void list() {
+   // public void list() {
 //        ControllerMain.maincontroller.listShows.getItems().clear();
 //        ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
 //        ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().clear();
@@ -191,5 +191,5 @@ public class ControllerAddShow {
 //                System.out.println(p.getTitle() + p.getDate() + p.getTime());
 //            }
 //        }
-    }
+    //}
 }
