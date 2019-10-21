@@ -6,7 +6,6 @@ public class Show {
     private String title, sDate, eDate;
     private int time, bCost, cCost, sCost;
     private CustomList<Performance> performances=new CustomList<>();
-    //maybe add performances in here-------------------------------------------------------------------------------------
 
     public Show(String title, String sDate, String eDate, int time, int bCost, int cCost, int sCost) {
         this.title = title;
@@ -73,7 +72,6 @@ public class Show {
     public void setsCost(int sCost) {
         this.sCost = sCost;
     }
-
 
     public void addPerformance(Performance performance) {
         this.performances.addItem(performance);

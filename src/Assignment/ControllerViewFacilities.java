@@ -47,6 +47,7 @@ public class ControllerViewFacilities {
 
         for (Performance p : theShow.getPerformances()) {
             viewPerformances.getItems().add(p.getTitle());
+            System.out.println(p.getTitle());
 
 
 
@@ -96,7 +97,7 @@ public class ControllerViewFacilities {
         bookName.setText(theBooking.getName());
         seats.setText(String.valueOf(theBooking.getSeats()));
         if(theBooking.getsType() == 0){
-            seatType.setText("Contiguous");
+            seatType.setText("Continuous");
         }else{
             seatType.setText("Scattered");
         }

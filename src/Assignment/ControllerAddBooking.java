@@ -27,7 +27,7 @@ public class ControllerAddBooking {
         addBookingController=this;
     }
 
-    public void contiguous(ActionEvent actionEvent) {
+    public void continuous(ActionEvent actionEvent) {
         seatType = 0;
     }
 

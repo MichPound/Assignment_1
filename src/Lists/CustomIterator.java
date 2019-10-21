@@ -20,4 +20,10 @@ public class CustomIterator<K> implements Iterator<K> {
         pos = pos.next;
         return temp.getContents();
     }
+
+//    @Override
+//    public K reverse(){
+//        CustomNode<K> temp = pos;
+//        pos.
+//    }
 }

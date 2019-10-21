@@ -21,10 +21,10 @@ public class ControllerCancelShow {
         int index = removeShow.getSelectionModel().getSelectedIndex();
 
 
-        CustomNode temp = (CustomNode)shows.get(index+1);
-        Show theShow = (Show) temp.getContents();
-
-
+        //CustomNode temp = (CustomNode)shows.get(index+1);
+        //Show theShow = (Show) temp.getContents();
+        shows.remove(index+1);
+    Main.setMain();
     }
 
     public void initialize(){

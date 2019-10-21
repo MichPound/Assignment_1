@@ -23,7 +23,7 @@
       <TextField fx:id="bookSeats" layoutX="25.0" layoutY="246.0" promptText="Number of Seats" />
       <SplitMenuButton layoutX="25.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Multiple seat type">
          <items>
-            <MenuItem mnemonicParsing="false" onAction="#contiguous" text="Contiguous" />
+            <MenuItem mnemonicParsing="false" onAction="#continuous" text="Continuous" />
             <MenuItem mnemonicParsing="false" onAction="#scattered" text="Scattered" />
          </items>
       </SplitMenuButton>
