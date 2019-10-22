@@ -9,25 +9,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.ControllerCancelBooking">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.ControllerCancelBooking">
    <children>
       <Label layoutX="238.0" layoutY="26.0" text="Cancel Booking" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <SplitMenuButton layoutX="25.0" layoutY="70.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Select Show">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </SplitMenuButton>
-      <SplitMenuButton layoutX="25.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Select Performance">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </SplitMenuButton>
       <TableView layoutX="224.0" layoutY="70.0" prefHeight="75.0" prefWidth="322.0">
         <columns>
           <TableColumn prefWidth="40.0" text="C1" />

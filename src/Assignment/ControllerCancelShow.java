@@ -23,8 +23,9 @@ public class ControllerCancelShow {
 
         //CustomNode temp = (CustomNode)shows.get(index+1);
         //Show theShow = (Show) temp.getContents();
-        shows.remove(index+1);
-    Main.setMain();
+        shows.remove(index);
+        Main.updateLists();
+        Main.setMain();
     }
 
     public void initialize(){

@@ -103,6 +103,7 @@ public class Main extends Application {
         ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
         ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().clear();
         ControllerCancelShow.cancelShowController.removeShow.getItems().clear();
+        ControllerCancelPerformance.cancelPerformanceController.selectShow.getItems().clear();
         ControllerAddBooking.addBookingController.bookShow.getItems().clear();
 
         for (Show s : shows) {
@@ -112,6 +113,7 @@ public class Main extends Application {
             ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
             ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().add(s.getTitle());
             ControllerCancelShow.cancelShowController.removeShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());
+            ControllerCancelPerformance.cancelPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());
             ControllerAddBooking.addBookingController.bookShow.getItems().add(s.getTitle());
 
 //            for (Performance p : s.getPerformances()) {

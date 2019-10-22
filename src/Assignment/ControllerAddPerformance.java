@@ -36,6 +36,8 @@ public class ControllerAddPerformance {
 
 
         CustomNode temp = (CustomNode)shows.get(selected+1);
+        System.out.println("selected index: " + selected);
+        System.out.println("Selected index plus 1: " + selected+1);
 //        if(temp.getContents() instanceof Show){
 //            System.out.println("Yes its a show");
 //        }

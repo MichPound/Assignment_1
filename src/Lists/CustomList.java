@@ -108,23 +108,6 @@ public class CustomList<C> implements Iterable<C> {
 //        }
     }
 
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
 //
 //        if (head != null) {
 //            current = head;
