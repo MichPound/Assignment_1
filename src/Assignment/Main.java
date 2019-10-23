@@ -38,6 +38,7 @@ public class Main extends Application {
 
         Parent root4 = FXMLLoader.load(getClass().getResource("addBooking.fxml"));
         addBooking = new Scene(root4, 600, 500);
+        root4.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
 
         Parent root5 = FXMLLoader.load(getClass().getResource("viewFacilities.fxml"));
         viewFacility = new Scene(root5, 904, 475);

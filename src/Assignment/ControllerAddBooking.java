@@ -3,15 +3,11 @@ package Assignment;
 import Lists.CustomList;
 import Lists.CustomNode;
 import javafx.event.ActionEvent;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-
-import java.util.ArrayList;
 
 import static Assignment.Main.shows;
 
@@ -30,9 +26,9 @@ public class ControllerAddBooking {
     private ToggleButton S = new ToggleButton();
     private ToggleButton C = new ToggleButton();
     private ToggleButton B = new ToggleButton();
-//    private ArrayList<ToggleButton> stalls = new ArrayList<ToggleButton>();
-//    private ArrayList<ToggleButton> circle = new ArrayList<ToggleButton>();
-//    private ArrayList<ToggleButton> balcony = new ArrayList<ToggleButton>();
+    //    private ArrayList<ToggleButton> stalls = new ArrayList<ToggleButton>();
+    //    private ArrayList<ToggleButton> circle = new ArrayList<ToggleButton>();
+    //    private ArrayList<ToggleButton> balcony = new ArrayList<ToggleButton>();
     private CustomList<ToggleButton> stalls = new CustomList<ToggleButton>();
     private CustomList<ToggleButton> circle = new CustomList<ToggleButton>();
     private CustomList<ToggleButton> balcony = new CustomList<ToggleButton>();
@@ -69,35 +65,34 @@ public class ControllerAddBooking {
         int bal = 24;
         int checkS = 0;
         int checkC = 0;
-        int checkB =0;
+        int checkB = 0;
         for (int r = 0; r < 4; r++) {
             for (int c = 9; c >= 0; c--) {
                 S = new ToggleButton("S" + seat);
-                S.setOnAction(this :: sButtonClicked);
+                S.setOnAction(this::ButtonClicked);
                 stalls.addItem(S);
                 if (checkS <= 40) {
                     bookingGridS.add(stalls.get2(1), c, r);
-                    S.setAlignment(Pos.CENTER);
                     S.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                     checkS++;
                 }
                 if (seat <= 30) {
                     C = new ToggleButton("C" + seat);
+                    C.setOnAction(this::ButtonClicked);
                     circle.addItem(C);
-                    if(checkC <=30){
-                        bookingGridC.add(circle.get2(1),c,r);
-                        C.setAlignment(Pos.CENTER);
+                    if (checkC <= 30) {
+                        bookingGridC.add(circle.get2(1), c, r);
                         C.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                         checkC++;
                     }
                 }
-                if (bal > 0 && bal <= 24) {
+                if (bal <= 24) {
                     if (!(c == 0 || c == 9)) {
                         B = new ToggleButton("B" + bal);
+                        B.setOnAction(this::ButtonClicked);
                         balcony.addItem(B);
-                        if(checkB <= 24){
-                            bookingGridB.add(balcony.get2(1),c,r);
-                            B.setAlignment(Pos.CENTER);
+                        if (checkB <= 23) {
+                            bookingGridB.add(balcony.get2(1), c, r);
                             B.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                             checkB++;
                         }
@@ -105,27 +100,17 @@ public class ControllerAddBooking {
                     }
                 }
                 seat--;
-
             }
         }
 
-        B.setOnAction(e ->{
-//            for (int index = 0; index < balcony.size(); index++) {
-//                if (balcony.get(index).isSelected()) {
-//                    balcony.get(index).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
-//                }
-//            }
-        });
     }
 
-    public void sButtonClicked(ActionEvent actionEvent){
-        System.out.println(((ToggleButton)actionEvent.getSource()).getText());
-        //((ToggleButton)actionEvent.getSource()).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
+    public void ButtonClicked(ActionEvent actionEvent) {
+        System.out.println(((ToggleButton) actionEvent.getSource()).getText());
+//        bookingGridB.getStyleClass().clear();
+        ((ToggleButton) actionEvent.getSource()).getStyleClass().add("toggle-button");
+        //((ToggleButton) actionEvent.getSource()).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
     }
-
-
-
-
 
 
 //        int seat = 40;
@@ -175,7 +160,6 @@ public class ControllerAddBooking {
         //System.out.println(bookingGridB.);
         //stalls.get(40 - 6).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
     }
-
 
 
     public void addBooking(ActionEvent actionEvent) {

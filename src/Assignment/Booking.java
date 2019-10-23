@@ -1,9 +1,12 @@
 package Assignment;
 
 
+import Lists.CustomList;
+
 public class Booking {
     private String name;
     private int seats, sType;
+    private CustomList data = new CustomList();
 
     public Booking(String name, int seats, int sType) {
         this.name = name;
@@ -34,4 +37,12 @@ public class Booking {
     public void setsType(int sType) {
         this.sType = sType;
     }
+
+//    public void addDate(dat) {
+//        this.data.addItem(dat);
+//    }
+//
+//    public CustomList getData() {
+//        return data;
+//    }
 }

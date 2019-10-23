@@ -1,0 +1,9 @@
+.toggle-button {
+    -fx-background-color: rgba(0,155,24,0.86);
+    -fx-border-color: rgb(0,0,0);
+}
+
+.toggle-button:selected {
+    -fx-border-color: rgb(0,0,0);
+    -fx-background-color: rgba(192,0,1,0.93);
+}
