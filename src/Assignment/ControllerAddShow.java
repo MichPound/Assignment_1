@@ -1,19 +1,17 @@
 package Assignment;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.*;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.time.format.DateTimeFormatter;
 
-import static Assignment.Main.*;
+import static Assignment.Main.shows;
 
 public class ControllerAddShow {
-
-
-   // public ListView<String> showList;
-
-
     public TextField showTitle;
     public DatePicker startDate;
     public DatePicker endDate;
@@ -23,14 +21,10 @@ public class ControllerAddShow {
     private int circleCost;
     private int stallsCost;
 
-
     public void cancel1(ActionEvent actionEvent) {
         Main.setMain();
     }
 
-    //public void setTime(DragEvent mouseEvent) {
-    //    time.setText("(" + (((int) runTime.getValue())) + ") " + "Minutes");
-    //}
     public void setTime(MouseEvent mouseEvent) {
         time.setText("(" + (((int) runTime.getValue())) + ") " + "Minutes");
     }
@@ -150,46 +144,8 @@ public class ControllerAddShow {
         String eDate = endDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         int rTime = ((int) runTime.getValue());
         shows.addItem(new Show(title, sDate, eDate, rTime, balconyCost, circleCost, stallsCost));
-        //shows.addItem(new Show("Lion King", "01-10-2019", "07-10-2019",10, 18, 16, 12));
-        //shows.addItem(new Show("Godzilla", "11-10-2019", "15-10-2019",20, 19, 17, 13));
-        //shows.addItem(new Show("Avengers", "16-10-2019", "24-10-2019",30, 20, 18, 14));
-        // showList.getItems().add("Title: " + title + ", Start Date: " + eDate + ", End Date: " + eDate + ", Run Time: " + rTime + " Minutes" + ", Balcony Cost: $" + balconyCost + ", Circle Cost: $" + circleCost + ", Stalls Cost: $" + stallsCost);
-        // controllerMain.addList("Title: " + title + ", Start Date: " + eDate + ", End Date: " + eDate + ", Run Time: " + rTime + " Minutes" + ", Balcony Cost: $" + balconyCost + ", Circle Cost: $" + circleCost + ", Stalls Cost: $" + stallsCost);
-
-//        CustomNode<Show> nextNode = shows.head;
-//
-//        while(nextNode != null){
-//           // System.out.println(nextNode);
-//            showList.getItems().add(nextNode.getContents().getTitle());
-//
-//            nextNode = nextNode.next;
-//        }
-
-//        for(Show s : shows) {
-//            showList.getItems().add(s.getTitle()+", "+s.getsDate()+" to "+s.geteDate()+", "+s.getTime()+" Minutes");
-//            controllerMain.listShows.getItems().add(s.getTitle()+", "+s.getsDate()+" to "+s.geteDate()+", "+s.getTime()+" Minutes");
-//        }
-        //list();
         Main.updateLists();
         Main.setMain();
     }
-   // public void list() {
-//        ControllerMain.maincontroller.listShows.getItems().clear();
-//        ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
-//        ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().clear();
-//        ControllerCancelShow.cancelShowController.removeShow.getItems().clear();
-//        for (Show s : shows) {
-//            //showList.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
-//           // ((ListView)main.getRoot().lookup("#mainlist")).getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");//Method one
-//            ControllerMain.maincontroller.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");         //Method Two
-//            ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
-//            ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().add(s.getTitle());
-//            ControllerCancelShow.cancelShowController.removeShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());
-//            //System.out.println(s);
-//
-//            for (Performance p : s.getPerformances()) {
-//                System.out.println(p.getTitle() + p.getDate() + p.getTime());
-//            }
-//        }
-    //}
+
 }

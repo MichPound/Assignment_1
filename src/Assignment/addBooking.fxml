@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.ControllerAddBooking">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.ControllerAddBooking">
    <children>
       <Label layoutX="248.0" layoutY="27.0" text="Add Booking" underline="true">
          <font>
@@ -19,7 +21,7 @@
          </font>
       </Label>
       <TextField fx:id="bookName" layoutX="25.0" layoutY="82.0" promptText="Name" />
-      <Label layoutX="26.0" layoutY="354.0" text="Booking ID: auto-generated" />
+      <Label layoutX="26.0" layoutY="322.0" text="Booking ID: auto-generated" />
       <TextField fx:id="bookSeats" layoutX="25.0" layoutY="246.0" promptText="Number of Seats" />
       <SplitMenuButton layoutX="25.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Multiple seat type">
          <items>
@@ -27,49 +29,76 @@
             <MenuItem mnemonicParsing="false" onAction="#scattered" text="Scattered" />
          </items>
       </SplitMenuButton>
-      <TableView layoutX="224.0" layoutY="70.0" prefHeight="75.0" prefWidth="322.0">
-        <columns>
-          <TableColumn prefWidth="40.0" text="C1" />
-          <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView layoutX="184.0" layoutY="158.0" prefHeight="75.0" prefWidth="402.0">
-         <columns>
-            <TableColumn prefWidth="40.0" text="C1" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-         </columns>
-      </TableView>
-      <TableView layoutX="184.0" layoutY="246.0" prefHeight="93.0" prefWidth="402.0">
-         <columns>
-            <TableColumn prefWidth="40.0" text="C1" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-            <TableColumn prefWidth="40.0" text="C2" />
-         </columns>
-      </TableView>
-      <Button layoutX="461.0" layoutY="359.0" mnemonicParsing="false" onAction="#addBooking" text="Add" />
-      <Button layoutX="520.0" layoutY="359.0" mnemonicParsing="false" onAction="#cancel3" text="Back" />
+      <Button layoutX="26.0" layoutY="359.0" mnemonicParsing="false" onAction="#addBooking" text="Add" />
+      <Button layoutX="132.0" layoutY="359.0" mnemonicParsing="false" onAction="#cancel3" text="Back" />
       <ListView fx:id="bookShow" layoutX="25.0" layoutY="121.0" onMouseClicked="#bookedShow" prefHeight="49.0" prefWidth="149.0" />
       <ListView fx:id="bookPerformance" layoutX="25.0" layoutY="184.0" prefHeight="49.0" prefWidth="149.0" />
+      <GridPane fx:id="bookingGridS" layoutX="184.0" layoutY="339.0" onMouseClicked="#mousePressed" prefHeight="119.0" prefWidth="404.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </GridPane>
+      <GridPane fx:id="bookingGridC" layoutX="184.0" layoutY="210.0" prefHeight="98.0" prefWidth="404.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </GridPane>
+      <GridPane fx:id="bookingGridB" layoutX="184.0" layoutY="100.0" onMouseClicked="#getGridB" prefHeight="92.0" prefWidth="404.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </GridPane>
    </children>
 </Pane>

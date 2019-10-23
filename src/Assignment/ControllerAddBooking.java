@@ -3,14 +3,20 @@ package Assignment;
 import Lists.CustomList;
 import Lists.CustomNode;
 import javafx.event.ActionEvent;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+
+import java.util.ArrayList;
 
 import static Assignment.Main.shows;
 
 public class ControllerAddBooking {
+
     public static ControllerAddBooking addBookingController;
 
     public TextField bookName;
@@ -18,13 +24,25 @@ public class ControllerAddBooking {
     public int seatType;
     public ListView<String> bookShow;
     public ListView<String> bookPerformance;
+    public GridPane bookingGridS;
+    public GridPane bookingGridC;
+    public GridPane bookingGridB;
+    private ToggleButton S = new ToggleButton();
+    private ToggleButton C = new ToggleButton();
+    private ToggleButton B = new ToggleButton();
+//    private ArrayList<ToggleButton> stalls = new ArrayList<ToggleButton>();
+//    private ArrayList<ToggleButton> circle = new ArrayList<ToggleButton>();
+//    private ArrayList<ToggleButton> balcony = new ArrayList<ToggleButton>();
+    private CustomList<ToggleButton> stalls = new CustomList<ToggleButton>();
+    private CustomList<ToggleButton> circle = new CustomList<ToggleButton>();
+    private CustomList<ToggleButton> balcony = new CustomList<ToggleButton>();
 
     public void cancel3(ActionEvent actionEvent) {
         Main.setMain();
     }
 
-    public void initialize(){
-        addBookingController=this;
+    public void initialize() {
+        addBookingController = this;
     }
 
     public void continuous(ActionEvent actionEvent) {
@@ -40,29 +58,139 @@ public class ControllerAddBooking {
         bookPerformance.getItems().clear();
 
         int selected = bookShow.getSelectionModel().getSelectedIndex();
-        CustomNode tempShow = (CustomNode)shows.get(selected+1);
+        CustomNode tempShow = (CustomNode) shows.get(selected + 1);
         Show theShow = (Show) tempShow.getContents();
         for (Performance p : theShow.getPerformances()) {
             bookPerformance.getItems().add(p.getTitle());
         }
+
+
+        int seat = 40;
+        int bal = 24;
+        int checkS = 0;
+        int checkC = 0;
+        int checkB =0;
+        for (int r = 0; r < 4; r++) {
+            for (int c = 9; c >= 0; c--) {
+                S = new ToggleButton("S" + seat);
+                S.setOnAction(this :: sButtonClicked);
+                stalls.addItem(S);
+                if (checkS <= 40) {
+                    bookingGridS.add(stalls.get2(1), c, r);
+                    S.setAlignment(Pos.CENTER);
+                    S.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+                    checkS++;
+                }
+                if (seat <= 30) {
+                    C = new ToggleButton("C" + seat);
+                    circle.addItem(C);
+                    if(checkC <=30){
+                        bookingGridC.add(circle.get2(1),c,r);
+                        C.setAlignment(Pos.CENTER);
+                        C.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+                        checkC++;
+                    }
+                }
+                if (bal > 0 && bal <= 24) {
+                    if (!(c == 0 || c == 9)) {
+                        B = new ToggleButton("B" + bal);
+                        balcony.addItem(B);
+                        if(checkB <= 24){
+                            bookingGridB.add(balcony.get2(1),c,r);
+                            B.setAlignment(Pos.CENTER);
+                            B.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+                            checkB++;
+                        }
+                        bal--;
+                    }
+                }
+                seat--;
+
+            }
+        }
+
+        B.setOnAction(e ->{
+//            for (int index = 0; index < balcony.size(); index++) {
+//                if (balcony.get(index).isSelected()) {
+//                    balcony.get(index).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
+//                }
+//            }
+        });
     }
 
-    public void performanceSelected(MouseEvent mouseEvent) {
-
-
-
-
+    public void sButtonClicked(ActionEvent actionEvent){
+        System.out.println(((ToggleButton)actionEvent.getSource()).getText());
+        //((ToggleButton)actionEvent.getSource()).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
     }
+
+
+
+
+
+
+//        int seat = 40;
+//        int bal = 24;
+//        for (int r = 0; r < 4; r++) {
+//            for (int c = 9; c >= 0; c--) {
+//                S = new Button("S" + seat);
+//                bookingGridS.add(S, c, r);
+//                S.setAlignment(Pos.CENTER);
+//                S.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+//                S.setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(0,155,24,0.86); ");
+//
+//                if (seat <= 30) {
+//                    C = new Button("C" + seat);
+//                    bookingGridC.add(C, c, r);
+//                    C.setAlignment(Pos.CENTER);
+//                    C.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+//                    C.setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(0,155,24,0.86); ");
+//                }
+//                if (bal > 0 && bal <= 24) {
+//                    if (!(c == 0 || c == 9)) {
+//                        B = new Button("B" + bal);
+//                        bookingGridB.add(B, c, r);
+//                        B.setAlignment(Pos.CENTER);
+//                        B.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+//                        B.setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(0,155,24,0.86); ");
+//                        bal--;
+//                    }
+//                }
+//                seat--;
+//
+//            }
+//        }
+//    }
+
+    public void mousePressed(MouseEvent mouseEvent) {
+//        System.out.println("its actually doing something");
+//        for (int index = 0; index < stalls.size(); index++) {
+//            if (stalls.get(index).isSelected()) {
+//                stalls.get(index).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
+//            }
+//        }
+    }
+
+    public void getGridB(MouseEvent mouseEvent) {
+        //B.setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
+        //System.out.println(bookingGridB.);
+        //stalls.get(40 - 6).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
+    }
+
+
 
     public void addBooking(ActionEvent actionEvent) {
+
+
         int selected = bookShow.getSelectionModel().getSelectedIndex();
-        CustomNode tempShow = (CustomNode)shows.get(selected+1);
+        CustomNode tempShow = (CustomNode) shows.get(selected + 1);
         Show theShow = (Show) tempShow.getContents();
         int per = bookPerformance.getSelectionModel().getSelectedIndex();
-        CustomNode tempPer = (CustomNode)theShow.getPerformances().get(per+1);
+        CustomNode tempPer = (CustomNode) theShow.getPerformances().get(per + 1);
         Performance thePerformance = (Performance) tempPer.getContents();
 
         thePerformance.addBooking(new Booking(bookName.getText(), Integer.valueOf(bookSeats.getText()), seatType));
         Main.setMain();
     }
+
+
 }

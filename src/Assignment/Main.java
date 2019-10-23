@@ -13,7 +13,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 public class Main extends Application {
 
@@ -38,7 +37,7 @@ public class Main extends Application {
         addPerformance = new Scene(root3, 359, 326);
 
         Parent root4 = FXMLLoader.load(getClass().getResource("addBooking.fxml"));
-        addBooking = new Scene(root4, 600, 400);
+        addBooking = new Scene(root4, 600, 500);
 
         Parent root5 = FXMLLoader.load(getClass().getResource("viewFacilities.fxml"));
         viewFacility = new Scene(root5, 904, 475);
@@ -97,8 +96,7 @@ public class Main extends Application {
     }
 
 
-
-    static void updateLists(){
+    static void updateLists() {
         ControllerMain.maincontroller.listShows.getItems().clear();
         ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
         ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().clear();
@@ -107,7 +105,6 @@ public class Main extends Application {
         ControllerAddBooking.addBookingController.bookShow.getItems().clear();
 
         for (Show s : shows) {
-
             System.out.println(s.getTitle());
             ControllerMain.maincontroller.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
             ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
@@ -115,13 +112,12 @@ public class Main extends Application {
             ControllerCancelShow.cancelShowController.removeShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());
             ControllerCancelPerformance.cancelPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());
             ControllerAddBooking.addBookingController.bookShow.getItems().add(s.getTitle());
-
-//            for (Performance p : s.getPerformances()) {
-//                System.out.println(p.getTitle() + p.getDate() + p.getTime());
-//            }
         }
     }
 
+//    static void getShow(int index){
+//        int selected =
+//    }
 
 //save and load methods
 
@@ -138,10 +134,6 @@ public class Main extends Application {
         shows = (CustomList<Show>) is.readObject();
         is.close();
     }
-
-
-
-
 
 
     public static void main(String[] args) {

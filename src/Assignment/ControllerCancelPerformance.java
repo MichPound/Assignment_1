@@ -5,8 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
-import java.time.format.DateTimeFormatter;
-
 import static Assignment.Main.shows;
 
 public class ControllerCancelPerformance {
@@ -27,7 +25,7 @@ public class ControllerCancelPerformance {
 
     public void cancelPerformance(ActionEvent actionEvent) {
         int selected = selectShow.getSelectionModel().getSelectedIndex();
-        CustomNode temp = (CustomNode)shows.get(selected+1);
+        CustomNode temp = (CustomNode) shows.get(selected + 1);
         Show theShow = (Show) temp.getContents();
 
         int per = selectPerformance.getSelectionModel().getSelectedIndex();
@@ -41,7 +39,7 @@ public class ControllerCancelPerformance {
         Main.setCancelFacility();
     }
 
-    public void initialize(){
-        cancelPerformanceController=this;
+    public void initialize() {
+        cancelPerformanceController = this;
     }
 }

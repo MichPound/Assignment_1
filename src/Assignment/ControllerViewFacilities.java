@@ -29,12 +29,6 @@ public class ControllerViewFacilities {
     public Label seatType;
 
     public void startView(){
-//        int selected = viewShows.getSelectionModel().getSelectedIndex();
-//        CustomNode tempShow = (CustomNode)shows.get(selected+1);
-//        Show theShow = (Show) tempShow.getContents();
-//        for (Performance p : theShow.getPerformances()) {
-//            viewPerformances.getItems().add(p.getTitle());
-//        }
     }
 
     public void showSelected(MouseEvent mouseEvent) {
@@ -48,9 +42,6 @@ public class ControllerViewFacilities {
         for (Performance p : theShow.getPerformances()) {
             viewPerformances.getItems().add(p.getTitle());
             System.out.println(p.getTitle());
-
-
-
 
             showTitle.setText(theShow.getTitle());
             showTime.setText(theShow.getTime() + " Minutes");
@@ -102,34 +93,6 @@ public class ControllerViewFacilities {
             seatType.setText("Scattered");
         }
     }
-
-  //  public void viewItems(ActionEvent actionEvent) {
-//        int selected = viewShows.getSelectionModel().getSelectedIndex();
-//        CustomNode tempShow = (CustomNode)shows.get(selected+1);
-//        Show theShow = (Show) tempShow.getContents();
-//
-////        showTitle.setText(theShow.getTitle());
-////        showTime.setText(theShow.getTime() + " Minutes");
-////        startDate.setText(theShow.getsDate());
-////        endDate.setText(theShow.geteDate());
-////        bCost.setText("Balcony: $" + theShow.getbCost());
-////        cCost.setText("Circle: $" + theShow.getcCost());
-////        sCost.setText("Stalls: $" + theShow.getsCost());
-//
-//
-//
-//
-//
-//        int per = viewPerformances.getSelectionModel().getSelectedIndex();
-//        CustomNode tempPer = (CustomNode)theShow.getPerformances().get(per+1);
-//        Performance thePerformance = (Performance) tempPer.getContents();
-//
-//        performanceTitle.setText(thePerformance.getTitle());
-//        performanceDate.setText(thePerformance.getDate());
-//        performanceTime.setText(thePerformance.getTime());
-
-       // System.out.println(thePerformance.getTitle());
-   // }
 
     public void cancel4(ActionEvent actionEvent) {
         Main.setMain();
