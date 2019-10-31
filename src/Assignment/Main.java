@@ -106,7 +106,7 @@ public class Main extends Application {
         ControllerAddBooking.addBookingController.bookShow.getItems().clear();
 
         for (Show s : shows) {
-            System.out.println(s.getTitle());
+            //System.out.println(s.getTitle());
             ControllerMain.maincontroller.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
             ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
             ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().add(s.getTitle());

@@ -26,9 +26,6 @@ public class ControllerAddBooking {
     private ToggleButton S = new ToggleButton();
     private ToggleButton C = new ToggleButton();
     private ToggleButton B = new ToggleButton();
-    //    private ArrayList<ToggleButton> stalls = new ArrayList<ToggleButton>();
-    //    private ArrayList<ToggleButton> circle = new ArrayList<ToggleButton>();
-    //    private ArrayList<ToggleButton> balcony = new ArrayList<ToggleButton>();
     private CustomList<ToggleButton> stalls = new CustomList<ToggleButton>();
     private CustomList<ToggleButton> circle = new CustomList<ToggleButton>();
     private CustomList<ToggleButton> balcony = new CustomList<ToggleButton>();
@@ -50,7 +47,6 @@ public class ControllerAddBooking {
     }
 
     public void bookedShow(MouseEvent mouseEvent) {
-
         bookPerformance.getItems().clear();
 
         int selected = bookShow.getSelectionModel().getSelectedIndex();
@@ -59,7 +55,9 @@ public class ControllerAddBooking {
         for (Performance p : theShow.getPerformances()) {
             bookPerformance.getItems().add(p.getTitle());
         }
+    }
 
+    public void bookedPerformance(MouseEvent mouseEvent) {
 
         int seat = 40;
         int bal = 24;
@@ -69,6 +67,7 @@ public class ControllerAddBooking {
         for (int r = 0; r < 4; r++) {
             for (int c = 9; c >= 0; c--) {
                 S = new ToggleButton("S" + seat);
+                S.setId("S"+seat);
                 S.setOnAction(this::ButtonClicked);
                 stalls.addItem(S);
                 if (checkS <= 40) {
@@ -78,6 +77,7 @@ public class ControllerAddBooking {
                 }
                 if (seat <= 30) {
                     C = new ToggleButton("C" + seat);
+                    C.setId("C"+seat);
                     C.setOnAction(this::ButtonClicked);
                     circle.addItem(C);
                     if (checkC <= 30) {
@@ -89,6 +89,7 @@ public class ControllerAddBooking {
                 if (bal <= 24) {
                     if (!(c == 0 || c == 9)) {
                         B = new ToggleButton("B" + bal);
+                        B.setId("B"+bal);
                         B.setOnAction(this::ButtonClicked);
                         balcony.addItem(B);
                         if (checkB <= 23) {
@@ -104,47 +105,35 @@ public class ControllerAddBooking {
         }
 
     }
-
+    CustomList<String> test = new CustomList<>();
     public void ButtonClicked(ActionEvent actionEvent) {
-        System.out.println(((ToggleButton) actionEvent.getSource()).getText());
-//        bookingGridB.getStyleClass().clear();
-        ((ToggleButton) actionEvent.getSource()).getStyleClass().add("toggle-button");
-        //((ToggleButton) actionEvent.getSource()).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
+     //   System.out.println(((ToggleButton) actionEvent.getSource()).getId());
+//        ((ToggleButton) actionEvent.getSource()).getStyleClass().add("toggle-button");
+       // if(((ToggleButton) actionEvent.getSource()).isFocused()){
+            if((((ToggleButton) actionEvent.getSource()).getText().contains("S"))){
+                ((ToggleButton) actionEvent.getSource()).setText("X");
+                test.addItem(((ToggleButton) actionEvent.getSource()).getId());
+            }else if ((((ToggleButton) actionEvent.getSource()).getText().contains("X"))){
+                ((ToggleButton) actionEvent.getSource()).setText(((ToggleButton) actionEvent.getSource()).getId());
+                for(int i = 0;i < 10;i++){//..........................................................................
+                    if (((CustomNode)test.get(i)).getContents().toString().contains(((ToggleButton) actionEvent.getSource()).getId())){
+                        test.remove(i);
+                        System.out.println("this for loop is actually doing something");
+                    }
+                }
+                //remove from list
+            }
+       // }
+        if(test.getSize() > 0) {
+            for (int i = 0; i < test.getSize(); i++) {
+                System.out.println(test.get2(i));
+            }
+        }
+        System.out.println("---------------------------------------------------");
     }
 
 
-//        int seat = 40;
-//        int bal = 24;
-//        for (int r = 0; r < 4; r++) {
-//            for (int c = 9; c >= 0; c--) {
-//                S = new Button("S" + seat);
-//                bookingGridS.add(S, c, r);
-//                S.setAlignment(Pos.CENTER);
-//                S.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-//                S.setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(0,155,24,0.86); ");
-//
-//                if (seat <= 30) {
-//                    C = new Button("C" + seat);
-//                    bookingGridC.add(C, c, r);
-//                    C.setAlignment(Pos.CENTER);
-//                    C.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-//                    C.setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(0,155,24,0.86); ");
-//                }
-//                if (bal > 0 && bal <= 24) {
-//                    if (!(c == 0 || c == 9)) {
-//                        B = new Button("B" + bal);
-//                        bookingGridB.add(B, c, r);
-//                        B.setAlignment(Pos.CENTER);
-//                        B.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-//                        B.setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(0,155,24,0.86); ");
-//                        bal--;
-//                    }
-//                }
-//                seat--;
-//
-//            }
-//        }
-//    }
+
 
     public void mousePressed(MouseEvent mouseEvent) {
 //        System.out.println("its actually doing something");
@@ -163,8 +152,6 @@ public class ControllerAddBooking {
 
 
     public void addBooking(ActionEvent actionEvent) {
-
-
         int selected = bookShow.getSelectionModel().getSelectedIndex();
         CustomNode tempShow = (CustomNode) shows.get(selected + 1);
         Show theShow = (Show) tempShow.getContents();
@@ -175,6 +162,7 @@ public class ControllerAddBooking {
         thePerformance.addBooking(new Booking(bookName.getText(), Integer.valueOf(bookSeats.getText()), seatType));
         Main.setMain();
     }
+
 
 
 }

@@ -1,5 +1,6 @@
 package Assignment;
 
+import Lists.CustomList;
 import Lists.CustomNode;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ListView;
@@ -24,6 +25,14 @@ public class ControllerCancelShow {
         //CustomNode temp = (CustomNode)shows.get(index+1);
         //Show theShow = (Show) temp.getContents();
         shows.remove(index);
+
+        for (Show s : shows) {
+            System.out.println(s.getTitle()+"<-------------------------------------------");
+
+        }
+        System.out.println("-----------------------------------------------");
+
+
         Main.updateLists();
         Main.setMain();
     }
