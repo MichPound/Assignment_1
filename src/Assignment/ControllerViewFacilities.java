@@ -1,6 +1,5 @@
 package Assignment;
 
-import Lists.CustomNode;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -28,68 +27,70 @@ public class ControllerViewFacilities {
     public Label seats;
     public Label seatType;
 
-    public void startView(){
+    public void startView() {
+        viewPerformances.getItems().clear();
+        viewBookings.getItems().clear();
+        showTitle.setText("Title");
+        showTime.setText("Time");
+        startDate.setText("Start Date");
+        endDate.setText("End Date");
+        bCost.setText("Cost");
+        cCost.setText("Cost");
+        sCost.setText("Cost");
+        performanceTitle.setText("Title");
+        performanceDate.setText("Date");
+        performanceTime.setText("Time");
+        bookName.setText("Name");
+        seats.setText("Seats");
+        seatType.setText("Type");
     }
 
     public void showSelected(MouseEvent mouseEvent) {
-
-        viewPerformances.getItems().clear();
-
+        startView();
         int selected = viewShows.getSelectionModel().getSelectedIndex();
-        CustomNode tempShow = (CustomNode)shows.get(selected+1);
-        Show theShow = (Show) tempShow.getContents();
 
-        for (Performance p : theShow.getPerformances()) {
-            viewPerformances.getItems().add(p.getTitle());
-            System.out.println(p.getTitle());
+        showTitle.setText(listOfShows(selected).getTitle());
+        showTime.setText(listOfShows(selected).getTime() + " Minutes");
+        startDate.setText(listOfShows(selected).getsDate());
+        endDate.setText(listOfShows(selected).geteDate());
+        bCost.setText("Balcony: $" + listOfShows(selected).getbCost());
+        cCost.setText("Circle: $" + listOfShows(selected).getcCost());
+        sCost.setText("Stalls: $" + listOfShows(selected).getsCost());
 
-            showTitle.setText(theShow.getTitle());
-            showTime.setText(theShow.getTime() + " Minutes");
-            startDate.setText(theShow.getsDate());
-            endDate.setText(theShow.geteDate());
-            bCost.setText("Balcony: $" + theShow.getbCost());
-            cCost.setText("Circle: $" + theShow.getcCost());
-            sCost.setText("Stalls: $" + theShow.getsCost());
+        if (listOfShows(selected).getPerformances().getSize() > 0) {
+            for (Performance p : listOfShows(selected).getPerformances()) {
+                viewPerformances.getItems().add(p.getTitle());
+                System.out.println(p.getTitle());
+            }
         }
     }
 
     public void performanceSelected(MouseEvent mouseEvent) {
         int selected = viewShows.getSelectionModel().getSelectedIndex();
-        CustomNode tempShow = (CustomNode)shows.get(selected+1);
-        Show theShow = (Show) tempShow.getContents();
-
         int per = viewPerformances.getSelectionModel().getSelectedIndex();
-        CustomNode tempPer = (CustomNode)theShow.getPerformances().get(per+1);
-        Performance thePerformance = (Performance) tempPer.getContents();
 
-        performanceTitle.setText(thePerformance.getTitle());
-        performanceDate.setText(thePerformance.getDate());
-        performanceTime.setText(thePerformance.getTime());
+        performanceTitle.setText(listOfPerformances(selected, per).getTitle());
+        performanceDate.setText(listOfPerformances(selected, per).getDate());
+        performanceTime.setText(listOfPerformances(selected, per).getTime());
 
         viewBookings.getItems().clear();
-        for (Booking b : thePerformance.getBooking()) {
-            viewBookings.getItems().add(b.getName());
+        if (listOfPerformances(selected, per).getBooking().getSize() > 0) {
+            for (Booking b : listOfPerformances(selected, per).getBooking()) {
+                viewBookings.getItems().add(b.getName());
+            }
         }
     }
 
     public void bookSelected(MouseEvent mouseEvent) {
         int selected = viewShows.getSelectionModel().getSelectedIndex();
-        CustomNode tempShow = (CustomNode)shows.get(selected+1);
-        Show theShow = (Show) tempShow.getContents();
-
         int per = viewPerformances.getSelectionModel().getSelectedIndex();
-        CustomNode tempPer = (CustomNode)theShow.getPerformances().get(per+1);
-        Performance thePerformance = (Performance) tempPer.getContents();
-
         int book = viewBookings.getSelectionModel().getSelectedIndex();
-        CustomNode tempBook = (CustomNode)thePerformance.getBooking().get(book+1);
-        Booking theBooking = (Booking)tempBook.getContents();
 
-        bookName.setText(theBooking.getName());
-        seats.setText(String.valueOf(theBooking.getSeats()));
-        if(theBooking.getsType() == 0){
+        bookName.setText(listOfBookings(selected, per, book).getName());
+        seats.setText(String.valueOf(listOfBookings(selected, per, book).getSeats()));
+        if (listOfBookings(selected, per, book).getsType() == 0) {
             seatType.setText("Continuous");
-        }else{
+        } else {
             seatType.setText("Scattered");
         }
     }
@@ -98,7 +99,7 @@ public class ControllerViewFacilities {
         Main.setMain();
     }
 
-    public void initialize(){
-        viewFacilitiesController=this;
+    public void initialize() {
+        viewFacilitiesController = this;
     }
 }

@@ -1,6 +1,7 @@
 package Assignment;
 
 import Lists.CustomList;
+import Lists.CustomNode;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import javafx.application.Application;
@@ -19,7 +20,6 @@ public class Main extends Application {
     public static Scene main, addShow, addPerformance, addBooking, viewFacility, cancelFacility, cancelShow, cancelPerformance, cancelBooking;
     private static Stage setStage;
     public static CustomList<Show> shows = new CustomList<>();
-    //public static CustomList<Performance> performances = new CustomList<>();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -27,32 +27,32 @@ public class Main extends Application {
         setStage = primaryStage;
         primaryStage.setTitle("Assignment_1");
 
-        Parent root1 = FXMLLoader.load(getClass().getResource("main.fxml"));
+        Parent root1 = FXMLLoader.load(getClass().getResource("../fxml/main.fxml"));
         main = new Scene(root1, 650, 400);
 
-        Parent root2 = FXMLLoader.load(getClass().getResource("addShow.fxml"));
+        Parent root2 = FXMLLoader.load(getClass().getResource("../fxml/addShow.fxml"));
         addShow = new Scene(root2, 369, 342);
 
-        Parent root3 = FXMLLoader.load(getClass().getResource("addPerformance.fxml"));
+        Parent root3 = FXMLLoader.load(getClass().getResource("../fxml/addPerformance.fxml"));
         addPerformance = new Scene(root3, 359, 326);
 
-        Parent root4 = FXMLLoader.load(getClass().getResource("addBooking.fxml"));
+        Parent root4 = FXMLLoader.load(getClass().getResource("../fxml/addBooking.fxml"));
         addBooking = new Scene(root4, 600, 500);
         root4.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
 
-        Parent root5 = FXMLLoader.load(getClass().getResource("viewFacilities.fxml"));
+        Parent root5 = FXMLLoader.load(getClass().getResource("../fxml/viewFacilities.fxml"));
         viewFacility = new Scene(root5, 904, 475);
 
-        Parent root6 = FXMLLoader.load(getClass().getResource("cancelFacility.fxml"));
+        Parent root6 = FXMLLoader.load(getClass().getResource("../fxml/cancelFacility.fxml"));
         cancelFacility = new Scene(root6, 174, 255);
 
-        Parent root7 = FXMLLoader.load(getClass().getResource("cancelShow.fxml"));
+        Parent root7 = FXMLLoader.load(getClass().getResource("../fxml/cancelShow.fxml"));
         cancelShow = new Scene(root7, 235, 310);
 
-        Parent root8 = FXMLLoader.load(getClass().getResource("cancelPerformance.fxml"));
+        Parent root8 = FXMLLoader.load(getClass().getResource("../fxml/cancelPerformance.fxml"));
         cancelPerformance = new Scene(root8, 235, 374);
 
-        Parent root9 = FXMLLoader.load(getClass().getResource("cancelBooking.fxml"));
+        Parent root9 = FXMLLoader.load(getClass().getResource("../fxml/cancelBooking.fxml"));
         cancelBooking = new Scene(root9, 600, 400);
 
         setStage.setScene(main);
@@ -97,8 +97,8 @@ public class Main extends Application {
     }
 
 
-    static void updateLists() {
-        ControllerMain.maincontroller.listShows.getItems().clear();
+    static void updateShows() {
+        ControllerMain.mainController.listShows.getItems().clear();
         ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
         ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().clear();
         ControllerCancelShow.cancelShowController.removeShow.getItems().clear();
@@ -106,8 +106,7 @@ public class Main extends Application {
         ControllerAddBooking.addBookingController.bookShow.getItems().clear();
 
         for (Show s : shows) {
-            //System.out.println(s.getTitle());
-            ControllerMain.maincontroller.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
+            ControllerMain.mainController.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
             ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
             ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().add(s.getTitle());
             ControllerCancelShow.cancelShowController.removeShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());
@@ -116,11 +115,27 @@ public class Main extends Application {
         }
     }
 
-//    static void getShow(int index){
-//        int selected =
-//    }
+    static Show listOfShows(int input) {
+        CustomNode temp = (CustomNode) shows.get(input + 1);
+        Show theShow = (Show) temp.getContents();//--------------------------------why?
 
-//save and load methods
+        return theShow;
+    }
+
+    static Performance listOfPerformances(int input, int input2) {
+        CustomNode tempPer = (CustomNode) listOfShows(input).getPerformances().get(input2 + 1);
+        Performance thePerformance = (Performance) tempPer.getContents();//----------------again why?
+
+        return thePerformance;
+    }
+
+    static Booking listOfBookings(int input, int input2, int input3) {
+        CustomNode tempBook = (CustomNode) listOfPerformances(input, input2).getBooking().get(input3 + 1);
+        Booking theBooking = (Booking) tempBook.getContents();//.....................whywhywhy?
+
+        return theBooking;
+    }
+
 
     public static void save() throws Exception {
         XStream xstream = new XStream(new DomDriver());
@@ -135,7 +150,6 @@ public class Main extends Application {
         shows = (CustomList<Show>) is.readObject();
         is.close();
     }
-
 
     public static void main(String[] args) {
         launch(args);

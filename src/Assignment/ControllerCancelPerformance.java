@@ -1,36 +1,29 @@
 package Assignment;
 
-import Lists.CustomNode;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
-import static Assignment.Main.shows;
+import static Assignment.Main.listOfShows;
 
 public class ControllerCancelPerformance {
 
-    public static ControllerCancelPerformance cancelPerformanceController;
+    static ControllerCancelPerformance cancelPerformanceController;
     public ListView<String> selectShow;
     public ListView<String> selectPerformance;
 
     public void listPerformances(MouseEvent mouseEvent) {
+        selectPerformance.getItems().clear();
         int selected = selectShow.getSelectionModel().getSelectedIndex();
-        CustomNode temp = (CustomNode) shows.get(selected + 1);
-        Show theShow = (Show) temp.getContents();
-
-        for (Performance p : theShow.getPerformances()) {
+        for (Performance p : listOfShows(selected).getPerformances()) {
             selectPerformance.getItems().add(p.getTitle());
         }
     }
 
     public void cancelPerformance(ActionEvent actionEvent) {
         int selected = selectShow.getSelectionModel().getSelectedIndex();
-        CustomNode temp = (CustomNode) shows.get(selected + 1);
-        Show theShow = (Show) temp.getContents();
-
         int per = selectPerformance.getSelectionModel().getSelectedIndex();
-
-        theShow.getPerformances().remove(per);
+        listOfShows(selected).getPerformances().remove(per);
         selectPerformance.getItems().clear();
         Main.setMain();
     }

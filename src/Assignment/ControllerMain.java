@@ -2,19 +2,15 @@ package Assignment;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-
 
 public class ControllerMain {
-    public static ControllerMain maincontroller;
+    public static ControllerMain mainController;
 
     public ListView<String> listShows;
 
     public void addShow(ActionEvent actionEvent) {
         Main.setAddShow();
     }
-
-//    public static TextField showTitle;
 
     public void addPerformance(ActionEvent actionEvent) {
         Main.setAddPerformance();
@@ -35,20 +31,21 @@ public class ControllerMain {
     public void resetFacilities(ActionEvent actionEvent) {
     }
 
-    public void addList(String list){
+    public void addList(String list) {
         listShows.getItems().add(list);
-    }
-
-    public void initialize(){
-        maincontroller=this;
     }
 
     public void saveLists(ActionEvent actionEvent) throws Exception {
         Main.save();
     }
 
-    public void loadLists(ActionEvent actionEvent) throws Exception{
+    public void loadLists(ActionEvent actionEvent) throws Exception {
         Main.load();
-        Main.updateLists();
+        Main.updateShows();
     }
+
+    public void initialize() {
+        mainController = this;
+    }
+
 }
