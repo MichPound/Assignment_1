@@ -1,6 +1,7 @@
 package Assignment;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
@@ -62,37 +63,64 @@ public class ControllerViewFacilities {
                 viewPerformances.getItems().add(p.getTitle());
                 System.out.println(p.getTitle());
             }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Performance Stored");
+            alert.setContentText("There is no performances stored for that show");
+            alert.showAndWait();
+            startView();
         }
     }
 
     public void performanceSelected(MouseEvent mouseEvent) {
-        int selected = viewShows.getSelectionModel().getSelectedIndex();
-        int per = viewPerformances.getSelectionModel().getSelectedIndex();
+        try {
+            int selected = viewShows.getSelectionModel().getSelectedIndex();
+            int per = viewPerformances.getSelectionModel().getSelectedIndex();
 
-        performanceTitle.setText(listOfPerformances(selected, per).getTitle());
-        performanceDate.setText(listOfPerformances(selected, per).getDate());
-        performanceTime.setText(listOfPerformances(selected, per).getTime());
+            performanceTitle.setText(listOfPerformances(selected, per).getTitle());
+            performanceDate.setText(listOfPerformances(selected, per).getDate());
+            performanceTime.setText(listOfPerformances(selected, per).getTime());
 
-        viewBookings.getItems().clear();
-        if (listOfPerformances(selected, per).getBooking().getSize() > 0) {
-            for (Booking b : listOfPerformances(selected, per).getBooking()) {
-                viewBookings.getItems().add(b.getName());
+            viewBookings.getItems().clear();
+            if (listOfPerformances(selected, per).getBooking().getSize() > 0) {
+                for (Booking b : listOfPerformances(selected, per).getBooking()) {
+                    viewBookings.getItems().add(b.getName());
+                }
             }
+        }catch (NullPointerException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Data not defined");
+            alert.setContentText("Please select a show first");
+            alert.showAndWait();
+            startView();
         }
     }
 
     public void bookSelected(MouseEvent mouseEvent) {
-        int selected = viewShows.getSelectionModel().getSelectedIndex();
-        int per = viewPerformances.getSelectionModel().getSelectedIndex();
-        int book = viewBookings.getSelectionModel().getSelectedIndex();
-
-        bookName.setText(listOfBookings(selected, per, book).getName());
-        seats.setText(String.valueOf(listOfBookings(selected, per, book).getSeats()));
-        if (listOfBookings(selected, per, book).getsType() == 0) {
-            seatType.setText("Continuous");
-        } else {
-            seatType.setText("Scattered");
+        try {
+            int selected = viewShows.getSelectionModel().getSelectedIndex();
+            int per = viewPerformances.getSelectionModel().getSelectedIndex();
+            int book = viewBookings.getSelectionModel().getSelectedIndex();
+            bookName.setText(listOfBookings(selected, per, book).getName());
+            seats.setText(String.valueOf(listOfBookings(selected, per, book).getSeats()));
+            if (listOfBookings(selected, per, book).getsType() == 0) {
+                seatType.setText("Continuous");
+            } else {
+                seatType.setText("Scattered");
+            }
+        }catch(NullPointerException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Data not defined");
+            alert.setContentText("Please select a show first and a performance first");
+            alert.showAndWait();
+            startView();
         }
+    }
+
+    public void resetView(){
+        viewShows.getSelectionModel().clearSelection();
+        viewPerformances.getSelectionModel().clearSelection();
+        viewBookings.getSelectionModel().clearSelection();
     }
 
     public void cancel4(ActionEvent actionEvent) {

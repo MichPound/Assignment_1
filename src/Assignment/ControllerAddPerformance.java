@@ -2,10 +2,7 @@ package Assignment;
 
 import Lists.CustomNode;
 import javafx.event.ActionEvent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.time.format.DateTimeFormatter;
 
@@ -27,16 +24,23 @@ public class ControllerAddPerformance {
     }
 
     public void addPerformance(ActionEvent actionEvent) {
-        int selected = selectShow.getSelectionModel().getSelectedIndex();
-        CustomNode temp = (CustomNode) shows.get(selected + 1);
-        Show theShow = (Show) temp.getContents();
+        if (!pTitle.getText().equals("") && pDate.getValue() != null && !pTime.getText().equals("Select Time") && selectShow.getSelectionModel().getSelectedIndex() != -1) {
+            int selected = selectShow.getSelectionModel().getSelectedIndex();
+            CustomNode temp = (CustomNode) shows.get(selected + 1);
+            Show theShow = (Show) temp.getContents();
 
-        String title = pTitle.getText();
-        String date = pDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        String time = pTime.getText();
-        theShow.addPerformance(new Performance(title, date, time));
+            String title = pTitle.getText();
+            String date = pDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            String time = pTime.getText();
+            theShow.addPerformance(new Performance(title, date, time));
 
-        Main.setMain();
+            Main.setMain();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Data Error");
+            alert.setContentText("Please ensure you have entered all information correctly");
+            alert.showAndWait();
+        }
     }
 
     public void cancel2(ActionEvent actionEvent) {

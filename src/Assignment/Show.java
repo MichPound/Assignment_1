@@ -4,10 +4,11 @@ import Lists.CustomList;
 
 public class Show {
     private String title, sDate, eDate;
-    private int time, bCost, cCost, sCost;
+    private int time;
+    private double bCost, cCost, sCost;
     private CustomList<Performance> performances=new CustomList<>();
 
-    public Show(String title, String sDate, String eDate, int time, int bCost, int cCost, int sCost) {
+    public Show(String title, String sDate, String eDate, int time, double bCost, double cCost, double sCost) {
         this.title = title;
         this.sDate = sDate;
         this.eDate = eDate;
@@ -49,7 +50,7 @@ public class Show {
         this.time = time;
     }
 
-    public int getbCost() {
+    public double getbCost() {
         return bCost;
     }
 
@@ -57,7 +58,7 @@ public class Show {
         this.bCost = bCost;
     }
 
-    public int getcCost() {
+    public double getcCost() {
         return cCost;
     }
 
@@ -65,7 +66,7 @@ public class Show {
         this.cCost = cCost;
     }
 
-    public int getsCost() {
+    public double getsCost() {
         return sCost;
     }
 

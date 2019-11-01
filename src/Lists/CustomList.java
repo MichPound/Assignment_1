@@ -125,6 +125,7 @@ public class CustomList<C> implements Iterable<C> {
 //                prev.next = current.next;
 //            }
 //        }
+        size--;
     }
 
 //

@@ -3,6 +3,7 @@ package Assignment;
 import Lists.CustomList;
 import Lists.CustomNode;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -52,8 +53,16 @@ public class ControllerAddBooking {
         int selected = bookShow.getSelectionModel().getSelectedIndex();
         CustomNode tempShow = (CustomNode) shows.get(selected + 1);
         Show theShow = (Show) tempShow.getContents();
-        for (Performance p : theShow.getPerformances()) {
-            bookPerformance.getItems().add(p.getTitle());
+        if (theShow.getPerformances().getSize() > 0) {
+            for (Performance p : theShow.getPerformances()) {
+                bookPerformance.getItems().add(p.getTitle());
+            }
+        } else {
+            bookShow.getSelectionModel().clearSelection();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Performance Stored");
+            alert.setContentText("There is no performances stored for that show, please add performance before adding a booking");
+            alert.showAndWait();
         }
     }
 
@@ -67,7 +76,7 @@ public class ControllerAddBooking {
         for (int r = 0; r < 4; r++) {
             for (int c = 9; c >= 0; c--) {
                 S = new ToggleButton("S" + seat);
-                S.setId("S"+seat);
+                S.setId("S" + seat);
                 S.setOnAction(this::ButtonClicked);
                 stalls.addItem(S);
                 if (checkS <= 40) {
@@ -77,7 +86,7 @@ public class ControllerAddBooking {
                 }
                 if (seat <= 30) {
                     C = new ToggleButton("C" + seat);
-                    C.setId("C"+seat);
+                    C.setId("C" + seat);
                     C.setOnAction(this::ButtonClicked);
                     circle.addItem(C);
                     if (checkC <= 30) {
@@ -89,7 +98,7 @@ public class ControllerAddBooking {
                 if (bal <= 24) {
                     if (!(c == 0 || c == 9)) {
                         B = new ToggleButton("B" + bal);
-                        B.setId("B"+bal);
+                        B.setId("B" + bal);
                         B.setOnAction(this::ButtonClicked);
                         balcony.addItem(B);
                         if (checkB <= 23) {
@@ -105,34 +114,34 @@ public class ControllerAddBooking {
         }
 
     }
+
     CustomList<String> test = new CustomList<>();
+
     public void ButtonClicked(ActionEvent actionEvent) {
-     //   System.out.println(((ToggleButton) actionEvent.getSource()).getId());
+        //   System.out.println(((ToggleButton) actionEvent.getSource()).getId());
 //        ((ToggleButton) actionEvent.getSource()).getStyleClass().add("toggle-button");
-       // if(((ToggleButton) actionEvent.getSource()).isFocused()){
-            if((((ToggleButton) actionEvent.getSource()).getText().contains("S"))){
-                ((ToggleButton) actionEvent.getSource()).setText("X");
-                test.addItem(((ToggleButton) actionEvent.getSource()).getId());
-            }else if ((((ToggleButton) actionEvent.getSource()).getText().contains("X"))){
-                ((ToggleButton) actionEvent.getSource()).setText(((ToggleButton) actionEvent.getSource()).getId());
-                for(int i = 0;i < 10;i++){//..........................................................................
-                    if (((CustomNode)test.get(i)).getContents().toString().contains(((ToggleButton) actionEvent.getSource()).getId())){
-                        test.remove(i);
-                        System.out.println("this for loop is actually doing something");
-                    }
+        // if(((ToggleButton) actionEvent.getSource()).isFocused()){
+        if ((((ToggleButton) actionEvent.getSource()).getText().contains("S"))) {
+            ((ToggleButton) actionEvent.getSource()).setText("X");
+            test.addItem(((ToggleButton) actionEvent.getSource()).getId());
+        } else if ((((ToggleButton) actionEvent.getSource()).getText().contains("X"))) {
+            ((ToggleButton) actionEvent.getSource()).setText(((ToggleButton) actionEvent.getSource()).getId());
+            for (int i = 0; i < 10; i++) {//..........................................................................
+                if (((CustomNode) test.get(i)).getContents().toString().contains(((ToggleButton) actionEvent.getSource()).getId())) {
+                    test.remove(i);
+                    System.out.println("this for loop is actually doing something");
                 }
-                //remove from list
             }
-       // }
-        if(test.getSize() > 0) {
+            //remove from list
+        }
+        // }
+        if (test.getSize() > 0) {
             for (int i = 0; i < test.getSize(); i++) {
                 System.out.println(test.get2(i));
             }
         }
         System.out.println("---------------------------------------------------");
     }
-
-
 
 
     public void mousePressed(MouseEvent mouseEvent) {
@@ -162,7 +171,6 @@ public class ControllerAddBooking {
         thePerformance.addBooking(new Booking(bookName.getText(), Integer.valueOf(bookSeats.getText()), seatType));
         Main.setMain();
     }
-
 
 
 }
