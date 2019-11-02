@@ -38,6 +38,7 @@ public class ControllerAddShow {
                 shows.addItem(new Show(title, sDate, eDate, rTime, Double.valueOf(balcony.getText()), Double.valueOf(circle.getText()), Double.valueOf(stalls.getText())));
 
                 Main.updateShows();
+                reset();
                 Main.setMain();
             } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -48,7 +49,19 @@ public class ControllerAddShow {
         }
     }
 
+    public void reset(){
+        showTitle.setText("");
+        startDate.setValue(null);
+        endDate.setValue(null);
+        runTime.setValue(0);
+        time.setText("0");
+        balcony.setText("");
+        circle.setText("");
+        stalls.setText("");
+    }
+
     public void cancel1(ActionEvent actionEvent) {
+        reset();
         Main.setMain();
     }
 }

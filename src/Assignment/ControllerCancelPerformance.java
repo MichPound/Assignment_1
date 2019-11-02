@@ -25,7 +25,7 @@ public class ControllerCancelPerformance {
             alert.setTitle("No Performance Stored");
             alert.setContentText("There is no performances stored for that show");
             alert.showAndWait();
-            Main.setMain();
+            reset();
         }
     }
 
@@ -35,6 +35,7 @@ public class ControllerCancelPerformance {
             int per = selectPerformance.getSelectionModel().getSelectedIndex();
             listOfShows(selected).getPerformances().remove(per);
             selectPerformance.getItems().clear();
+            reset();
             Main.setMain();
         }catch(NullPointerException e){
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -44,7 +45,13 @@ public class ControllerCancelPerformance {
         }
     }
 
+    public void reset(){
+        selectShow.getSelectionModel().clearSelection();
+        selectPerformance.getSelectionModel().clearSelection();
+    }
+
     public void cancel7(ActionEvent actionEvent) {
+        reset();
         Main.setCancelFacility();
     }
 

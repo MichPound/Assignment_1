@@ -34,6 +34,7 @@ public class ControllerAddPerformance {
             String time = pTime.getText();
             theShow.addPerformance(new Performance(title, date, time));
 
+            reset();
             Main.setMain();
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -43,7 +44,15 @@ public class ControllerAddPerformance {
         }
     }
 
+    public void reset(){
+        selectShow.getSelectionModel().clearSelection();
+        pTitle.setText("");
+        pDate.setValue(null);
+        pTime.setText("Select Time");
+    }
+
     public void cancel2(ActionEvent actionEvent) {
+        reset();
         Main.setMain();
     }
 

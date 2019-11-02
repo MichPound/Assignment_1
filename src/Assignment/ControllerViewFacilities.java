@@ -61,7 +61,6 @@ public class ControllerViewFacilities {
         if (listOfShows(selected).getPerformances().getSize() > 0) {
             for (Performance p : listOfShows(selected).getPerformances()) {
                 viewPerformances.getItems().add(p.getTitle());
-                System.out.println(p.getTitle());
             }
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -111,7 +110,7 @@ public class ControllerViewFacilities {
         }catch(NullPointerException e){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data not defined");
-            alert.setContentText("Please select a show first and a performance first");
+            alert.setContentText("Please select a show and a performance first");
             alert.showAndWait();
             startView();
         }

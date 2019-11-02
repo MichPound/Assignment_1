@@ -80,7 +80,7 @@ public class ControllerAddBooking {
                 S.setOnAction(this::ButtonClicked);
                 stalls.addItem(S);
                 if (checkS <= 40) {
-                    bookingGridS.add(stalls.get2(1), c, r);
+                    bookingGridS.add(stalls.get2(0), c, r);
                     S.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                     checkS++;
                 }
@@ -90,7 +90,7 @@ public class ControllerAddBooking {
                     C.setOnAction(this::ButtonClicked);
                     circle.addItem(C);
                     if (checkC <= 30) {
-                        bookingGridC.add(circle.get2(1), c, r);
+                        bookingGridC.add(circle.get2(0), c, r);
                         C.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                         checkC++;
                     }
@@ -102,7 +102,7 @@ public class ControllerAddBooking {
                         B.setOnAction(this::ButtonClicked);
                         balcony.addItem(B);
                         if (checkB <= 23) {
-                            bookingGridB.add(balcony.get2(1), c, r);
+                            bookingGridB.add(balcony.get2(0), c, r);
                             B.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                             checkB++;
                         }

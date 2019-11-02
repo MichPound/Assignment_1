@@ -19,6 +19,7 @@ public class ControllerCancelShow {
     }
 
     public void cancel6(ActionEvent actionEvent) {
+        removeShow.getSelectionModel().clearSelection();
         Main.setCancelFacility();
     }
 
