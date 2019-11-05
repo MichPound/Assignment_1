@@ -118,27 +118,6 @@ public class ControllerAddBooking {
     CustomList<String> test = new CustomList<>();
 
     public void ButtonClicked(ActionEvent actionEvent) {
-        //   System.out.println(((ToggleButton) actionEvent.getSource()).getId());
-//        ((ToggleButton) actionEvent.getSource()).getStyleClass().add("toggle-button");
-        // if(((ToggleButton) actionEvent.getSource()).isFocused()){
-
-
-
-
-
-//        if ((((ToggleButton) actionEvent.getSource()).getText().contains("S"))) {
-//            ((ToggleButton) actionEvent.getSource()).setText("X");
-//            test.addItem(((ToggleButton) actionEvent.getSource()).getId());
-//        } else{
-//            System.out.println(((ToggleButton) actionEvent.getSource()).getId());
-//            ((ToggleButton) actionEvent.getSource()).setText(((ToggleButton) actionEvent.getSource()).getId());
-//
-//            for (int i = 0; i < test.getSize(); i++) {
-//                if ( test.get2(i).contains(((ToggleButton) actionEvent.getSource()).getId())) {
-//                    test.remove(i);
-//                }
-//            }
-//        }
 
 
 
