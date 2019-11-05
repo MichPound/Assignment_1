@@ -66,22 +66,27 @@ public class CustomList<C> implements Iterable<C> {
     }
 
     public C get2(int index) {
-        if (index < 0)
-            return null;
-        CustomNode<C> current = null;
-        if (head != null) {
-            current = head;
-            if (index == 0)
-                return current.getContents();
-            else {
-                for (int i = 1; i < index; i++) {
-                    if (current.next != null)
-                        current = current.next;
-                }
-                return current.getContents();
-            }
-        }
-        return null;
+       // if (index < 0)
+         //   return null;
+        CustomNode<C> current = head;
+       // if (head != null) {
+           // current = head;
+
+            int i=0;
+            while(current!=null && i++<index) current = current.next;
+            return current==null ? null : current.getContents();
+
+//            if (index == 0)
+//                return current.getContents();
+//            else {
+//                for (int i = 1; i < index; i++) {
+//                    if (current.next != null)
+//                        current = current.next;
+//                }
+//                return current.getContents();
+//            }
+//        }
+//        return null;
     }
 
 //    public void remove(int index) {

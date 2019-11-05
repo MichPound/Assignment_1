@@ -33,9 +33,4 @@ class ControllerAddShowTest {
         assertSame("19/11/2019", shows.get2(0).geteDate());
         assertSame(60, shows.get2(0).getTime());
     }
-
-    @Test
-    void reset() {
-        assertEquals(0, shows.getSize());
-    }
 }

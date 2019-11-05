@@ -121,20 +121,46 @@ public class ControllerAddBooking {
         //   System.out.println(((ToggleButton) actionEvent.getSource()).getId());
 //        ((ToggleButton) actionEvent.getSource()).getStyleClass().add("toggle-button");
         // if(((ToggleButton) actionEvent.getSource()).isFocused()){
-        if ((((ToggleButton) actionEvent.getSource()).getText().contains("S"))) {
-            ((ToggleButton) actionEvent.getSource()).setText("X");
-            test.addItem(((ToggleButton) actionEvent.getSource()).getId());
-        } else if ((((ToggleButton) actionEvent.getSource()).getText().contains("X"))) {
+
+
+
+
+
+//        if ((((ToggleButton) actionEvent.getSource()).getText().contains("S"))) {
+//            ((ToggleButton) actionEvent.getSource()).setText("X");
+//            test.addItem(((ToggleButton) actionEvent.getSource()).getId());
+//        } else{
+//            System.out.println(((ToggleButton) actionEvent.getSource()).getId());
+//            ((ToggleButton) actionEvent.getSource()).setText(((ToggleButton) actionEvent.getSource()).getId());
+//
+//            for (int i = 0; i < test.getSize(); i++) {
+//                if ( test.get2(i).contains(((ToggleButton) actionEvent.getSource()).getId())) {
+//                    test.remove(i);
+//                }
+//            }
+//        }
+
+
+
+        if ((((ToggleButton) actionEvent.getSource()).getText().equals("X"))) {
+            System.out.println(((ToggleButton) actionEvent.getSource()).getId());
             ((ToggleButton) actionEvent.getSource()).setText(((ToggleButton) actionEvent.getSource()).getId());
-            for (int i = 0; i < 10; i++) {//..........................................................................
-                if (((CustomNode) test.get(i)).getContents().toString().contains(((ToggleButton) actionEvent.getSource()).getId())) {
+
+            for (int i = 0; i < test.getSize(); i++) {
+                if ( test.get2(i).contains(((ToggleButton) actionEvent.getSource()).getId())) {
                     test.remove(i);
-                    System.out.println("this for loop is actually doing something");
                 }
             }
-            //remove from list
+        } else{
+            ((ToggleButton) actionEvent.getSource()).setText("X");
+            test.addItem(((ToggleButton) actionEvent.getSource()).getId());
         }
-        // }
+
+
+    }
+
+    public void testAdd(ActionEvent actionEvent) {
+        System.out.println("---------------------------------------------------");
         if (test.getSize() > 0) {
             for (int i = 0; i < test.getSize(); i++) {
                 System.out.println(test.get2(i));
@@ -142,7 +168,6 @@ public class ControllerAddBooking {
         }
         System.out.println("---------------------------------------------------");
     }
-
 
     public void mousePressed(MouseEvent mouseEvent) {
 //        System.out.println("its actually doing something");
@@ -171,6 +196,4 @@ public class ControllerAddBooking {
         thePerformance.addBooking(new Booking(bookName.getText(), Integer.valueOf(bookSeats.getText()), seatType));
         Main.setMain();
     }
-
-
 }
