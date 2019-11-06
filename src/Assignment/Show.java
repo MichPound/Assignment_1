@@ -6,7 +6,7 @@ public class Show {
     private String title, sDate, eDate;
     private int time;
     private double bCost, cCost, sCost;
-    private CustomList<Performance> performances=new CustomList<>();
+    private CustomList<Performance> performances = new CustomList<>();
 
     public Show(String title, String sDate, String eDate, int time, double bCost, double cCost, double sCost) {
         this.title = title;

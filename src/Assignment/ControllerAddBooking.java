@@ -17,7 +17,6 @@ public class ControllerAddBooking {
     public static ControllerAddBooking addBookingController;
 
     public TextField bookName;
-    public TextField bookSeats;
     public int seatType;
     public ListView<String> bookShow;
     public ListView<String> bookPerformance;
@@ -30,44 +29,10 @@ public class ControllerAddBooking {
     private CustomList<ToggleButton> stalls = new CustomList<ToggleButton>();
     private CustomList<ToggleButton> circle = new CustomList<ToggleButton>();
     private CustomList<ToggleButton> balcony = new CustomList<ToggleButton>();
+    private CustomList<String> seatList;
 
-    public void cancel3(ActionEvent actionEvent) {
-        Main.setMain();
-    }
-
-    public void initialize() {
-        addBookingController = this;
-    }
-
-    public void continuous(ActionEvent actionEvent) {
-        seatType = 0;
-    }
-
-    public void scattered(ActionEvent actionEvent) {
-        seatType = 1;
-    }
-
-    public void bookedShow(MouseEvent mouseEvent) {
-        bookPerformance.getItems().clear();
-
-        int selected = bookShow.getSelectionModel().getSelectedIndex();
-        CustomNode tempShow = (CustomNode) shows.get(selected + 1);
-        Show theShow = (Show) tempShow.getContents();
-        if (theShow.getPerformances().getSize() > 0) {
-            for (Performance p : theShow.getPerformances()) {
-                bookPerformance.getItems().add(p.getTitle());
-            }
-        } else {
-            bookShow.getSelectionModel().clearSelection();
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("No Performance Stored");
-            alert.setContentText("There is no performances stored for that show, please add performance before adding a booking");
-            alert.showAndWait();
-        }
-    }
-
-    public void bookedPerformance(MouseEvent mouseEvent) {
-
+    public void startView() {
+        seatList = new CustomList<>();
         int seat = 40;
         int bal = 24;
         int checkS = 0;
@@ -113,36 +78,120 @@ public class ControllerAddBooking {
             }
         }
 
+        int fullness = seatList.getSize();
+        for (int i = 0; i < fullness; i++) {
+            seatList.remove(0);
+        }
     }
 
-    CustomList<String> test = new CustomList<>();
+
+    public void cancel3(ActionEvent actionEvent) {
+        Main.setMain();
+    }
+
+    public void initialize() {
+        addBookingController = this;
+    }
+
+    public void continuous(ActionEvent actionEvent) {
+        seatType = 0;
+    }
+
+    public void scattered(ActionEvent actionEvent) {
+        seatType = 1;
+    }
+
+    public void bookedShow(MouseEvent mouseEvent) {
+        bookPerformance.getItems().clear();
+
+        int selected = bookShow.getSelectionModel().getSelectedIndex();
+        CustomNode tempShow = (CustomNode) shows.get(selected + 1);
+        Show theShow = (Show) tempShow.getContents();
+        if (theShow.getPerformances().getSize() > 0) {
+            for (Performance p : theShow.getPerformances()) {
+                bookPerformance.getItems().add(p.getTitle());
+            }
+        } else {
+            bookShow.getSelectionModel().clearSelection();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Performance Stored");
+            alert.setContentText("There is no performances stored for that show, please add performance before adding a booking");
+            alert.showAndWait();
+        }
+    }
+
+    public void bookedPerformance(MouseEvent mouseEvent) {
+
+
+//        int seat = 40;
+//        int bal = 24;
+//        int checkS = 0;
+//        int checkC = 0;
+//        int checkB = 0;
+//        for (int r = 0; r < 4; r++) {
+//            for (int c = 9; c >= 0; c--) {
+//                S = new ToggleButton("S" + seat);
+//                S.setId("S" + seat);
+//                S.setOnAction(this::ButtonClicked);
+//                stalls.addItem(S);
+//                if (checkS <= 40) {
+//                    bookingGridS.add(stalls.get2(0), c, r);
+//                    S.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+//                    checkS++;
+//                }
+//                if (seat <= 30) {
+//                    C = new ToggleButton("C" + seat);
+//                    C.setId("C" + seat);
+//                    C.setOnAction(this::ButtonClicked);
+//                    circle.addItem(C);
+//                    if (checkC <= 30) {
+//                        bookingGridC.add(circle.get2(0), c, r);
+//                        C.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+//                        checkC++;
+//                    }
+//                }
+//                if (bal <= 24) {
+//                    if (!(c == 0 || c == 9)) {
+//                        B = new ToggleButton("B" + bal);
+//                        B.setId("B" + bal);
+//                        B.setOnAction(this::ButtonClicked);
+//                        balcony.addItem(B);
+//                        if (checkB <= 23) {
+//                            bookingGridB.add(balcony.get2(0), c, r);
+//                            B.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+//                            checkB++;
+//                        }
+//                        bal--;
+//                    }
+//                }
+//                seat--;
+//            }
+//        }
+
+    }
+
 
     public void ButtonClicked(ActionEvent actionEvent) {
-
-
-
         if ((((ToggleButton) actionEvent.getSource()).getText().equals("X"))) {
             System.out.println(((ToggleButton) actionEvent.getSource()).getId());
             ((ToggleButton) actionEvent.getSource()).setText(((ToggleButton) actionEvent.getSource()).getId());
 
-            for (int i = 0; i < test.getSize(); i++) {
-                if ( test.get2(i).contains(((ToggleButton) actionEvent.getSource()).getId())) {
-                    test.remove(i);
+            for (int i = 0; i < seatList.getSize(); i++) {
+                if (seatList.get2(i).contains(((ToggleButton) actionEvent.getSource()).getId())) {
+                    seatList.remove(i);
                 }
             }
-        } else{
+        } else {
             ((ToggleButton) actionEvent.getSource()).setText("X");
-            test.addItem(((ToggleButton) actionEvent.getSource()).getId());
+            seatList.addItem(((ToggleButton) actionEvent.getSource()).getId());
         }
-
-
     }
 
     public void testAdd(ActionEvent actionEvent) {
         System.out.println("---------------------------------------------------");
-        if (test.getSize() > 0) {
-            for (int i = 0; i < test.getSize(); i++) {
-                System.out.println(test.get2(i));
+        if (seatList.getSize() > 0) {
+            for (int i = 0; i < seatList.getSize(); i++) {
+                System.out.println(seatList.get2(i));
             }
         }
         System.out.println("---------------------------------------------------");
@@ -163,6 +212,19 @@ public class ControllerAddBooking {
         //stalls.get(40 - 6).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
     }
 
+    //bookingcost
+    //loop through seatList and for every be store value of total
+    //repeat for others aswell
+
+    public void bookingReceipt(){
+//        int length = seatList.getSize();
+//        for(int i = 0; i < length; i++){
+//            if(seatList.get2(i).contains("B")){
+//
+//            }
+//        }
+    }
+
 
     public void addBooking(ActionEvent actionEvent) {
         int selected = bookShow.getSelectionModel().getSelectedIndex();
@@ -172,7 +234,8 @@ public class ControllerAddBooking {
         CustomNode tempPer = (CustomNode) theShow.getPerformances().get(per + 1);
         Performance thePerformance = (Performance) tempPer.getContents();
 
-        thePerformance.addBooking(new Booking(bookName.getText(), Integer.valueOf(bookSeats.getText()), seatType));
+//        thePerformance.addBooking(new Booking(bookName.getText(), Integer.valueOf(bookSeats.getText()), seatType));
+        thePerformance.addBooking(new Booking(bookName.getText(), seatList.getSize(), seatType,12, seatList));
         Main.setMain();
     }
 }

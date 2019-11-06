@@ -42,6 +42,7 @@ public class Main extends Application {
 
         Parent root5 = FXMLLoader.load(getClass().getResource("../fxml/viewFacilities.fxml"));
         viewFacility = new Scene(root5, 904, 475);
+        root5.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
 
         Parent root6 = FXMLLoader.load(getClass().getResource("../fxml/cancelFacility.fxml"));
         cancelFacility = new Scene(root6, 174, 255);
@@ -73,6 +74,7 @@ public class Main extends Application {
 
     static void setAddBooking() {
         setStage.setScene(addBooking);
+        ControllerAddBooking.addBookingController.startView();
     }
 
     static void setViewFacility() {

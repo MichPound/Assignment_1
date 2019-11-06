@@ -22,7 +22,6 @@
       </Label>
       <TextField fx:id="bookName" layoutX="25.0" layoutY="82.0" promptText="Name" />
       <Label layoutX="26.0" layoutY="322.0" text="Booking ID: auto-generated" />
-      <TextField fx:id="bookSeats" layoutX="25.0" layoutY="246.0" promptText="Number of Seats" />
       <SplitMenuButton layoutX="25.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Multiple seat type">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#continuous" text="Continuous" />

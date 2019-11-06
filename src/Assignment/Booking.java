@@ -1,16 +1,20 @@
 package Assignment;
 
+
 import Lists.CustomList;
 
 public class Booking {
     private String name;
     private int seats, sType;
-   // private CustomList<Data> data = new CustomList<Data>();
+    private double bookingCost;
+    private CustomList<String> seatPlan;
 
-    public Booking(String name, int seats, int sType) {
+    public Booking(String name, int seats, int sType,double bookingCost, CustomList<String> seatPlan) {
         this.name = name;
         this.seats = seats;
         this.sType = sType;
+        this.bookingCost = bookingCost;
+        this.seatPlan = seatPlan;
     }
 
     public String getName() {
@@ -37,11 +41,20 @@ public class Booking {
         this.sType = sType;
     }
 
-//    public void addDate(Data data) {
-//        this.data.addItem(data);
-//    }
-//
-//    public CustomList getData() {
-//        return data;
-//    }
+    public double getBookingCost() {
+        return bookingCost;
+    }
+
+    public void setBookingCost(double bookingCost) {
+        this.bookingCost = bookingCost;
+    }
+
+    public CustomList<String> getSeatPlan() {
+        return seatPlan;
+    }
+
+    public void setSeatPlan(CustomList<String> seatPlan) {
+        this.seatPlan = seatPlan;
+    }
+
 }
