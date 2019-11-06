@@ -10,7 +10,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
-import static Assignment.Main.shows;
+import static Assignment.Main.*;
 
 public class ControllerAddBooking {
 
@@ -216,26 +216,36 @@ public class ControllerAddBooking {
     //loop through seatList and for every be store value of total
     //repeat for others aswell
 
-    public void bookingReceipt(){
-//        int length = seatList.getSize();
-//        for(int i = 0; i < length; i++){
-//            if(seatList.get2(i).contains("B")){
-//
-//            }
-//        }
-    }
+
 
 
     public void addBooking(ActionEvent actionEvent) {
+        double cost = 0;
         int selected = bookShow.getSelectionModel().getSelectedIndex();
+        int per = bookPerformance.getSelectionModel().getSelectedIndex();
+
+        int length = seatList.getSize();
+
+        for(int i = 0; i < length; i++){
+            if(seatList.get2(i).contains("B")){
+                cost = cost + listOfShows(selected).getbCost();
+                System.out.println("B = " + listOfShows(selected).getbCost());
+            }
+            if(seatList.get2(i).contains("C")){
+                cost = cost + listOfShows(selected).getcCost();
+            }
+            if(seatList.get2(i).contains("S")){
+                cost = cost + listOfShows(selected).getsCost();
+            }
+        }
+
         CustomNode tempShow = (CustomNode) shows.get(selected + 1);
         Show theShow = (Show) tempShow.getContents();
-        int per = bookPerformance.getSelectionModel().getSelectedIndex();
         CustomNode tempPer = (CustomNode) theShow.getPerformances().get(per + 1);
         Performance thePerformance = (Performance) tempPer.getContents();
 
 //        thePerformance.addBooking(new Booking(bookName.getText(), Integer.valueOf(bookSeats.getText()), seatType));
-        thePerformance.addBooking(new Booking(bookName.getText(), seatList.getSize(), seatType,12, seatList));
+        thePerformance.addBooking(new Booking(bookName.getText(), seatList.getSize(), seatType,cost, seatList));
         Main.setMain();
     }
 }

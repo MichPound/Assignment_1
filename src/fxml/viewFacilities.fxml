@@ -46,7 +46,7 @@
          </font>
       </Label>
       <Label fx:id="bookName" layoutX="718.0" layoutY="376.0" text="Name" />
-      <Label fx:id="seatType" layoutX="721.0" layoutY="420.0" text="Type" />
+      <Label fx:id="seatType" layoutX="721.0" layoutY="414.0" text="Type" />
       <Label fx:id="seats" layoutX="720.0" layoutY="395.0" text="Seats" />
       <ListView fx:id="viewShows" layoutX="103.0" layoutY="52.0" onMouseClicked="#showSelected" prefHeight="47.0" prefWidth="142.0" />
       <ListView fx:id="viewPerformances" layoutX="245.0" layoutY="52.0" onMouseClicked="#performanceSelected" prefHeight="47.0" prefWidth="142.0" />
@@ -118,5 +118,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </GridPane>
+      <Label fx:id="bookingCost" layoutX="722.0" layoutY="437.0" text="Cost" />
    </children>
 </Pane>

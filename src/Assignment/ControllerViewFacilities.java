@@ -33,6 +33,7 @@ public class ControllerViewFacilities {
     public GridPane bookingGridS;
     public GridPane bookingGridC;
     public GridPane bookingGridB;
+    public Label bookingCost;
 
     private Button S = new Button();
     private Button C = new Button();
@@ -57,6 +58,7 @@ public class ControllerViewFacilities {
         bookName.setText("Name");
         seats.setText("Seats");
         seatType.setText("Type");
+        bookingCost.setText("Cost");
 
 
         int seat = 40;
@@ -155,12 +157,13 @@ public class ControllerViewFacilities {
             int book = viewBookings.getSelectionModel().getSelectedIndex();
             bookName.setText(listOfBookings(selected, per, book).getName());
             seats.setText(String.valueOf(listOfBookings(selected, per, book).getSeats()));
+           // System.out.println((String.valueOf(listOfBookings(selected, per, book).getBookingCost())));
             if (listOfBookings(selected, per, book).getsType() == 0) {
                 seatType.setText("Continuous");
             } else {
                 seatType.setText("Scattered");
             }
-
+            bookingCost.setText((String.valueOf(listOfBookings(selected, per, book).getBookingCost())));
 
             CustomList<String> test = listOfBookings(selected, per, book).getSeatPlan();
             if (test.getSize() > 0) {
