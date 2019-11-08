@@ -137,8 +137,33 @@ public class ControllerViewFacilities {
 
             viewBookings.getItems().clear();
             if (listOfPerformances(selected, per).getBooking().getSize() > 0) {
+                CustomList<String> allSeats = new CustomList<String>();
+
                 for (Booking b : listOfPerformances(selected, per).getBooking()) {
                     viewBookings.getItems().add(b.getName());
+
+                    int size = b.getSeatPlan().getSize();
+                    for (int i = 0; i < size; i++) {
+                        allSeats.addItem(b.getSeatPlan().get2(i));
+                    }
+                }
+
+                for (int k = 0; k < allSeats.getSize(); k++) {
+                    for (int s = 0; s < stalls.getSize(); s++) {
+                        if (stalls.get2(s).getText().equalsIgnoreCase(allSeats.get2(k))) {
+                            stalls.get2(s).setStyle("-fx-background-color:#a81e13");
+                        }
+                    }
+                    for (int c = 0; c < circle.getSize(); c++) {
+                        if (circle.get2(c).getText().equalsIgnoreCase(allSeats.get2(k))) {
+                            circle.get2(c).setStyle("-fx-background-color:#a81e13");
+                        }
+                    }
+                    for (int b = 0; b < balcony.getSize(); b++) {
+                        if (balcony.get2(b).getText().equalsIgnoreCase(allSeats.get2(k))) {
+                            balcony.get2(b).setStyle("-fx-background-color:#a81e13");
+                        }
+                    }
                 }
             }
         } catch (NullPointerException e) {
@@ -157,7 +182,7 @@ public class ControllerViewFacilities {
             int book = viewBookings.getSelectionModel().getSelectedIndex();
             bookName.setText(listOfBookings(selected, per, book).getName());
             seats.setText(String.valueOf(listOfBookings(selected, per, book).getSeats()));
-           // System.out.println((String.valueOf(listOfBookings(selected, per, book).getBookingCost())));
+            // System.out.println((String.valueOf(listOfBookings(selected, per, book).getBookingCost())));
             if (listOfBookings(selected, per, book).getsType() == 0) {
                 seatType.setText("Continuous");
             } else {
@@ -174,17 +199,17 @@ public class ControllerViewFacilities {
                     for (int k = 0; k < test.getSize(); k++) {
                         for (int s = 0; s < stalls.getSize(); s++) {
                             if (stalls.get2(s).getText().equalsIgnoreCase(test.get2(k))) {
-                                stalls.get2(s).setStyle("-fx-background-color:#0a94e6");
+                                stalls.get2(s).setStyle("-fx-background-color:#0a7ab9");
                             }
                         }
                         for (int c = 0; c < circle.getSize(); c++) {
                             if (circle.get2(c).getText().equalsIgnoreCase(test.get2(k))) {
-                                circle.get2(c).setStyle("-fx-background-color:#0a94e6");
+                                circle.get2(c).setStyle("-fx-background-color:#0a7ab9");
                             }
                         }
                         for (int b = 0; b < balcony.getSize(); b++) {
                             if (balcony.get2(b).getText().equalsIgnoreCase(test.get2(k))) {
-                                balcony.get2(b).setStyle("-fx-background-color:#0a94e6");
+                                balcony.get2(b).setStyle("-fx-background-color:#0a7ab9");
                             }
                         }
 

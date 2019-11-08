@@ -30,6 +30,7 @@ public class ControllerAddBooking {
     private CustomList<ToggleButton> circle = new CustomList<ToggleButton>();
     private CustomList<ToggleButton> balcony = new CustomList<ToggleButton>();
     private CustomList<String> seatList;
+    private CustomList<String> allSeats;
 
     public void startView() {
         seatList = new CustomList<>();
@@ -121,6 +122,34 @@ public class ControllerAddBooking {
     }
 
     public void bookedPerformance(MouseEvent mouseEvent) {
+        int selected = bookShow.getSelectionModel().getSelectedIndex();
+        int per = bookPerformance.getSelectionModel().getSelectedIndex();
+        allSeats = new CustomList<>();
+
+        for (Booking b : listOfPerformances(selected, per).getBooking()) {
+            int size = b.getSeatPlan().getSize();
+            for (int i = 0; i < size; i++) {
+                allSeats.addItem(b.getSeatPlan().get2(i));
+                System.out.println(b.getSeatPlan().get2(i));
+            }
+        }
+        for (int k = 0; k < allSeats.getSize(); k++) {
+            for (int s = 0; s < stalls.getSize(); s++) {
+                if (stalls.get2(s).getText().equalsIgnoreCase(allSeats.get2(k))) {
+                    stalls.get2(s).setStyle("-fx-background-color:#a81e13");
+                }
+            }
+            for (int c = 0; c < circle.getSize(); c++) {
+                if (circle.get2(c).getText().equalsIgnoreCase(allSeats.get2(k))) {
+                    circle.get2(c).setStyle("-fx-background-color:#a81e13");
+                }
+            }
+            for (int b = 0; b < balcony.getSize(); b++) {
+                if (balcony.get2(b).getText().equalsIgnoreCase(allSeats.get2(k))) {
+                    balcony.get2(b).setStyle("-fx-background-color:#a81e13");
+                }
+            }
+        }
 
 
 //        int seat = 40;
@@ -172,18 +201,51 @@ public class ControllerAddBooking {
 
 
     public void ButtonClicked(ActionEvent actionEvent) {
-        if ((((ToggleButton) actionEvent.getSource()).getText().equals("X"))) {
-            System.out.println(((ToggleButton) actionEvent.getSource()).getId());
-            ((ToggleButton) actionEvent.getSource()).setText(((ToggleButton) actionEvent.getSource()).getId());
 
-            for (int i = 0; i < seatList.getSize(); i++) {
-                if (seatList.get2(i).contains(((ToggleButton) actionEvent.getSource()).getId())) {
-                    seatList.remove(i);
-                }
-            }
+//        listOfPerformances(selected, per);
+//        if(listOfPerformances(selected, per))
+//        for (int k = 0; k < allSeats.getSize(); k++) {
+//            for (int s = 0; s < stalls.getSize(); s++) {
+//                if (stalls.get2(s).getText().equalsIgnoreCase(allSeats.get2(k))) {
+//                    stalls.get2(s).setStyle("-fx-background-color:#a81e13");
+//                }
+//            }
+//            for (int c = 0; c < circle.getSize(); c++) {
+//                if (circle.get2(c).getText().equalsIgnoreCase(allSeats.get2(k))) {
+//                    circle.get2(c).setStyle("-fx-background-color:#a81e13");
+//                }
+//            }
+//            for (int b = 0; b < balcony.getSize(); b++) {
+//                if (balcony.get2(b).getText().equalsIgnoreCase(allSeats.get2(k))) {
+//                    balcony.get2(b).setStyle("-fx-background-color:#a81e13");
+//                }
+//            }
+//        }
+
+
+
+        //if (allSeats.toString().contains((((ToggleButton) actionEvent.getSource()).getId()))) {
+        if ((((ToggleButton) actionEvent.getSource()).getStyle().equals("-fx-background-color:#a81e13"))) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Seat selected");
+            alert.setContentText("This seat is already selected, please select another");
+            alert.showAndWait();
         } else {
-            ((ToggleButton) actionEvent.getSource()).setText("X");
-            seatList.addItem(((ToggleButton) actionEvent.getSource()).getId());
+
+
+            if ((((ToggleButton) actionEvent.getSource()).getText().equals("X"))) {
+                System.out.println(((ToggleButton) actionEvent.getSource()).getId());
+                ((ToggleButton) actionEvent.getSource()).setText(((ToggleButton) actionEvent.getSource()).getId());
+
+                for (int i = 0; i < seatList.getSize(); i++) {
+                    if (seatList.get2(i).contains(((ToggleButton) actionEvent.getSource()).getId())) {
+                        seatList.remove(i);
+                    }
+                }
+            } else {
+                ((ToggleButton) actionEvent.getSource()).setText("X");
+                seatList.addItem(((ToggleButton) actionEvent.getSource()).getId());
+            }
         }
     }
 
@@ -217,8 +279,6 @@ public class ControllerAddBooking {
     //repeat for others aswell
 
 
-
-
     public void addBooking(ActionEvent actionEvent) {
         double cost = 0;
         int selected = bookShow.getSelectionModel().getSelectedIndex();
@@ -226,15 +286,15 @@ public class ControllerAddBooking {
 
         int length = seatList.getSize();
 
-        for(int i = 0; i < length; i++){
-            if(seatList.get2(i).contains("B")){
+        for (int i = 0; i < length; i++) {
+            if (seatList.get2(i).contains("B")) {
                 cost = cost + listOfShows(selected).getbCost();
                 System.out.println("B = " + listOfShows(selected).getbCost());
             }
-            if(seatList.get2(i).contains("C")){
+            if (seatList.get2(i).contains("C")) {
                 cost = cost + listOfShows(selected).getcCost();
             }
-            if(seatList.get2(i).contains("S")){
+            if (seatList.get2(i).contains("S")) {
                 cost = cost + listOfShows(selected).getsCost();
             }
         }
@@ -245,7 +305,7 @@ public class ControllerAddBooking {
         Performance thePerformance = (Performance) tempPer.getContents();
 
 //        thePerformance.addBooking(new Booking(bookName.getText(), Integer.valueOf(bookSeats.getText()), seatType));
-        thePerformance.addBooking(new Booking(bookName.getText(), seatList.getSize(), seatType,cost, seatList));
+        thePerformance.addBooking(new Booking(bookName.getText(), seatList.getSize(), seatType, cost, seatList));
         Main.setMain();
     }
 }
