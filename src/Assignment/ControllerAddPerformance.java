@@ -1,11 +1,11 @@
 package Assignment;
 
-import Lists.CustomNode;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 import java.time.format.DateTimeFormatter;
 
+import static Assignment.Main.listOfShows;
 import static Assignment.Main.shows;
 
 public class ControllerAddPerformance {
@@ -24,18 +24,41 @@ public class ControllerAddPerformance {
     }
 
     public void addPerformance(ActionEvent actionEvent) {
+        boolean resume = true;
         if (!pTitle.getText().equals("") && pDate.getValue() != null && !pTime.getText().equals("Select Time") && selectShow.getSelectionModel().getSelectedIndex() != -1) {
             int selected = selectShow.getSelectionModel().getSelectedIndex();
-            CustomNode temp = (CustomNode) shows.get(selected + 1);
-            Show theShow = (Show) temp.getContents();
 
             String title = pTitle.getText();
             String date = pDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             String time = pTime.getText();
-            theShow.addPerformance(new Performance(title, date, time));
 
-            reset();
-            Main.setMain();
+            for (Show s : shows) {
+                for (int i = 0; i < s.getPerformances().getSize(); i++) {
+                    if (s.getPerformances().get2(i).getDate().matches(date) && s.getPerformances().get2(i).getTime().matches(time)) {
+                        System.out.println(s.getPerformances().get2(i).getData());
+                        System.out.println(date);
+
+                        System.out.println("warning");
+
+                        resume = false;
+                        //break; //<-------------------------------------------------------why is that needed
+                    }
+//                    else {
+//                        resume = true;
+//                    }
+                }
+            }
+
+            if (resume) {
+                listOfShows(selected).addPerformance(new Performance(title, date, time));
+                reset();
+                Main.setMain();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Clash");
+                alert.setContentText("This date already has a performance at that time, please select different time or date");
+                alert.showAndWait();
+            }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data Error");
