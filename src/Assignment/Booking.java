@@ -4,13 +4,14 @@ package Assignment;
 import Lists.CustomList;
 
 public class Booking {
-    private String name;
+    private String name, id;
     private int seats, sType;
     private double bookingCost;
     private CustomList<String> seatPlan;
 
-    public Booking(String name, int seats, int sType,double bookingCost, CustomList<String> seatPlan) {
+    public Booking(String name, String id, int seats, int sType, double bookingCost, CustomList<String> seatPlan) {
         this.name = name;
+        this.id = id;
         this.seats = seats;
         this.sType = sType;
         this.bookingCost = bookingCost;
@@ -23,6 +24,14 @@ public class Booking {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getSeats() {

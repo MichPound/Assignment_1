@@ -36,7 +36,7 @@ public class ControllerAddPerformance {
 
             reset();
             Main.setMain();
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data Error");
             alert.setContentText("Please ensure you have entered all information correctly");
@@ -44,7 +44,7 @@ public class ControllerAddPerformance {
         }
     }
 
-    public void reset(){
+    public void reset() {
         selectShow.getSelectionModel().clearSelection();
         pTitle.setText("");
         pDate.setValue(null);

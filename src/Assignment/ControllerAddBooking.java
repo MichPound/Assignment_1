@@ -10,6 +10,8 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
+import java.util.UUID;
+
 import static Assignment.Main.*;
 
 public class ControllerAddBooking {
@@ -33,6 +35,8 @@ public class ControllerAddBooking {
     private CustomList<String> allSeats;
 
     public void startView() {
+
+        bookPerformance.getItems().clear();
         seatList = new CustomList<>();
         int seat = 40;
         int bal = 24;
@@ -83,15 +87,6 @@ public class ControllerAddBooking {
         for (int i = 0; i < fullness; i++) {
             seatList.remove(0);
         }
-    }
-
-
-    public void cancel3(ActionEvent actionEvent) {
-        Main.setMain();
-    }
-
-    public void initialize() {
-        addBookingController = this;
     }
 
     public void continuous(ActionEvent actionEvent) {
@@ -150,89 +145,15 @@ public class ControllerAddBooking {
                 }
             }
         }
-
-
-//        int seat = 40;
-//        int bal = 24;
-//        int checkS = 0;
-//        int checkC = 0;
-//        int checkB = 0;
-//        for (int r = 0; r < 4; r++) {
-//            for (int c = 9; c >= 0; c--) {
-//                S = new ToggleButton("S" + seat);
-//                S.setId("S" + seat);
-//                S.setOnAction(this::ButtonClicked);
-//                stalls.addItem(S);
-//                if (checkS <= 40) {
-//                    bookingGridS.add(stalls.get2(0), c, r);
-//                    S.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-//                    checkS++;
-//                }
-//                if (seat <= 30) {
-//                    C = new ToggleButton("C" + seat);
-//                    C.setId("C" + seat);
-//                    C.setOnAction(this::ButtonClicked);
-//                    circle.addItem(C);
-//                    if (checkC <= 30) {
-//                        bookingGridC.add(circle.get2(0), c, r);
-//                        C.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-//                        checkC++;
-//                    }
-//                }
-//                if (bal <= 24) {
-//                    if (!(c == 0 || c == 9)) {
-//                        B = new ToggleButton("B" + bal);
-//                        B.setId("B" + bal);
-//                        B.setOnAction(this::ButtonClicked);
-//                        balcony.addItem(B);
-//                        if (checkB <= 23) {
-//                            bookingGridB.add(balcony.get2(0), c, r);
-//                            B.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-//                            checkB++;
-//                        }
-//                        bal--;
-//                    }
-//                }
-//                seat--;
-//            }
-//        }
-
     }
 
-
     public void ButtonClicked(ActionEvent actionEvent) {
-
-//        listOfPerformances(selected, per);
-//        if(listOfPerformances(selected, per))
-//        for (int k = 0; k < allSeats.getSize(); k++) {
-//            for (int s = 0; s < stalls.getSize(); s++) {
-//                if (stalls.get2(s).getText().equalsIgnoreCase(allSeats.get2(k))) {
-//                    stalls.get2(s).setStyle("-fx-background-color:#a81e13");
-//                }
-//            }
-//            for (int c = 0; c < circle.getSize(); c++) {
-//                if (circle.get2(c).getText().equalsIgnoreCase(allSeats.get2(k))) {
-//                    circle.get2(c).setStyle("-fx-background-color:#a81e13");
-//                }
-//            }
-//            for (int b = 0; b < balcony.getSize(); b++) {
-//                if (balcony.get2(b).getText().equalsIgnoreCase(allSeats.get2(k))) {
-//                    balcony.get2(b).setStyle("-fx-background-color:#a81e13");
-//                }
-//            }
-//        }
-
-
-
-        //if (allSeats.toString().contains((((ToggleButton) actionEvent.getSource()).getId()))) {
         if ((((ToggleButton) actionEvent.getSource()).getStyle().equals("-fx-background-color:#a81e13"))) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Seat selected");
             alert.setContentText("This seat is already selected, please select another");
             alert.showAndWait();
         } else {
-
-
             if ((((ToggleButton) actionEvent.getSource()).getText().equals("X"))) {
                 System.out.println(((ToggleButton) actionEvent.getSource()).getId());
                 ((ToggleButton) actionEvent.getSource()).setText(((ToggleButton) actionEvent.getSource()).getId());
@@ -259,26 +180,6 @@ public class ControllerAddBooking {
         System.out.println("---------------------------------------------------");
     }
 
-    public void mousePressed(MouseEvent mouseEvent) {
-//        System.out.println("its actually doing something");
-//        for (int index = 0; index < stalls.size(); index++) {
-//            if (stalls.get(index).isSelected()) {
-//                stalls.get(index).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
-//            }
-//        }
-    }
-
-    public void getGridB(MouseEvent mouseEvent) {
-        //B.setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
-        //System.out.println(bookingGridB.);
-        //stalls.get(40 - 6).setStyle("-fx-border-color: rgb(0,0,0);-fx-background-color: rgba(192,0,1,0.93); ");
-    }
-
-    //bookingcost
-    //loop through seatList and for every be store value of total
-    //repeat for others aswell
-
-
     public void addBooking(ActionEvent actionEvent) {
         double cost = 0;
         int selected = bookShow.getSelectionModel().getSelectedIndex();
@@ -299,13 +200,28 @@ public class ControllerAddBooking {
             }
         }
 
-        CustomNode tempShow = (CustomNode) shows.get(selected + 1);
-        Show theShow = (Show) tempShow.getContents();
-        CustomNode tempPer = (CustomNode) theShow.getPerformances().get(per + 1);
-        Performance thePerformance = (Performance) tempPer.getContents();
+        String id = UUID.randomUUID().toString();
+        String oldIds = "";
 
-//        thePerformance.addBooking(new Booking(bookName.getText(), Integer.valueOf(bookSeats.getText()), seatType));
-        thePerformance.addBooking(new Booking(bookName.getText(), seatList.getSize(), seatType, cost, seatList));
+        for (Performance p : listOfShows(selected).getPerformances()) {
+            int size = p.getBooking().getSize();
+            for (int i = 0; i < size; i++) {
+                oldIds = oldIds + p.getBooking().get2(i).getId();
+            }
+        }
+        while (oldIds.contains(id)) {
+            id = UUID.randomUUID().toString();
+        }
+
+        listOfPerformances(selected, per).addBooking(new Booking(bookName.getText(), id, seatList.getSize(), seatType, cost, seatList));
         Main.setMain();
+    }
+
+    public void cancel3(ActionEvent actionEvent) {
+        Main.setMain();
+    }
+
+    public void initialize() {
+        addBookingController = this;
     }
 }

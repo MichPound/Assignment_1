@@ -13,7 +13,6 @@ public class ControllerCancelShow {
     public void removingShow(ActionEvent actionEvent) {
         int index = removeShow.getSelectionModel().getSelectedIndex();
         shows.remove(index);
-
         Main.updateShows();
         Main.setMain();
     }

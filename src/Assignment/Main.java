@@ -54,7 +54,8 @@ public class Main extends Application {
         cancelPerformance = new Scene(root8, 235, 374);
 
         Parent root9 = FXMLLoader.load(getClass().getResource("../fxml/cancelBooking.fxml"));
-        cancelBooking = new Scene(root9, 600, 400);
+        cancelBooking = new Scene(root9, 600, 412);
+        root9.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
 
         setStage.setScene(main);
         primaryStage.show();
@@ -96,6 +97,7 @@ public class Main extends Application {
 
     static void setCancelBooking() {
         setStage.setScene(cancelBooking);
+        ControllerCancelBooking.cancelBookingController.startView();
     }
 
 
@@ -106,6 +108,7 @@ public class Main extends Application {
         ControllerCancelShow.cancelShowController.removeShow.getItems().clear();
         ControllerCancelPerformance.cancelPerformanceController.selectShow.getItems().clear();
         ControllerAddBooking.addBookingController.bookShow.getItems().clear();
+        ControllerCancelBooking.cancelBookingController.viewShows.getItems().clear();
 
         for (Show s : shows) {
             ControllerMain.mainController.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
@@ -114,6 +117,7 @@ public class Main extends Application {
             ControllerCancelShow.cancelShowController.removeShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());
             ControllerCancelPerformance.cancelPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());
             ControllerAddBooking.addBookingController.bookShow.getItems().add(s.getTitle());
+            ControllerCancelBooking.cancelBookingController.viewShows.getItems().add(s.getTitle());
         }
     }
 

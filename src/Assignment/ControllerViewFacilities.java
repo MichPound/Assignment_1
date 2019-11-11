@@ -34,6 +34,9 @@ public class ControllerViewFacilities {
     public GridPane bookingGridC;
     public GridPane bookingGridB;
     public Label bookingCost;
+    public Label id;
+    public Label performanceBooks;
+    public Label performanceCost;
 
     private Button S = new Button();
     private Button C = new Button();
@@ -59,6 +62,9 @@ public class ControllerViewFacilities {
         seats.setText("Seats");
         seatType.setText("Type");
         bookingCost.setText("Cost");
+        id.setText("Booking Unique Identifier");
+        performanceBooks.setText("Bookings Made: No.");
+        performanceCost.setText("Show Total: Cost");
 
 
         int seat = 40;
@@ -131,22 +137,26 @@ public class ControllerViewFacilities {
             int selected = viewShows.getSelectionModel().getSelectedIndex();
             int per = viewPerformances.getSelectionModel().getSelectedIndex();
 
-            performanceTitle.setText(listOfPerformances(selected, per).getTitle());
-            performanceDate.setText(listOfPerformances(selected, per).getDate());
-            performanceTime.setText(listOfPerformances(selected, per).getTime());
-
+            double tempCost = 0.0;
             viewBookings.getItems().clear();
             if (listOfPerformances(selected, per).getBooking().getSize() > 0) {
                 CustomList<String> allSeats = new CustomList<String>();
 
                 for (Booking b : listOfPerformances(selected, per).getBooking()) {
                     viewBookings.getItems().add(b.getName());
+                    tempCost = tempCost + b.getBookingCost();
 
                     int size = b.getSeatPlan().getSize();
                     for (int i = 0; i < size; i++) {
                         allSeats.addItem(b.getSeatPlan().get2(i));
                     }
                 }
+
+                performanceTitle.setText(listOfPerformances(selected, per).getTitle());
+                performanceDate.setText(listOfPerformances(selected, per).getDate());
+                performanceTime.setText(listOfPerformances(selected, per).getTime());
+                performanceBooks.setText("Bookings made: " +listOfPerformances(selected, per).getBooking().getSize());
+                performanceCost.setText("Show total: $" + tempCost);
 
                 for (int k = 0; k < allSeats.getSize(); k++) {
                     for (int s = 0; s < stalls.getSize(); s++) {
@@ -181,14 +191,14 @@ public class ControllerViewFacilities {
             int per = viewPerformances.getSelectionModel().getSelectedIndex();
             int book = viewBookings.getSelectionModel().getSelectedIndex();
             bookName.setText(listOfBookings(selected, per, book).getName());
-            seats.setText(String.valueOf(listOfBookings(selected, per, book).getSeats()));
-            // System.out.println((String.valueOf(listOfBookings(selected, per, book).getBookingCost())));
+            seats.setText("Seats: " + listOfBookings(selected, per, book).getSeats());
             if (listOfBookings(selected, per, book).getsType() == 0) {
                 seatType.setText("Continuous");
             } else {
                 seatType.setText("Scattered");
             }
-            bookingCost.setText((String.valueOf(listOfBookings(selected, per, book).getBookingCost())));
+            bookingCost.setText("$" + (listOfBookings(selected, per, book).getBookingCost()));
+            id.setText((String.valueOf(listOfBookings(selected, per, book).getId())));
 
             CustomList<String> test = listOfBookings(selected, per, book).getSeatPlan();
             if (test.getSize() > 0) {
@@ -216,7 +226,7 @@ public class ControllerViewFacilities {
                     }
                 }
             }
-
+            System.out.println(listOfBookings(selected, per, book).getId());
 
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
