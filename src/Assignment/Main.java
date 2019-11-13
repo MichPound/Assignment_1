@@ -125,6 +125,7 @@ public class Main extends Application {
         Show theShow = (Show) temp.getContents();//--------------------------------why?
 
         return theShow;
+
     }
 
     static Performance listOfPerformances(int input, int input2) {

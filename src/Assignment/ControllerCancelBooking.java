@@ -1,13 +1,10 @@
 package Assignment;
 
-import Lists.CustomList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 
 import static Assignment.Main.*;
 
@@ -18,13 +15,12 @@ public class ControllerCancelBooking {
     public ListView<String> viewBookings;
 
     public static ControllerCancelBooking cancelBookingController;
-    public ChoiceBox balconyChoice;
-    public ChoiceBox circleChoice;
-    public ChoiceBox stallChoice;
+    public ChoiceBox<String> balconyChoice;
+    public ChoiceBox<String> circleChoice;
+    public ChoiceBox<String> stallChoice;
 
 
     public void startView() {
-
     }
 
     public void showSelected(MouseEvent mouseEvent) {
@@ -56,7 +52,7 @@ public class ControllerCancelBooking {
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data not defined");
-            alert.setContentText("Please select a show first");
+            alert.setContentText("Please make sure you have selected a show");
             alert.showAndWait();
         }
     }
@@ -70,21 +66,16 @@ public class ControllerCancelBooking {
             int per = viewPerformances.getSelectionModel().getSelectedIndex();
             int book = viewBookings.getSelectionModel().getSelectedIndex();
 
-
-
-//            balconyChoice
             listOfBookings(selected, per, book).getSeatPlan().get2(10000);
-            for(int i = 0; i < listOfBookings(selected, per, book).getSeatPlan().getSize(); i++){
-                if (listOfBookings(selected, per, book).getSeatPlan().get2(i).contains("B")){
+            for (int i = 0; i < listOfBookings(selected, per, book).getSeatPlan().getSize(); i++) {
+                if (listOfBookings(selected, per, book).getSeatPlan().get2(i).contains("B")) {
                     balconyChoice.getItems().add(listOfBookings(selected, per, book).getSeatPlan().get2(i));
-                }else if(listOfBookings(selected, per, book).getSeatPlan().get2(i).contains("C")){
+                } else if (listOfBookings(selected, per, book).getSeatPlan().get2(i).contains("C")) {
                     circleChoice.getItems().add(listOfBookings(selected, per, book).getSeatPlan().get2(i));
-                }else{
+                } else {
                     stallChoice.getItems().add(listOfBookings(selected, per, book).getSeatPlan().get2(i));
                 }
             }
-
-
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data not defined");
@@ -98,9 +89,15 @@ public class ControllerCancelBooking {
         int per = viewPerformances.getSelectionModel().getSelectedIndex();
         int book = viewBookings.getSelectionModel().getSelectedIndex();
 
-        String toBeRemoved = String.valueOf(balconyChoice.getSelectionModel().getSelectedItem());
-        for(int i = 0; i < listOfBookings(selected, per, book).getSeatPlan().getSize(); i++){
-            if(listOfBookings(selected, per, book).getSeatPlan().get2(i).equalsIgnoreCase(toBeRemoved)){
+        String toBeRemovedB = String.valueOf(balconyChoice.getSelectionModel().getSelectedItem());
+        String toBeRemovedC = String.valueOf(circleChoice.getSelectionModel().getSelectedItem());
+        String toBeRemovedS = String.valueOf(stallChoice.getSelectionModel().getSelectedItem());
+        for (int i = 0; i < listOfBookings(selected, per, book).getSeatPlan().getSize(); i++) {
+            if (listOfBookings(selected, per, book).getSeatPlan().get2(i).equalsIgnoreCase(toBeRemovedB)) {
+                listOfBookings(selected, per, book).getSeatPlan().remove(i);
+            } else if (listOfBookings(selected, per, book).getSeatPlan().get2(i).equalsIgnoreCase(toBeRemovedC)) {
+                listOfBookings(selected, per, book).getSeatPlan().remove(i);
+            } else if (listOfBookings(selected, per, book).getSeatPlan().get2(i).equalsIgnoreCase(toBeRemovedS)) {
                 listOfBookings(selected, per, book).getSeatPlan().remove(i);
             }
         }

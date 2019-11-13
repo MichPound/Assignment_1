@@ -181,24 +181,24 @@ public class ControllerAddBooking {
     }
 
     public void addBooking(ActionEvent actionEvent) {
-        double cost = 0;
+//        double cost = 0;
         int selected = bookShow.getSelectionModel().getSelectedIndex();
         int per = bookPerformance.getSelectionModel().getSelectedIndex();
 
-        int length = seatList.getSize();
-
-        for (int i = 0; i < length; i++) {
-            if (seatList.get2(i).contains("B")) {
-                cost = cost + listOfShows(selected).getbCost();
-                System.out.println("B = " + listOfShows(selected).getbCost());
-            }
-            if (seatList.get2(i).contains("C")) {
-                cost = cost + listOfShows(selected).getcCost();
-            }
-            if (seatList.get2(i).contains("S")) {
-                cost = cost + listOfShows(selected).getsCost();
-            }
-        }
+//        int length = seatList.getSize();
+//
+//        for (int i = 0; i < length; i++) {
+//            if (seatList.get2(i).contains("B")) {
+//                cost = cost + listOfShows(selected).getbCost();
+//                System.out.println("B = " + listOfShows(selected).getbCost());
+//            }
+//            if (seatList.get2(i).contains("C")) {
+//                cost = cost + listOfShows(selected).getcCost();
+//            }
+//            if (seatList.get2(i).contains("S")) {
+//                cost = cost + listOfShows(selected).getsCost();
+//            }
+//        }
 
         String id = UUID.randomUUID().toString();
         String oldIds = "";
@@ -213,7 +213,7 @@ public class ControllerAddBooking {
             id = UUID.randomUUID().toString();
         }
 
-        listOfPerformances(selected, per).addBooking(new Booking(bookName.getText(), id, seatList.getSize(), seatType, cost, seatList));
+        listOfPerformances(selected, per).addBooking(new Booking(bookName.getText(), id, seatType, seatList));
         Main.setMain();
     }
 
