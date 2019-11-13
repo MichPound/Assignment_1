@@ -38,7 +38,7 @@
       <Label fx:id="performanceDate" layoutX="722.0" layoutY="229.0" text="Date" />
       <Label fx:id="performanceTime" layoutX="721.0" layoutY="251.0" text="Time" />
       <Label fx:id="performanceBooks" layoutX="681.0" layoutY="268.0" text="Bookings Made: No." />
-      <Label fx:id="performanceCost" layoutX="690.0" layoutY="289.0" text="Show Total: Cost" />
+      <Label fx:id="performanceCost" layoutX="671.0" layoutY="289.0" text="Performance Total: Cost" />
       <Button layoutX="432.0" layoutY="433.0" mnemonicParsing="false" onAction="#cancel4" text="Back" />
       <Label layoutX="676.0" layoutY="329.0" text="Booking Receipt" underline="true">
          <font>

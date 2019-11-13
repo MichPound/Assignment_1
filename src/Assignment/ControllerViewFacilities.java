@@ -44,29 +44,18 @@ public class ControllerViewFacilities {
     private CustomList<Button> stalls = new CustomList<Button>();
     private CustomList<Button> circle = new CustomList<Button>();
     private CustomList<Button> balcony = new CustomList<Button>();
+    private CustomList<String> allSeats;
 
     public void startView() {
         viewPerformances.getItems().clear();
         viewBookings.getItems().clear();
-        showTitle.setText("Title");
-        showTime.setText("Time");
-        startDate.setText("Start Date");
-        endDate.setText("End Date");
-        bCost.setText("Cost");
-        cCost.setText("Cost");
-        sCost.setText("Cost");
-        performanceTitle.setText("Title");
-        performanceDate.setText("Date");
-        performanceTime.setText("Time");
-        bookName.setText("Name");
-        seats.setText("Seats");
-        seatType.setText("Type");
-        bookingCost.setText("Cost");
-        id.setText("Booking Unique Identifier");
-        performanceBooks.setText("Bookings Made: No.");
-        performanceCost.setText("Show Total: Cost");
+        resetShow();
+        resetPerformance();
+        resetBooking();
+        buttonTable();
+    }
 
-
+    public void buttonTable(){
         int seat = 40;
         int bal = 24;
         int checkS = 0, checkC = 0, checkB = 0;
@@ -133,6 +122,8 @@ public class ControllerViewFacilities {
     }
 
     public void performanceSelected(MouseEvent mouseEvent) {
+        buttonTable();
+        resetBooking();
         try {
             int selected = viewShows.getSelectionModel().getSelectedIndex();
             int per = viewPerformances.getSelectionModel().getSelectedIndex();
@@ -140,8 +131,8 @@ public class ControllerViewFacilities {
             double tempCost = 0.0;
             viewBookings.getItems().clear();
             if (listOfPerformances(selected, per).getBooking().getSize() > 0) {
-                CustomList<String> allSeats = new CustomList<String>();
-
+               // CustomList<String> allSeats = new CustomList<String>();
+                allSeats = new CustomList<String>();
                 for (Booking b : listOfPerformances(selected, per).getBooking()) {
                     viewBookings.getItems().add(b.getName());
                     tempCost = tempCost + b.getBookingCost();
@@ -151,31 +142,14 @@ public class ControllerViewFacilities {
                         allSeats.addItem(b.getSeatPlan().get2(i));
                     }
                 }
-
-                performanceTitle.setText(listOfPerformances(selected, per).getTitle());
-                performanceDate.setText(listOfPerformances(selected, per).getDate());
-                performanceTime.setText(listOfPerformances(selected, per).getTime());
-                performanceBooks.setText("Bookings made: " +listOfPerformances(selected, per).getBooking().getSize());
-                performanceCost.setText("Show total: $" + tempCost);
-
-                for (int k = 0; k < allSeats.getSize(); k++) {
-                    for (int s = 0; s < stalls.getSize(); s++) {
-                        if (stalls.get2(s).getText().equalsIgnoreCase(allSeats.get2(k))) {
-                            stalls.get2(s).setStyle("-fx-background-color:#a81e13");
-                        }
-                    }
-                    for (int c = 0; c < circle.getSize(); c++) {
-                        if (circle.get2(c).getText().equalsIgnoreCase(allSeats.get2(k))) {
-                            circle.get2(c).setStyle("-fx-background-color:#a81e13");
-                        }
-                    }
-                    for (int b = 0; b < balcony.getSize(); b++) {
-                        if (balcony.get2(b).getText().equalsIgnoreCase(allSeats.get2(k))) {
-                            balcony.get2(b).setStyle("-fx-background-color:#a81e13");
-                        }
-                    }
-                }
+                colorTable(allSeats,"-fx-background-color:#a81e13");
             }
+            performanceTitle.setText(listOfPerformances(selected, per).getTitle());
+            performanceDate.setText(listOfPerformances(selected, per).getDate());
+            performanceTime.setText(listOfPerformances(selected, per).getTime());
+            performanceBooks.setText("Bookings made: " +listOfPerformances(selected, per).getBooking().getSize());
+            performanceCost.setText("Performance total: $" + tempCost);
+
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data not defined");
@@ -186,6 +160,7 @@ public class ControllerViewFacilities {
     }
 
     public void bookSelected(MouseEvent mouseEvent) {
+        colorTable(allSeats,"-fx-background-color:#a81e13");
         try {
             int selected = viewShows.getSelectionModel().getSelectedIndex();
             int per = viewPerformances.getSelectionModel().getSelectedIndex();
@@ -200,30 +175,13 @@ public class ControllerViewFacilities {
             bookingCost.setText("$" + (listOfBookings(selected, per, book).getBookingCost()));
             id.setText((String.valueOf(listOfBookings(selected, per, book).getId())));
 
-            CustomList<String> test = listOfBookings(selected, per, book).getSeatPlan();
-            if (test.getSize() > 0) {
-                for (int i = 0; i < test.getSize(); i++) {
-                    System.out.println(test.get2(i));
+            CustomList<String> booked = listOfBookings(selected, per, book).getSeatPlan();
 
+            if (booked.getSize() > 0) {
+                for (int i = 0; i < booked.getSize(); i++) {
+                    System.out.println(booked.get2(i));
+            colorTable(booked, "-fx-background-color:#0a7ab9");
 
-                    for (int k = 0; k < test.getSize(); k++) {
-                        for (int s = 0; s < stalls.getSize(); s++) {
-                            if (stalls.get2(s).getText().equalsIgnoreCase(test.get2(k))) {
-                                stalls.get2(s).setStyle("-fx-background-color:#0a7ab9");
-                            }
-                        }
-                        for (int c = 0; c < circle.getSize(); c++) {
-                            if (circle.get2(c).getText().equalsIgnoreCase(test.get2(k))) {
-                                circle.get2(c).setStyle("-fx-background-color:#0a7ab9");
-                            }
-                        }
-                        for (int b = 0; b < balcony.getSize(); b++) {
-                            if (balcony.get2(b).getText().equalsIgnoreCase(test.get2(k))) {
-                                balcony.get2(b).setStyle("-fx-background-color:#0a7ab9");
-                            }
-                        }
-
-                    }
                 }
             }
             System.out.println(listOfBookings(selected, per, book).getId());
@@ -235,6 +193,52 @@ public class ControllerViewFacilities {
             alert.showAndWait();
             startView();
         }
+    }
+
+    public void colorTable(CustomList<String> list, String color) {
+                for (int k = 0; k < list.getSize(); k++) {
+                    for (int s = 0; s < stalls.getSize(); s++) {
+                        if (stalls.get2(s).getText().equalsIgnoreCase(list.get2(k))) {
+                            stalls.get2(s).setStyle(color);
+                        }
+                    }
+                    for (int c = 0; c < circle.getSize(); c++) {
+                        if (circle.get2(c).getText().equalsIgnoreCase(list.get2(k))) {
+                            circle.get2(c).setStyle(color);
+                        }
+                    }
+                    for (int b = 0; b < balcony.getSize(); b++) {
+                        if (balcony.get2(b).getText().equalsIgnoreCase(list.get2(k))) {
+                            balcony.get2(b).setStyle(color);
+                        }
+                    }
+                }
+    }
+
+    public void resetShow(){
+        showTitle.setText("Title");
+        showTime.setText("Time");
+        startDate.setText("Start Date");
+        endDate.setText("End Date");
+        bCost.setText("Cost");
+        cCost.setText("Cost");
+        sCost.setText("Cost");
+    }
+
+    public void resetPerformance(){
+        performanceTitle.setText("Title");
+        performanceDate.setText("Date");
+        performanceTime.setText("Time");
+        performanceBooks.setText("Bookings Made: No.");
+        performanceCost.setText("Performance Total: Cost");
+    }
+
+    public void resetBooking(){
+        bookName.setText("Name");
+        seats.setText("Seats");
+        seatType.setText("Type");
+        bookingCost.setText("Cost");
+        id.setText("Booking Unique Identifier");
     }
 
     public void cancel4(ActionEvent actionEvent) {

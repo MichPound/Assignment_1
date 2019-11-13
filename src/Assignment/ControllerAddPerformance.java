@@ -27,7 +27,6 @@ public class ControllerAddPerformance {
         boolean resume = true;
         if (!pTitle.getText().equals("") && pDate.getValue() != null && !pTime.getText().equals("Select Time") && selectShow.getSelectionModel().getSelectedIndex() != -1) {
             int selected = selectShow.getSelectionModel().getSelectedIndex();
-
             String title = pTitle.getText();
             String date = pDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             String time = pTime.getText();
@@ -35,17 +34,8 @@ public class ControllerAddPerformance {
             for (Show s : shows) {
                 for (int i = 0; i < s.getPerformances().getSize(); i++) {
                     if (s.getPerformances().get2(i).getDate().matches(date) && s.getPerformances().get2(i).getTime().matches(time)) {
-                        System.out.println(s.getPerformances().get2(i).getData());
-                        System.out.println(date);
-
-                        System.out.println("warning");
-
                         resume = false;
-                        //break; //<-------------------------------------------------------why is that needed
                     }
-//                    else {
-//                        resume = true;
-//                    }
                 }
             }
 

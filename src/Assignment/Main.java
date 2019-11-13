@@ -100,7 +100,6 @@ public class Main extends Application {
         ControllerCancelBooking.cancelBookingController.startView();
     }
 
-
     static void updateShows() {
         ControllerMain.mainController.listShows.getItems().clear();
         ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
@@ -141,7 +140,6 @@ public class Main extends Application {
 
         return theBooking;
     }
-
 
     public static void save() throws Exception {
         XStream xstream = new XStream(new DomDriver());

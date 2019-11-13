@@ -6,7 +6,7 @@ public class Performance {
     private String title, date, time;
     private CustomList<Booking> bookings = new CustomList<>();
 
-    private CustomList<Data> data;//add this into the constructor
+    //private CustomList<Data> data;//add this into the constructor
 
 
     public Performance(String title, String date, String time) {
@@ -47,11 +47,11 @@ public class Performance {
         return bookings;
     }
 
-    public void addData(Data data) {
-        this.data.addItem(data);
-    }
-
-    public CustomList getData() {
-        return data;
-    }
+//    public void addData(Data data) {
+//        this.data.addItem(data);
+//    }
+//
+//    public CustomList getData() {
+//        return data;
+//    }
 }
