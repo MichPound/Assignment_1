@@ -36,16 +36,6 @@ public class ControllerAddShow {
                 String eDate = endDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
                 int rTime = ((int) runTime.getValue());
                 shows.addItem(new Show(title, sDate, eDate, rTime, Double.valueOf(balcony.getText()), Double.valueOf(circle.getText()), Double.valueOf(stalls.getText())));
-
-
-//                    if(sDate.charAt(3) == eDate.charAt(3) && sDate.charAt(4) == eDate.charAt(4)){
-//                        System.out.println("Same Month");
-//                        if(sDate.charAt(0) == eDate.charAt(0) && sDate.charAt(1) == eDate.charAt(1)){
-//                            System.out.println("Same Day");
-//                        }
-//                    }
-
-
                 Main.updateShows();
                 reset();
                 Main.setMain();

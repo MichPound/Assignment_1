@@ -122,23 +122,19 @@ public class Main extends Application {
 
     static Show listOfShows(int input) {
         CustomNode temp = (CustomNode) shows.get(input + 1);
-        Show theShow = (Show) temp.getContents();//--------------------------------why?
-
+        Show theShow = (Show) temp.getContents();
         return theShow;
-
     }
 
     static Performance listOfPerformances(int input, int input2) {
         CustomNode tempPer = (CustomNode) listOfShows(input).getPerformances().get(input2 + 1);
-        Performance thePerformance = (Performance) tempPer.getContents();//----------------again why?
-
+        Performance thePerformance = (Performance) tempPer.getContents();
         return thePerformance;
     }
 
     static Booking listOfBookings(int input, int input2, int input3) {
         CustomNode tempBook = (CustomNode) listOfPerformances(input, input2).getBooking().get(input3 + 1);
-        Booking theBooking = (Booking) tempBook.getContents();//.....................whywhywhy?
-
+        Booking theBooking = (Booking) tempBook.getContents();
         return theBooking;
     }
 

@@ -77,10 +77,6 @@ public class ControllerMain {
         }
     }
 
-//    public void addList(String list) {
-//        listShows.getItems().add(list);
-//    }
-
     public void saveLists(ActionEvent actionEvent) throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Save");
@@ -99,5 +95,4 @@ public class ControllerMain {
     public void initialize() {
         mainController = this;
     }
-
 }

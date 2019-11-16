@@ -19,33 +19,6 @@ public class CustomList<C> implements Iterable<C> {
         return new CustomIterator<>(head);
     }
 
-
-
-//    public void clear() {
-//        head = null;
-//    }
-
-
-    //    public Object get(int index) {
-//        if (index < 0)
-//            return null;
-//        CustomNode current = null;
-//        if (head != null) {
-//            current = head;
-//            if (index == 0)
-//                return current;
-//            else {
-//                for (int i = 1; i < index; i++) {
-//                    if (current.next == null)
-//                        return null;
-//                    current = current.next;
-//                }
-//                return current.getContents();
-//            }
-//        }
-//        return null;
-//    }
-//}
     public Object get(int index) {
         if (index < 0)
             return null;
@@ -66,42 +39,11 @@ public class CustomList<C> implements Iterable<C> {
     }
 
     public C get2(int index) {
-       // if (index < 0)
-         //   return null;
         CustomNode<C> current = head;
-       // if (head != null) {
-           // current = head;
-
-            int i=0;
-            while(current!=null && i++<index) current = current.next;
-            return current==null ? null : current.getContents();
-
-//            if (index == 0)
-//                return current.getContents();
-//            else {
-//                for (int i = 1; i < index; i++) {
-//                    if (current.next != null)
-//                        current = current.next;
-//                }
-//                return current.getContents();
-//            }
-//        }
-//        return null;
+        int i = 0;
+        while (current != null && i++ < index) current = current.next;
+        return current == null ? null : current.getContents();
     }
-
-//    public void remove(int index) {
-//        CustomNode current = null;
-//        if (head != null) {
-//            current = head;
-//            if (index == 0 && current.next != null) {
-//                current.next = head;
-//            } else if(index == 0 && current.next == null){
-//                head = null;
-//            }else{
-//                //need to add in removal of nodes other than the head node
-//            }
-//        }
-//    }
 
     public void remove(int index) {
         CustomNode current = head, prev = null;
@@ -117,36 +59,10 @@ public class CustomList<C> implements Iterable<C> {
                 prev.next = current.next;
             }
         }
-
-        //======================
-        //peter's neatness
-
-//        CustomNode current = head, prev = null;
-//
-//        if (index == 0) head = head.next;
-//        else {
-//            for (int i = 0; current != null && i < index; i++, prev = current, current = current.next) ;
-//            if (current != null) {
-//                prev.next = current.next;
-//            }
-//        }
         size--;
     }
 
-//
-//        if (head != null) {
-//            current = head;
-//            if (index == 0 && current.next != null) {
-//                current.next = head;
-//            } else if(index == 0 && current.next == null){
-//                head = null;
-//            }else{
-//                //need to add in removal of nodes other than the head node
-//            }
-//        }
-
-
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 }

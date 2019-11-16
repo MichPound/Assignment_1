@@ -99,6 +99,5 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </GridPane>
-      <Button layoutX="74.0" layoutY="412.0" mnemonicParsing="false" onAction="#testAdd" text="TEST" />
    </children>
 </Pane>

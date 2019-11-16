@@ -21,6 +21,11 @@ public class ControllerCancelBooking {
 
 
     public void startView() {
+        viewPerformances.getItems().clear();
+        viewBookings.getItems().clear();
+        balconyChoice.getItems().clear();
+        circleChoice.getItems().clear();
+        stallChoice.getItems().clear();
     }
 
     public void showSelected(MouseEvent mouseEvent) {

@@ -38,9 +38,6 @@ public class ControllerViewFacilities {
     public Label performanceBooks;
     public Label performanceCost;
 
-    private Button S = new Button();
-    private Button C = new Button();
-    private Button B = new Button();
     private CustomList<Button> stalls = new CustomList<Button>();
     private CustomList<Button> circle = new CustomList<Button>();
     private CustomList<Button> balcony = new CustomList<Button>();
@@ -55,24 +52,24 @@ public class ControllerViewFacilities {
         buttonTable();
     }
 
-    public void buttonTable() {
+    private void buttonTable() {
         int seat = 40;
         int bal = 24;
         int checkS = 0, checkC = 0, checkB = 0;
         for (int r = 0; r < 4; r++) {
             for (int c = 9; c >= 0; c--) {
-                S = new Button("S" + seat);
-                S.getStyleClass().add("custom-button");
-                stalls.addItem(S);
+                Button s = new Button("S" + seat);
+                s.getStyleClass().add("custom-button");
+                stalls.addItem(s);
                 if (checkS <= 40) {
                     bookingGridS.add(stalls.get2(0), c, r);
                     checkS++;
                 }
                 if (seat <= 30) {
-                    C = new Button("C" + seat);
-                    C.setId("C" + seat);
-                    C.getStyleClass().add("custom-button");
-                    circle.addItem(C);
+                    Button c1 = new Button("C" + seat);
+                    c1.setId("C" + seat);
+                    c1.getStyleClass().add("custom-button");
+                    circle.addItem(c1);
                     if (checkC <= 30) {
                         bookingGridC.add(circle.get2(0), c, r);
                         checkC++;
@@ -80,10 +77,10 @@ public class ControllerViewFacilities {
                 }
                 if (bal <= 24) {
                     if (!(c == 0 || c == 9)) {
-                        B = new Button("B" + bal);
-                        B.setId("B" + bal);
-                        B.getStyleClass().add("custom-button");
-                        balcony.addItem(B);
+                        Button b = new Button("B" + bal);
+                        b.setId("B" + bal);
+                        b.getStyleClass().add("custom-button");
+                        balcony.addItem(b);
                         if (checkB <= 23) {
                             bookingGridB.add(balcony.get2(0), c, r);
                             checkB++;
@@ -125,27 +122,22 @@ public class ControllerViewFacilities {
         buttonTable();
         resetBooking();
 
-
         try {
             int selected = viewShows.getSelectionModel().getSelectedIndex();
             int per = viewPerformances.getSelectionModel().getSelectedIndex();
 
-
             double fullCost = 0.0;
             viewBookings.getItems().clear();
             if (listOfPerformances(selected, per).getBooking().getSize() > 0) {
-                // CustomList<String> allSeats = new CustomList<String>();
                 allSeats = new CustomList<String>();
-
 
                 for (Booking b : listOfPerformances(selected, per).getBooking()) {
                     double tempCost = 0.0;
-//
+
                     int length = b.getSeatPlan().getSize();
                     for (int i = 0; i < length; i++) {
                         if (b.getSeatPlan().get2(i).contains("B")) {
                             tempCost = tempCost + listOfShows(selected).getbCost();
-                            System.out.println("B = " + listOfShows(selected).getbCost());
                         }
                         if (b.getSeatPlan().get2(i).contains("C")) {
                             tempCost = tempCost + listOfShows(selected).getcCost();
@@ -154,7 +146,6 @@ public class ControllerViewFacilities {
                             tempCost = tempCost + listOfShows(selected).getsCost();
                         }
                     }
-
 
                     viewBookings.getItems().add(b.getName());
                     fullCost = fullCost + tempCost;
@@ -198,11 +189,9 @@ public class ControllerViewFacilities {
 
             double cost = 0;
             int length = listOfBookings(selected, per, book).getSeatPlan().getSize();
-
             for (int i = 0; i < length; i++) {
                 if (listOfBookings(selected, per, book).getSeatPlan().get2(i).contains("B")) {
                     cost = cost + listOfShows(selected).getbCost();
-                    System.out.println("B = " + listOfShows(selected).getbCost());
                 }
                 if (listOfBookings(selected, per, book).getSeatPlan().get2(i).contains("C")) {
                     cost = cost + listOfShows(selected).getcCost();
@@ -212,20 +201,15 @@ public class ControllerViewFacilities {
                 }
             }
 
-
             bookingCost.setText("$" + cost);
             id.setText((String.valueOf(listOfBookings(selected, per, book).getId())));
-
             CustomList<String> booked = listOfBookings(selected, per, book).getSeatPlan();
 
             if (booked.getSize() > 0) {
                 for (int i = 0; i < booked.getSize(); i++) {
-                    System.out.println(booked.get2(i));
                     colorTable(booked, "-fx-background-color:#0a7ab9");
                 }
             }
-            System.out.println(listOfBookings(selected, per, book).getId());
-
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data not defined");
@@ -235,7 +219,7 @@ public class ControllerViewFacilities {
         }
     }
 
-    public void colorTable(CustomList<String> list, String color) {
+    private void colorTable(CustomList<String> list, String color) {
         for (int k = 0; k < list.getSize(); k++) {
             for (int s = 0; s < stalls.getSize(); s++) {
                 if (stalls.get2(s).getText().equalsIgnoreCase(list.get2(k))) {
@@ -255,7 +239,7 @@ public class ControllerViewFacilities {
         }
     }
 
-    public void resetShow() {
+    private void resetShow() {
         showTitle.setText("Title");
         showTime.setText("Time");
         startDate.setText("Start Date");
@@ -265,7 +249,7 @@ public class ControllerViewFacilities {
         sCost.setText("Cost");
     }
 
-    public void resetPerformance() {
+    private void resetPerformance() {
         performanceTitle.setText("Title");
         performanceDate.setText("Date");
         performanceTime.setText("Time");
@@ -273,7 +257,7 @@ public class ControllerViewFacilities {
         performanceCost.setText("Performance Total: Cost");
     }
 
-    public void resetBooking() {
+    private void resetBooking() {
         bookName.setText("Name");
         seats.setText("Seats");
         seatType.setText("Type");

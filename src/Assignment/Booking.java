@@ -1,6 +1,5 @@
 package Assignment;
 
-
 import Lists.CustomList;
 
 public class Booking {
@@ -14,14 +13,6 @@ public class Booking {
         this.sType = sType;
         this.seatPlan = seatPlan;
     }
-//    public Booking(String name, String id, int seats, int sType, double bookingCost, CustomList<String> seatPlan) {
-//        this.name = name;
-//        this.id = id;
-//        this.seats = seats;
-//        this.sType = sType;
-//        this.bookingCost = bookingCost;
-//        this.seatPlan = seatPlan;
-//    }
 
     public String getName() {
         return name;

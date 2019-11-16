@@ -10,16 +10,16 @@
     /*-fx-background-color: rgb(114, 110, 110);*/
 }
 
-.custom-toggle-button{
-    -fx-border-color: rgb(0, 0, 0);
-    -fx-background-color:#0a7ab9
-}
+/*.custom-toggle-button{*/
+    /*-fx-border-color: rgb(0, 0, 0);*/
+    /*-fx-background-color:#0a7ab9*/
+/*}*/
 
-.custom-toggle-button:selected {
-    -fx-border-color: rgb(0, 0, 0);
-    -fx-background-color:#0a7ab9
-    /*-fx-background-color: rgb(114, 110, 110);*/
-}
+/*.custom-toggle-button:selected {*/
+    /*-fx-border-color: rgb(0, 0, 0);*/
+    /*-fx-background-color:#0a7ab9*/
+    /*!*-fx-background-color: rgb(114, 110, 110);*!*/
+/*}*/
 
 .custom-button{
     -fx-pref-height: 30px;

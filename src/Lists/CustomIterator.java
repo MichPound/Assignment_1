@@ -5,25 +5,20 @@ import java.util.Iterator;
 public class CustomIterator<K> implements Iterator<K> {
 
     private CustomNode<K> pos;
+
     public CustomIterator(CustomNode<K> cnode) {
         pos = cnode;
     }
 
     @Override
-    public boolean hasNext(){
+    public boolean hasNext() {
         return pos != null;
     }
 
     @Override
-    public K next(){
+    public K next() {
         CustomNode<K> temp = pos;
         pos = pos.next;
         return temp.getContents();
     }
-
-//    @Override
-//    public K reverse(){
-//        CustomNode<K> temp = pos;
-//        pos.
-//    }
 }

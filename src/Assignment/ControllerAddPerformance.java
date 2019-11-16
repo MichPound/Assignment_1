@@ -57,7 +57,7 @@ public class ControllerAddPerformance {
         }
     }
 
-    public void reset() {
+    private void reset() {
         selectShow.getSelectionModel().clearSelection();
         pTitle.setText("");
         pDate.setValue(null);

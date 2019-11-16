@@ -16,11 +16,11 @@ public class ControllerCancelPerformance {
     public void listPerformances(MouseEvent mouseEvent) {
         selectPerformance.getItems().clear();
         int selected = selectShow.getSelectionModel().getSelectedIndex();
-        if(listOfShows(selected).getPerformances().getSize() > 0) {
+        if (listOfShows(selected).getPerformances().getSize() > 0) {
             for (Performance p : listOfShows(selected).getPerformances()) {
                 selectPerformance.getItems().add(p.getTitle());
             }
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Performance Stored");
             alert.setContentText("There is no performances stored for that show");
@@ -37,7 +37,7 @@ public class ControllerCancelPerformance {
             selectPerformance.getItems().clear();
             reset();
             Main.setMain();
-        }catch(NullPointerException e){
+        } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data not defined");
             alert.setContentText("Please select a show first");
@@ -45,7 +45,7 @@ public class ControllerCancelPerformance {
         }
     }
 
-    public void reset(){
+    private void reset() {
         selectShow.getSelectionModel().clearSelection();
         selectPerformance.getSelectionModel().clearSelection();
     }
