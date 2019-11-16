@@ -13,9 +13,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="52.0" layoutY="282.0" mnemonicParsing="false" onAction="#cancelPerformance" prefHeight="25.0" prefWidth="130.0" text="Cancel Performance" />
-      <Button layoutX="97.0" layoutY="340.0" mnemonicParsing="false" onAction="#cancel7" text="Back" />
-      <ListView fx:id="selectShow" layoutX="18.0" layoutY="79.0" onMouseClicked="#listPerformances" prefHeight="80.0" prefWidth="200.0" />
-      <ListView fx:id="selectPerformance" layoutX="18.0" layoutY="179.0" prefHeight="80.0" prefWidth="200.0" />
+      <Button layoutX="52.0" layoutY="301.0" mnemonicParsing="false" onAction="#cancelPerformance" prefHeight="25.0" prefWidth="130.0" text="Cancel Performance" />
+      <Button layoutX="97.0" layoutY="335.0" mnemonicParsing="false" onAction="#cancel7" text="Back" />
+      <ListView fx:id="selectShow" layoutX="17.0" layoutY="100.0" onMouseClicked="#listPerformances" prefHeight="80.0" prefWidth="200.0" />
+      <ListView fx:id="selectPerformance" layoutX="17.0" layoutY="204.0" prefHeight="80.0" prefWidth="200.0" />
+      <Label layoutX="86.0" layoutY="83.0" text="Select Show" />
+      <Label layoutX="67.0" layoutY="187.0" text="Select Performance" />
    </children>
 </Pane>

@@ -13,8 +13,9 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="67.0" layoutY="206.0" mnemonicParsing="false" onAction="#removingShow" prefHeight="25.0" prefWidth="103.0" text="Cancel Show" />
+      <Button layoutX="67.0" layoutY="224.0" mnemonicParsing="false" onAction="#removingShow" prefHeight="25.0" prefWidth="103.0" text="Cancel Show" />
       <Button layoutX="97.0" layoutY="259.0" mnemonicParsing="false" onAction="#cancel6" text="Back" />
-      <ListView fx:id="removeShow" layoutX="18.0" layoutY="58.0" prefHeight="129.0" prefWidth="200.0" />
+      <ListView fx:id="removeShow" layoutX="19.0" layoutY="83.0" prefHeight="129.0" prefWidth="200.0" />
+      <Label layoutX="87.0" layoutY="66.0" text="Select Show" />
    </children>
 </Pane>

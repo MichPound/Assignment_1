@@ -10,44 +10,44 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="904.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.ControllerViewFacilities">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="810.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.ControllerViewFacilities">
    <children>
-      <Label layoutX="245.0" layoutY="25.0" text="View Facilities" underline="true">
+      <Label layoutX="350.0" layoutY="7.0" text="View Facilities" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="688.0" layoutY="52.0" text="Show Details" underline="true">
+      <Label layoutX="570.0" layoutY="40.0" text="Show Details" underline="true">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="showTitle" layoutX="722.0" layoutY="77.0" text="Title" />
-      <Label fx:id="showTime" layoutX="721.0" layoutY="96.0" text="Time" />
-      <Label fx:id="startDate" layoutX="722.0" layoutY="113.0" text="Start" />
-      <Label fx:id="endDate" layoutX="723.0" layoutY="130.0" text="End" />
-      <Label fx:id="bCost" layoutX="617.0" layoutY="150.0" text="Balcony: Cost" />
-      <Label fx:id="cCost" layoutX="704.0" layoutY="150.0" text="Circle: Cost" />
-      <Label fx:id="sCost" layoutX="779.0" layoutY="150.0" text="Stall: Cost" />
-      <Label layoutX="663.0" layoutY="184.0" text="Performance Details" underline="true">
+      <Label fx:id="showTitle" layoutX="570.0" layoutY="67.0" text="Title" />
+      <Label fx:id="showTime" layoutX="570.0" layoutY="84.0" text="Time" />
+      <Label fx:id="startDate" layoutX="570.0" layoutY="101.0" text="Start" />
+      <Label fx:id="endDate" layoutX="570.0" layoutY="118.0" text="End" />
+      <Label fx:id="bCost" layoutX="570.0" layoutY="135.0" text="Balcony: Cost" />
+      <Label fx:id="cCost" layoutX="570.0" layoutY="150.0" text="Circle: Cost" />
+      <Label fx:id="sCost" layoutX="570.0" layoutY="167.0" text="Stall: Cost" />
+      <Label layoutX="570.0" layoutY="197.0" text="Performance Details" underline="true">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="performanceTitle" layoutX="723.0" layoutY="209.0" text="Title" />
-      <Label fx:id="performanceDate" layoutX="722.0" layoutY="229.0" text="Date" />
-      <Label fx:id="performanceTime" layoutX="721.0" layoutY="251.0" text="Time" />
-      <Label fx:id="performanceBooks" layoutX="681.0" layoutY="268.0" text="Bookings Made: No." />
-      <Label fx:id="performanceCost" layoutX="671.0" layoutY="289.0" text="Performance Total: Cost" />
-      <Button layoutX="432.0" layoutY="433.0" mnemonicParsing="false" onAction="#cancel4" text="Back" />
-      <Label layoutX="676.0" layoutY="329.0" text="Booking Receipt" underline="true">
+      <Label fx:id="performanceTitle" layoutX="570.0" layoutY="222.0" text="Title" />
+      <Label fx:id="performanceDate" layoutX="570.0" layoutY="237.0" text="Date" />
+      <Label fx:id="performanceTime" layoutX="570.0" layoutY="254.0" text="Time" />
+      <Label fx:id="performanceBooks" layoutX="570.0" layoutY="271.0" text="Bookings Made: No." />
+      <Label fx:id="performanceCost" layoutX="570.0" layoutY="289.0" text="Performance Total: Cost" />
+      <Button layoutX="385.0" layoutY="431.0" mnemonicParsing="false" onAction="#cancel4" text="Back" />
+      <Label layoutX="570.0" layoutY="321.0" text="Booking Receipt" underline="true">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="bookName" layoutX="718.0" layoutY="354.0" text="Name" />
-      <Label fx:id="seatType" layoutX="720.0" layoutY="388.0" text="Type" />
-      <Label fx:id="seats" layoutX="720.0" layoutY="371.0" text="Seats" />
+      <Label fx:id="bookName" layoutX="570.0" layoutY="346.0" text="Name" />
+      <Label fx:id="seatType" layoutX="570.0" layoutY="380.0" text="Type" />
+      <Label fx:id="seats" layoutX="570.0" layoutY="363.0" text="Seats" />
       <ListView fx:id="viewShows" layoutX="103.0" layoutY="52.0" onMouseClicked="#showSelected" prefHeight="47.0" prefWidth="142.0" />
       <ListView fx:id="viewPerformances" layoutX="245.0" layoutY="52.0" onMouseClicked="#performanceSelected" prefHeight="47.0" prefWidth="142.0" />
       <ListView fx:id="viewBookings" layoutX="387.0" layoutY="52.0" onMouseClicked="#bookSelected" prefHeight="47.0" prefWidth="123.0" />
@@ -96,7 +96,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </GridPane>
-      <GridPane fx:id="bookingGridC" layoutX="103.0" layoutY="205.0" prefHeight="92.0" prefWidth="404.0">
+      <GridPane fx:id="bookingGridC" layoutX="103.0" layoutY="192.0" prefHeight="92.0" prefWidth="404.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -118,7 +118,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </GridPane>
-      <Label fx:id="bookingCost" layoutX="721.0" layoutY="405.0" text="Cost" />
-      <Label fx:id="id" layoutX="654.0" layoutY="425.0" text="Booking Unique Identifier" textAlignment="CENTER" />
+      <Label fx:id="bookingCost" layoutX="570.0" layoutY="397.0" text="Cost" />
+      <Label fx:id="id" layoutX="570.0" layoutY="414.0" text="Booking Unique Identifier" textAlignment="CENTER" />
+      <Label layoutX="142.0" layoutY="34.0" text="Select Show" />
+      <Label layoutX="265.0" layoutY="34.0" text="Select Performance" />
+      <Label layoutX="409.0" layoutY="34.0" text="Select Booking" />
    </children>
 </Pane>

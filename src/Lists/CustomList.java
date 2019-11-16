@@ -19,25 +19,6 @@ public class CustomList<C> implements Iterable<C> {
         return new CustomIterator<>(head);
     }
 
-    public Object get(int index) {
-        if (index < 0)
-            return null;
-        CustomNode current = null;
-        if (head != null) {
-            current = head;
-            if (index == 0)
-                return current;
-            else {
-                for (int i = 1; i < index; i++) {
-                    if (current.next != null)
-                        current = current.next;
-                }
-                return current;
-            }
-        }
-        return null;
-    }
-
     public C get2(int index) {
         CustomNode<C> current = head;
         int i = 0;

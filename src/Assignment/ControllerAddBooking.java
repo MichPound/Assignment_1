@@ -1,7 +1,6 @@
 package Assignment;
 
 import Lists.CustomList;
-import Lists.CustomNode;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
@@ -31,7 +30,7 @@ public class ControllerAddBooking {
     private CustomList<String> seatList;
 
     public void startView() {
-
+        bookShow.getSelectionModel().clearSelection();
         bookName.setText("");
         bookPerformance.getItems().clear();
         createTable();
@@ -98,11 +97,6 @@ public class ControllerAddBooking {
         bookPerformance.getItems().clear();
 
         int selected = bookShow.getSelectionModel().getSelectedIndex();
-
-
-//        CustomNode tempShow = (CustomNode) shows.get(selected + 1);
-//        Show theShow = (Show) tempShow.getContents();
-
         Show theShow = shows.get2(selected);
 
         if (theShow.getPerformances().getSize() > 0) {

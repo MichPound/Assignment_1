@@ -17,7 +17,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <DatePicker fx:id="pDate" layoutX="62.0" layoutY="192.0" prefHeight="25.0" prefWidth="235.0" promptText="Select Date" />
+      <DatePicker fx:id="pDate" layoutX="62.0" layoutY="212.0" prefHeight="25.0" prefWidth="235.0" promptText="Select Date" />
       <SplitMenuButton fx:id="pTime" layoutX="62.0" layoutY="248.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="235.0" text="Select Time" textAlignment="CENTER">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#matinee" text="Matinee" />
@@ -26,7 +26,8 @@
       </SplitMenuButton>
       <Button layoutX="91.0" layoutY="289.0" mnemonicParsing="false" onAction="#addPerformance" text="Add" />
       <Button layoutX="228.0" layoutY="289.0" mnemonicParsing="false" onAction="#cancel2" text="Back" />
-      <TextField fx:id="pTitle" layoutX="62.0" layoutY="138.0" prefHeight="25.0" prefWidth="235.0" promptText="Performance Title" />
-      <ListView fx:id="selectShow" layoutX="26.0" layoutY="50.0" prefHeight="69.0" prefWidth="308.0" />
+      <TextField fx:id="pTitle" layoutX="62.0" layoutY="177.0" prefHeight="25.0" prefWidth="235.0" promptText="Performance Title" />
+      <ListView fx:id="selectShow" layoutX="25.0" layoutY="86.0" prefHeight="69.0" prefWidth="308.0" />
+      <Label layoutX="147.0" layoutY="69.0" text="Select Show" />
    </children>
 </Pane>

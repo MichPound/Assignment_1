@@ -1,7 +1,6 @@
 package Assignment;
 
 import Lists.CustomList;
-import Lists.CustomNode;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import javafx.application.Application;
@@ -28,7 +27,7 @@ public class Main extends Application {
         primaryStage.setTitle("Assignment_1");
 
         Parent root1 = FXMLLoader.load(getClass().getResource("../fxml/main.fxml"));
-        main = new Scene(root1, 650, 400);
+        main = new Scene(root1, 210, 400);
 
         Parent root2 = FXMLLoader.load(getClass().getResource("../fxml/addShow.fxml"));
         addShow = new Scene(root2, 369, 342);
@@ -41,7 +40,7 @@ public class Main extends Application {
         root4.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
 
         Parent root5 = FXMLLoader.load(getClass().getResource("../fxml/viewFacilities.fxml"));
-        viewFacility = new Scene(root5, 904, 475);
+        viewFacility = new Scene(root5, 810, 475);
         root5.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
 
         Parent root6 = FXMLLoader.load(getClass().getResource("../fxml/cancelFacility.fxml"));
@@ -54,7 +53,7 @@ public class Main extends Application {
         cancelPerformance = new Scene(root8, 235, 374);
 
         Parent root9 = FXMLLoader.load(getClass().getResource("../fxml/cancelBooking.fxml"));
-        cancelBooking = new Scene(root9, 600, 412);
+        cancelBooking = new Scene(root9, 600, 365);
         root9.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
 
         setStage.setScene(main);
@@ -101,7 +100,7 @@ public class Main extends Application {
     }
 
     static void updateShows() {
-        ControllerMain.mainController.listShows.getItems().clear();
+//        ControllerMain.mainController.listShows.getItems().clear();
         ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
         ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().clear();
         ControllerCancelShow.cancelShowController.removeShow.getItems().clear();
@@ -110,7 +109,7 @@ public class Main extends Application {
         ControllerCancelBooking.cancelBookingController.viewShows.getItems().clear();
 
         for (Show s : shows) {
-            ControllerMain.mainController.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
+//            ControllerMain.mainController.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
             ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
             ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().add(s.getTitle());
             ControllerCancelShow.cancelShowController.removeShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());
@@ -121,20 +120,17 @@ public class Main extends Application {
     }
 
     static Show listOfShows(int input) {
-        CustomNode temp = (CustomNode) shows.get(input + 1);
-        Show theShow = (Show) temp.getContents();
+        Show theShow = shows.get2(input);
         return theShow;
     }
 
     static Performance listOfPerformances(int input, int input2) {
-        CustomNode tempPer = (CustomNode) listOfShows(input).getPerformances().get(input2 + 1);
-        Performance thePerformance = (Performance) tempPer.getContents();
+        Performance thePerformance = listOfShows(input).getPerformances().get2(input2);
         return thePerformance;
     }
 
     static Booking listOfBookings(int input, int input2, int input3) {
-        CustomNode tempBook = (CustomNode) listOfPerformances(input, input2).getBooking().get(input3 + 1);
-        Booking theBooking = (Booking) tempBook.getContents();
+        Booking theBooking = listOfPerformances(input, input2).getBooking().get2(input3);
         return theBooking;
     }
 

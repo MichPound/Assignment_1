@@ -4,8 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -20,18 +18,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="bookName" layoutX="25.0" layoutY="82.0" promptText="Name" />
+      <TextField fx:id="bookName" layoutX="25.0" layoutY="121.0" promptText="Name" />
       <Label layoutX="26.0" layoutY="322.0" text="Booking ID: auto-generated" />
-      <SplitMenuButton layoutX="25.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Multiple seat type">
-         <items>
-            <MenuItem mnemonicParsing="false" onAction="#continuous" text="Continuous" />
-            <MenuItem mnemonicParsing="false" onAction="#scattered" text="Scattered" />
-         </items>
-      </SplitMenuButton>
-      <Button layoutX="26.0" layoutY="359.0" mnemonicParsing="false" onAction="#addBooking" text="Add" />
-      <Button layoutX="132.0" layoutY="359.0" mnemonicParsing="false" onAction="#cancel3" text="Back" />
-      <ListView fx:id="bookShow" layoutX="25.0" layoutY="121.0" onMouseClicked="#bookedShow" prefHeight="49.0" prefWidth="149.0" />
-      <ListView fx:id="bookPerformance" layoutX="25.0" layoutY="184.0" onMouseClicked="#bookedPerformance" prefHeight="49.0" prefWidth="149.0" />
+      <Button layoutX="48.0" layoutY="359.0" mnemonicParsing="false" onAction="#addBooking" text="Add" />
+      <Button layoutX="110.0" layoutY="359.0" mnemonicParsing="false" onAction="#cancel3" text="Back" />
+      <ListView fx:id="bookShow" layoutX="24.0" layoutY="186.0" onMouseClicked="#bookedShow" prefHeight="49.0" prefWidth="149.0" />
+      <ListView fx:id="bookPerformance" layoutX="25.0" layoutY="259.0" onMouseClicked="#bookedPerformance" prefHeight="49.0" prefWidth="149.0" />
       <GridPane fx:id="bookingGridS" layoutX="184.0" layoutY="339.0" prefHeight="119.0" prefWidth="404.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -99,5 +91,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </GridPane>
+      <Label layoutX="67.0" layoutY="169.0" text="Select Show" />
+      <Label layoutX="48.0" layoutY="242.0" text="Select Performance" />
    </children>
 </Pane>

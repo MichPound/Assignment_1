@@ -12,7 +12,7 @@ import static Assignment.Main.shows;
 public class ControllerMain {
     public static ControllerMain mainController;
 
-    public ListView<String> listShows;
+//    public ListView<String> listShows;
 
     public void addShow(ActionEvent actionEvent) {
         Main.setAddShow();

@@ -121,6 +121,10 @@ public class ControllerCancelBooking {
         Main.setCancelFacility();
     }
 
+    public void returnHome(ActionEvent actionEvent) {
+        Main.setMain();
+    }
+
     public void initialize() {
         cancelBookingController = this;
     }
