@@ -14,40 +14,85 @@
    <children>
       <Label layoutX="350.0" layoutY="7.0" text="View Facilities" underline="true">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
       <Label layoutX="570.0" layoutY="40.0" text="Show Details" underline="true">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="showTitle" layoutX="570.0" layoutY="67.0" text="Title" />
-      <Label fx:id="showTime" layoutX="570.0" layoutY="84.0" text="Time" />
-      <Label fx:id="startDate" layoutX="570.0" layoutY="101.0" text="Start" />
-      <Label fx:id="endDate" layoutX="570.0" layoutY="118.0" text="End" />
-      <Label fx:id="bCost" layoutX="570.0" layoutY="135.0" text="Balcony: Cost" />
-      <Label fx:id="cCost" layoutX="570.0" layoutY="150.0" text="Circle: Cost" />
-      <Label fx:id="sCost" layoutX="570.0" layoutY="167.0" text="Stall: Cost" />
+      <Label fx:id="showTitle" layoutX="570.0" layoutY="67.0" text="Title">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="showTime" layoutX="570.0" layoutY="84.0" text="Time">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="startDate" layoutX="570.0" layoutY="101.0" text="Start">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="endDate" layoutX="570.0" layoutY="118.0" text="End">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="bCost" layoutX="570.0" layoutY="135.0" text="Balcony: Cost">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="cCost" layoutX="570.0" layoutY="150.0" text="Circle: Cost">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="sCost" layoutX="570.0" layoutY="167.0" text="Stall: Cost">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
       <Label layoutX="570.0" layoutY="197.0" text="Performance Details" underline="true">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="performanceTitle" layoutX="570.0" layoutY="222.0" text="Title" />
-      <Label fx:id="performanceDate" layoutX="570.0" layoutY="237.0" text="Date" />
-      <Label fx:id="performanceTime" layoutX="570.0" layoutY="254.0" text="Time" />
-      <Label fx:id="performanceBooks" layoutX="570.0" layoutY="271.0" text="Bookings Made: No." />
-      <Label fx:id="performanceCost" layoutX="570.0" layoutY="289.0" text="Performance Total: Cost" />
+      <Label fx:id="performanceTitle" layoutX="570.0" layoutY="222.0" text="Title">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="performanceDate" layoutX="570.0" layoutY="237.0" text="Date">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="performanceTime" layoutX="570.0" layoutY="254.0" text="Time">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="performanceBooks" layoutX="570.0" layoutY="271.0" text="Bookings Made: No.">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="performanceCost" layoutX="570.0" layoutY="289.0" text="Performance Total: Cost">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
       <Button layoutX="385.0" layoutY="431.0" mnemonicParsing="false" onAction="#cancel4" text="Back" />
       <Label layoutX="570.0" layoutY="321.0" text="Booking Receipt" underline="true">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="bookName" layoutX="570.0" layoutY="346.0" text="Name" />
-      <Label fx:id="seatType" layoutX="570.0" layoutY="380.0" text="Type" />
-      <Label fx:id="seats" layoutX="570.0" layoutY="363.0" text="Seats" />
+      <Label fx:id="bookName" layoutX="570.0" layoutY="346.0" text="Name">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="seatType" layoutX="570.0" layoutY="380.0" text="Type">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="seats" layoutX="570.0" layoutY="363.0" text="Seats">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
       <ListView fx:id="viewShows" layoutX="103.0" layoutY="52.0" onMouseClicked="#showSelected" prefHeight="47.0" prefWidth="142.0" />
       <ListView fx:id="viewPerformances" layoutX="245.0" layoutY="52.0" onMouseClicked="#performanceSelected" prefHeight="47.0" prefWidth="142.0" />
       <ListView fx:id="viewBookings" layoutX="387.0" layoutY="52.0" onMouseClicked="#bookSelected" prefHeight="47.0" prefWidth="123.0" />
@@ -118,10 +163,28 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </GridPane>
-      <Label fx:id="bookingCost" layoutX="570.0" layoutY="397.0" text="Cost" />
-      <Label fx:id="id" layoutX="570.0" layoutY="414.0" text="Booking Unique Identifier" textAlignment="CENTER" />
-      <Label layoutX="142.0" layoutY="34.0" text="Select Show" />
-      <Label layoutX="265.0" layoutY="34.0" text="Select Performance" />
-      <Label layoutX="409.0" layoutY="34.0" text="Select Booking" />
+      <Label fx:id="bookingCost" layoutX="570.0" layoutY="397.0" text="Cost">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="id" layoutX="570.0" layoutY="414.0" text="Booking Unique Identifier" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="142.0" layoutY="34.0" text="Select Show">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="265.0" layoutY="34.0" text="Select Performance">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="409.0" layoutY="34.0" text="Select Booking">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

@@ -21,6 +21,7 @@ public class ControllerCancelBooking {
 
 
     public void startView() {
+        viewShows.getSelectionModel().clearSelection();
         viewPerformances.getItems().clear();
         viewBookings.getItems().clear();
         balconyChoice.getItems().clear();
@@ -30,6 +31,7 @@ public class ControllerCancelBooking {
 
     public void showSelected(MouseEvent mouseEvent) {
         viewPerformances.getItems().clear();
+        viewBookings.getItems().clear();
         int selected = viewShows.getSelectionModel().getSelectedIndex();
         if (listOfShows(selected).getPerformances().getSize() > 0) {
             for (Performance p : listOfShows(selected).getPerformances()) {
@@ -44,7 +46,7 @@ public class ControllerCancelBooking {
     }
 
     public void performanceSelected(MouseEvent mouseEvent) {
-        try {
+        if (viewShows.getSelectionModel().getSelectedIndex() != -1) {
             int selected = viewShows.getSelectionModel().getSelectedIndex();
             int per = viewPerformances.getSelectionModel().getSelectedIndex();
 
@@ -54,7 +56,7 @@ public class ControllerCancelBooking {
                     viewBookings.getItems().add(b.getName());
                 }
             }
-        } catch (NullPointerException e) {
+        }else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data not defined");
             alert.setContentText("Please make sure you have selected a show");
@@ -84,7 +86,7 @@ public class ControllerCancelBooking {
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data not defined");
-            alert.setContentText("Please select a show and a performance first");
+            alert.setContentText("Please select a performance with bookings");
             alert.showAndWait();
         }
     }
@@ -106,6 +108,7 @@ public class ControllerCancelBooking {
                 listOfBookings(selected, per, book).getSeatPlan().remove(i);
             }
         }
+        startView();
     }
 
     public void cancelBooking(ActionEvent actionEvent) {
@@ -113,6 +116,7 @@ public class ControllerCancelBooking {
         int per = viewPerformances.getSelectionModel().getSelectedIndex();
         int book = viewBookings.getSelectionModel().getSelectedIndex();
         listOfPerformances(selected, per).getBooking().remove(book);
+        startView();
         Main.updateShows();
         Main.setMain();
     }

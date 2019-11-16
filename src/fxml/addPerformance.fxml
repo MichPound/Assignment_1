@@ -14,7 +14,7 @@
    <children>
       <Label layoutX="110.0" layoutY="23.0" text="Add Performance" underline="true">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
       <DatePicker fx:id="pDate" layoutX="62.0" layoutY="212.0" prefHeight="25.0" prefWidth="235.0" promptText="Select Date" />
@@ -28,6 +28,9 @@
       <Button layoutX="228.0" layoutY="289.0" mnemonicParsing="false" onAction="#cancel2" text="Back" />
       <TextField fx:id="pTitle" layoutX="62.0" layoutY="177.0" prefHeight="25.0" prefWidth="235.0" promptText="Performance Title" />
       <ListView fx:id="selectShow" layoutX="25.0" layoutY="86.0" prefHeight="69.0" prefWidth="308.0" />
-      <Label layoutX="147.0" layoutY="69.0" text="Select Show" />
+      <Label layoutX="147.0" layoutY="69.0" text="Select Show">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
    </children>
 </Pane>

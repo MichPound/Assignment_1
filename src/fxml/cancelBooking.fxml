@@ -11,7 +11,7 @@
    <children>
       <Label layoutX="238.0" layoutY="14.0" text="Cancel Booking" underline="true">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
       <Button layoutX="251.0" layoutY="256.0" mnemonicParsing="false" onAction="#cancelSelected" text="Cancel Selected" />
@@ -23,13 +23,34 @@
       <ChoiceBox fx:id="balconyChoice" layoutX="24.0" layoutY="206.0" prefWidth="150.0" />
       <ChoiceBox fx:id="circleChoice" layoutX="225.0" layoutY="206.0" prefWidth="150.0" />
       <ChoiceBox fx:id="stallChoice" layoutX="429.0" layoutY="206.0" prefWidth="150.0" />
-      <Label layoutX="66.0" layoutY="53.0" text="Select Show" />
-      <Label layoutX="250.0" layoutY="53.0" text="Select Performance" />
-      <Label layoutX="464.0" layoutY="53.0" text="Select Booking" />
-      <Label layoutX="77.0" layoutY="189.0" text="Balcony" />
-      <Label layoutX="286.0" layoutY="189.0" text="Cirlce" />
-      <Label layoutX="490.0" layoutY="189.0" text="Stalls" />
-      <Label layoutX="155.0" layoutY="166.0" text="Select Specific seats to cancel  or cancel whole booking" />
+      <Label layoutX="66.0" layoutY="53.0" text="Select Show">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="250.0" layoutY="53.0" text="Select Performance">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="464.0" layoutY="53.0" text="Select Booking">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="77.0" layoutY="189.0" text="Balcony">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="286.0" layoutY="189.0" text="Cirlce">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="490.0" layoutY="189.0" text="Stalls">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="155.0" layoutY="166.0" text="Select Specific seats to cancel  or cancel whole booking">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
       <Button layoutX="536.0" layoutY="326.0" mnemonicParsing="false" onAction="#returnHome" text="Home" />
    </children>
 </Pane>

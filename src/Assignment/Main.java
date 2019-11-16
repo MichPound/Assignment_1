@@ -28,33 +28,39 @@ public class Main extends Application {
 
         Parent root1 = FXMLLoader.load(getClass().getResource("../fxml/main.fxml"));
         main = new Scene(root1, 210, 400);
+        root1.getStylesheets().add(getClass().getResource("../Style/styleSheet.css").toExternalForm());
 
         Parent root2 = FXMLLoader.load(getClass().getResource("../fxml/addShow.fxml"));
         addShow = new Scene(root2, 369, 342);
+        root2.getStylesheets().add(getClass().getResource("../Style/styleSheet.css").toExternalForm());
 
         Parent root3 = FXMLLoader.load(getClass().getResource("../fxml/addPerformance.fxml"));
         addPerformance = new Scene(root3, 359, 326);
+        root3.getStylesheets().add(getClass().getResource("../Style/styleSheet.css").toExternalForm());
 
         Parent root4 = FXMLLoader.load(getClass().getResource("../fxml/addBooking.fxml"));
         addBooking = new Scene(root4, 600, 500);
-        root4.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
+        root4.getStylesheets().add(getClass().getResource("../Style/styleSheet.css").toExternalForm());
 
         Parent root5 = FXMLLoader.load(getClass().getResource("../fxml/viewFacilities.fxml"));
         viewFacility = new Scene(root5, 810, 475);
-        root5.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
+        root5.getStylesheets().add(getClass().getResource("../Style/styleSheet.css").toExternalForm());
 
         Parent root6 = FXMLLoader.load(getClass().getResource("../fxml/cancelFacility.fxml"));
         cancelFacility = new Scene(root6, 174, 255);
+        root6.getStylesheets().add(getClass().getResource("../Style/styleSheet.css").toExternalForm());
 
         Parent root7 = FXMLLoader.load(getClass().getResource("../fxml/cancelShow.fxml"));
         cancelShow = new Scene(root7, 235, 310);
+        root7.getStylesheets().add(getClass().getResource("../Style/styleSheet.css").toExternalForm());
 
         Parent root8 = FXMLLoader.load(getClass().getResource("../fxml/cancelPerformance.fxml"));
         cancelPerformance = new Scene(root8, 235, 374);
+        root8.getStylesheets().add(getClass().getResource("../Style/styleSheet.css").toExternalForm());
 
         Parent root9 = FXMLLoader.load(getClass().getResource("../fxml/cancelBooking.fxml"));
         cancelBooking = new Scene(root9, 600, 365);
-        root9.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
+        root9.getStylesheets().add(getClass().getResource("../Style/styleSheet.css").toExternalForm());
 
         setStage.setScene(main);
         primaryStage.show();
@@ -92,6 +98,7 @@ public class Main extends Application {
 
     static void setCancelPerformance() {
         setStage.setScene(cancelPerformance);
+        ControllerCancelPerformance.cancelPerformanceController.startView();
     }
 
     static void setCancelBooking() {
@@ -100,7 +107,6 @@ public class Main extends Application {
     }
 
     static void updateShows() {
-//        ControllerMain.mainController.listShows.getItems().clear();
         ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
         ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().clear();
         ControllerCancelShow.cancelShowController.removeShow.getItems().clear();
@@ -109,7 +115,6 @@ public class Main extends Application {
         ControllerCancelBooking.cancelBookingController.viewShows.getItems().clear();
 
         for (Show s : shows) {
-//            ControllerMain.mainController.listShows.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
             ControllerAddPerformance.addPerformanceController.selectShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate() + ", " + s.getTime() + " Minutes");
             ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().add(s.getTitle());
             ControllerCancelShow.cancelShowController.removeShow.getItems().add(s.getTitle() + ", " + s.getsDate() + " to " + s.geteDate());

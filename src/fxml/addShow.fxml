@@ -12,27 +12,27 @@
    <children>
       <Label layoutX="139.0" layoutY="14.0" text="Add Show" underline="true">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
       <Label layoutX="75.0" layoutY="171.0" text="Running Time">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold Italic" size="14.0" />
          </font></Label>
       <TextField fx:id="showTitle" layoutX="46.0" layoutY="53.0" prefHeight="25.0" prefWidth="267.0" promptText="Show Title" />
       <DatePicker fx:id="startDate" layoutX="46.0" layoutY="94.0" prefHeight="25.0" prefWidth="267.0" promptText="Start Date" />
       <DatePicker fx:id="endDate" layoutX="46.0" layoutY="134.0" prefHeight="25.0" prefWidth="267.0" promptText="End Date" />
-      <Slider fx:id="runTime" layoutX="75.0" layoutY="191.0" max="180.0" onMouseClicked="#setTime" prefHeight="14.0" prefWidth="209.0" showTickLabels="true" showTickMarks="true" />
+      <Slider fx:id="runTime" layoutX="75.0" layoutY="191.0" max="180.0" onMouseClicked="#setTime" prefHeight="14.0" prefWidth="209.0" showTickMarks="true" />
       <Label layoutX="141.0" layoutY="228.0" text="Ticket Cost">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
       <Button layoutX="116.0" layoutY="303.0" mnemonicParsing="false" onAction="#add" text="Add" />
       <Button layoutX="212.0" layoutY="303.0" mnemonicParsing="false" onAction="#cancel1" text="Back" />
       <Label fx:id="time" layoutX="205.0" layoutY="171.0" text="(0) Minutes">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
       <TextField fx:id="balcony" layoutX="27.0" layoutY="267.0" prefHeight="25.0" prefWidth="89.0" promptText="Balcony Cost" />

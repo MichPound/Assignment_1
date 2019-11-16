@@ -13,6 +13,10 @@ public class ControllerCancelPerformance {
     public ListView<String> selectShow;
     public ListView<String> selectPerformance;
 
+    public void startView() {
+        reset();
+    }
+
     public void listPerformances(MouseEvent mouseEvent) {
         selectPerformance.getItems().clear();
         int selected = selectShow.getSelectionModel().getSelectedIndex();
@@ -30,18 +34,18 @@ public class ControllerCancelPerformance {
     }
 
     public void cancelPerformance(ActionEvent actionEvent) {
-        try {
+        if (selectShow.getSelectionModel().getSelectedIndex() == -1 || selectPerformance.getSelectionModel().getSelectedIndex() == -1) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Data not defined");
+            alert.setContentText("Please select a show/performance first");
+            alert.showAndWait();
+        } else {
             int selected = selectShow.getSelectionModel().getSelectedIndex();
             int per = selectPerformance.getSelectionModel().getSelectedIndex();
             listOfShows(selected).getPerformances().remove(per);
             selectPerformance.getItems().clear();
             reset();
             Main.setMain();
-        } catch (NullPointerException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Data not defined");
-            alert.setContentText("Please select a show first");
-            alert.showAndWait();
         }
     }
 

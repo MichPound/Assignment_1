@@ -3,7 +3,6 @@ package Assignment;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ListView;
 
 import java.util.Optional;
 
@@ -11,8 +10,6 @@ import static Assignment.Main.shows;
 
 public class ControllerMain {
     public static ControllerMain mainController;
-
-//    public ListView<String> listShows;
 
     public void addShow(ActionEvent actionEvent) {
         Main.setAddShow();
