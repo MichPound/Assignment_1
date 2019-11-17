@@ -213,14 +213,14 @@ public class ControllerViewFacilities {
         }
     }
 
-    private void colorTable(CustomList<String> list, String color) {
+    public void colorTable(CustomList<String> list, String color) {
         for (int k = 0; k < list.getSize(); k++) {
-            for (int s = 0; s < stalls.getSize(); s++) {
+            for (int s = 0; s < 40; s++) {
                 if (stalls.get2(s).getText().equalsIgnoreCase(list.get2(k))) {
                     stalls.get2(s).setStyle(color);
                 }
             }
-            for (int c = 0; c < circle.getSize(); c++) {
+            for (int c = 0; c < 30; c++) {
                 if (circle.get2(c).getText().equalsIgnoreCase(list.get2(k))) {
                     circle.get2(c).setStyle(color);
                 }

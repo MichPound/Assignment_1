@@ -117,12 +117,12 @@ public class ControllerAddBooking {
         }
         createTable();
         for (int k = 0; k < allSeats.getSize(); k++) {
-            for (int s = 0; s < stalls.getSize(); s++) {
+            for (int s = 0; s < 40; s++) {
                 if (stalls.get2(s).getText().equalsIgnoreCase(allSeats.get2(k))) {
                     stalls.get2(s).setStyle("-fx-background-color:#a81e13");
                 }
             }
-            for (int c = 0; c < circle.getSize(); c++) {
+            for (int c = 0; c < 30; c++) {
                 if (circle.get2(c).getText().equalsIgnoreCase(allSeats.get2(k))) {
                     circle.get2(c).setStyle("-fx-background-color:#a81e13");
                 }
