@@ -18,7 +18,6 @@ public class ControllerAddBooking {
     public static ControllerAddBooking addBookingController;
 
     public TextField bookName;
-    private int seatType;
     public ListView<String> bookShow;
     public ListView<String> bookPerformance;
     public GridPane bookingGridS;
@@ -83,14 +82,6 @@ public class ControllerAddBooking {
             }
         }
 
-    }
-
-    public void continuous(ActionEvent actionEvent) {
-        seatType = 0;
-    }
-
-    public void scattered(ActionEvent actionEvent) {
-        seatType = 1;
     }
 
     public void bookedShow(MouseEvent mouseEvent) {
@@ -189,7 +180,7 @@ public class ControllerAddBooking {
             while (oldIds.contains(id)) {
                 id = UUID.randomUUID().toString();
             }
-            listOfPerformances(selected, per).addBooking(new Booking(bookName.getText(), id, seatType, seatList));
+            listOfPerformances(selected, per).addBooking(new Booking(bookName.getText(), id, seatList));
             Main.setMain();
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);

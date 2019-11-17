@@ -29,7 +29,6 @@ public class ControllerViewFacilities {
     public Label performanceTime;
     public Label bookName;
     public Label seats;
-    public Label seatType;
     public GridPane bookingGridS;
     public GridPane bookingGridC;
     public GridPane bookingGridB;
@@ -181,11 +180,6 @@ public class ControllerViewFacilities {
             bookName.setText(listOfBookings(selected, per, book).getName());
             //seats.setText("Seats: " + listOfBookings(selected, per, book).getSeats());
             seats.setText("Seats: " + listOfBookings(selected, per, book).getSeatPlan().getSize());
-            if (listOfBookings(selected, per, book).getsType() == 0) {
-                seatType.setText("Continuous");
-            } else {
-                seatType.setText("Scattered");
-            }
 
             double cost = 0;
             int length = listOfBookings(selected, per, book).getSeatPlan().getSize();
@@ -260,7 +254,6 @@ public class ControllerViewFacilities {
     private void resetBooking() {
         bookName.setText("Name");
         seats.setText("Seats");
-        seatType.setText("Type");
         bookingCost.setText("Cost");
         id.setText("Booking Unique Identifier");
     }

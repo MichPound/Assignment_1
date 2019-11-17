@@ -4,13 +4,11 @@ import Lists.CustomList;
 
 public class Booking {
     private String name, id;
-    private int sType;
     private CustomList<String> seatPlan;
 
-    public Booking(String name, String id, int sType, CustomList<String> seatPlan) {
+    public Booking(String name, String id, CustomList<String> seatPlan) {
         this.name = name;
         this.id = id;
-        this.sType = sType;
         this.seatPlan = seatPlan;
     }
 
@@ -28,14 +26,6 @@ public class Booking {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public int getsType() {
-        return sType;
-    }
-
-    public void setsType(int sType) {
-        this.sType = sType;
     }
 
     public CustomList<String> getSeatPlan() {

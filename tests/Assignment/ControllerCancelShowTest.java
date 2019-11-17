@@ -1,11 +1,11 @@
 package Assignment;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static Assignment.Main.shows;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ControllerCancelShowTest {
 
@@ -18,10 +18,6 @@ class ControllerCancelShowTest {
                 12.0,
                 13.0,
                 14.0));
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
     @Test

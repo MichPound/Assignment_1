@@ -85,10 +85,6 @@
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Label>
-      <Label fx:id="seatType" layoutX="570.0" layoutY="380.0" text="Type">
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font></Label>
       <Label fx:id="seats" layoutX="570.0" layoutY="363.0" text="Seats">
          <font>
             <Font name="System Bold Italic" size="12.0" />
@@ -163,11 +159,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </GridPane>
-      <Label fx:id="bookingCost" layoutX="570.0" layoutY="397.0" text="Cost">
+      <Label fx:id="bookingCost" layoutX="570.0" layoutY="380.0" text="Cost">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Label>
-      <Label fx:id="id" layoutX="570.0" layoutY="414.0" text="Booking Unique Identifier" textAlignment="CENTER">
+      <Label fx:id="id" layoutX="570.0" layoutY="397.0" text="Booking Unique Identifier" textAlignment="CENTER">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Label>

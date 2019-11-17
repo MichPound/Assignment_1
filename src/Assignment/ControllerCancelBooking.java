@@ -92,33 +92,47 @@ public class ControllerCancelBooking {
     }
 
     public void cancelSelected(ActionEvent actionEvent) {
-        int selected = viewShows.getSelectionModel().getSelectedIndex();
-        int per = viewPerformances.getSelectionModel().getSelectedIndex();
-        int book = viewBookings.getSelectionModel().getSelectedIndex();
+        if (viewShows.getSelectionModel().getSelectedIndex() != -1 && viewPerformances.getSelectionModel().getSelectedIndex() != -1 && viewBookings.getSelectionModel().getSelectedIndex() != -1) {
+            int selected = viewShows.getSelectionModel().getSelectedIndex();
+            int per = viewPerformances.getSelectionModel().getSelectedIndex();
+            int book = viewBookings.getSelectionModel().getSelectedIndex();
 
-        String toBeRemovedB = String.valueOf(balconyChoice.getSelectionModel().getSelectedItem());
-        String toBeRemovedC = String.valueOf(circleChoice.getSelectionModel().getSelectedItem());
-        String toBeRemovedS = String.valueOf(stallChoice.getSelectionModel().getSelectedItem());
-        for (int i = 0; i < listOfBookings(selected, per, book).getSeatPlan().getSize(); i++) {
-            if (listOfBookings(selected, per, book).getSeatPlan().get2(i).equalsIgnoreCase(toBeRemovedB)) {
-                listOfBookings(selected, per, book).getSeatPlan().remove(i);
-            } else if (listOfBookings(selected, per, book).getSeatPlan().get2(i).equalsIgnoreCase(toBeRemovedC)) {
-                listOfBookings(selected, per, book).getSeatPlan().remove(i);
-            } else if (listOfBookings(selected, per, book).getSeatPlan().get2(i).equalsIgnoreCase(toBeRemovedS)) {
-                listOfBookings(selected, per, book).getSeatPlan().remove(i);
+            String toBeRemovedB = String.valueOf(balconyChoice.getSelectionModel().getSelectedItem());
+            String toBeRemovedC = String.valueOf(circleChoice.getSelectionModel().getSelectedItem());
+            String toBeRemovedS = String.valueOf(stallChoice.getSelectionModel().getSelectedItem());
+            for (int i = 0; i < listOfBookings(selected, per, book).getSeatPlan().getSize(); i++) {
+                if (listOfBookings(selected, per, book).getSeatPlan().get2(i).equalsIgnoreCase(toBeRemovedB)) {
+                    listOfBookings(selected, per, book).getSeatPlan().remove(i);
+                } else if (listOfBookings(selected, per, book).getSeatPlan().get2(i).equalsIgnoreCase(toBeRemovedC)) {
+                    listOfBookings(selected, per, book).getSeatPlan().remove(i);
+                } else if (listOfBookings(selected, per, book).getSeatPlan().get2(i).equalsIgnoreCase(toBeRemovedS)) {
+                    listOfBookings(selected, per, book).getSeatPlan().remove(i);
+                }
             }
+            startView();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Insufficient Data");
+            alert.setContentText("Please make sure all fields are selected and a specific seat is also selected");
+            alert.showAndWait();
         }
-        startView();
     }
 
     public void cancelBooking(ActionEvent actionEvent) {
-        int selected = viewShows.getSelectionModel().getSelectedIndex();
-        int per = viewPerformances.getSelectionModel().getSelectedIndex();
-        int book = viewBookings.getSelectionModel().getSelectedIndex();
-        listOfPerformances(selected, per).getBooking().remove(book);
-        startView();
-        Main.updateShows();
-        Main.setMain();
+        if(viewShows.getSelectionModel().getSelectedIndex() != -1 && viewPerformances.getSelectionModel().getSelectedIndex() != -1 && viewBookings.getSelectionModel().getSelectedIndex() != -1) {
+            int selected = viewShows.getSelectionModel().getSelectedIndex();
+            int per = viewPerformances.getSelectionModel().getSelectedIndex();
+            int book = viewBookings.getSelectionModel().getSelectedIndex();
+            listOfPerformances(selected, per).getBooking().remove(book);
+            startView();
+            Main.updateShows();
+            Main.setMain();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Insufficient Data");
+            alert.setContentText("Please make sure all fields are selected");
+            alert.showAndWait();
+        }
     }
 
     public void cancel8(ActionEvent actionEvent) {

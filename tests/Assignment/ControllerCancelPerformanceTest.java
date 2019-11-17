@@ -1,11 +1,11 @@
 package Assignment;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static Assignment.Main.shows;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ControllerCancelPerformanceTest {
 
@@ -18,11 +18,10 @@ class ControllerCancelPerformanceTest {
                 12.0,
                 13.0,
                 14.0));
-        shows.get2(0).addPerformance(new Performance("perTest", "12/11/2019", "Evening"));
-    }
 
-    @AfterEach
-    void tearDown() {
+        shows.get2(0).addPerformance(new Performance("perTest",
+                "12/11/2019",
+                "Evening"));
     }
 
     @Test
