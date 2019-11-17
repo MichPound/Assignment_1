@@ -28,6 +28,7 @@ public class ControllerAddBooking {
     private CustomList<ToggleButton> balcony = new CustomList<ToggleButton>();
     private CustomList<String> seatList;
 
+    //Used to set up fresh scene
     public void startView() {
         bookShow.getSelectionModel().clearSelection();
         bookName.setText("");
@@ -35,6 +36,7 @@ public class ControllerAddBooking {
         createTable();
     }
 
+    //Creates a new table of toggle buttons
     private void createTable() {
         seatList = new CustomList<>();
         int seat = 40;
@@ -84,9 +86,9 @@ public class ControllerAddBooking {
 
     }
 
+    //Allows for the selection of a show and loads in performances
     public void bookedShow(MouseEvent mouseEvent) {
         bookPerformance.getItems().clear();
-
         int selected = bookShow.getSelectionModel().getSelectedIndex();
         Show theShow = shows.get2(selected);
 
@@ -104,6 +106,7 @@ public class ControllerAddBooking {
         }
     }
 
+    //Allows for the selection of a performance and colours all booked seats red
     public void bookedPerformance(MouseEvent mouseEvent) {
         int selected = bookShow.getSelectionModel().getSelectedIndex();
         int per = bookPerformance.getSelectionModel().getSelectedIndex();
@@ -135,6 +138,8 @@ public class ControllerAddBooking {
         }
     }
 
+    //Stops double booking of seats, if seat is selectable it is added to linked list, if already in the linked list it removes it from the linked list
+    //Sets seat colour appropriately
     private void ButtonClicked(ActionEvent actionEvent) {
         if (bookShow.getSelectionModel().getSelectedIndex() == -1 && bookPerformance.getSelectionModel().getSelectedIndex() == -1) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -164,6 +169,7 @@ public class ControllerAddBooking {
         }
     }
 
+    //Validates all information is correct, generates unique ID and adds the new booking to the performance selected
     public void addBooking(ActionEvent actionEvent) {
         if (!bookName.getText().equals("") && bookShow.getSelectionModel().getSelectedIndex() != -1 && bookPerformance.getSelectionModel().getSelectedIndex() != -1 && seatList.getSize() != 0) {
             int selected = bookShow.getSelectionModel().getSelectedIndex();
@@ -190,10 +196,12 @@ public class ControllerAddBooking {
         }
     }
 
+    //Exits to menu
     public void cancel3(ActionEvent actionEvent) {
         Main.setMain();
     }
 
+    //Initializes class
     public void initialize() {
         addBookingController = this;
     }

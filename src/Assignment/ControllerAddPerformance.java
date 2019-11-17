@@ -15,6 +15,7 @@ public class ControllerAddPerformance {
     public TextField pTitle;
     public ListView<String> selectShow;
 
+    //Sets time accordingly
     public void matinee(ActionEvent actionEvent) {
         pTime.setText("Matinee");
     }
@@ -23,6 +24,7 @@ public class ControllerAddPerformance {
         pTime.setText("Evening");
     }
 
+    //Validates all information is correct, checks dates/times and adds the new performance to the show selected
     public void addPerformance(ActionEvent actionEvent) {
         boolean resume = true;
         if (!pTitle.getText().equals("") && pDate.getValue() != null && !pTime.getText().equals("Select Time") && selectShow.getSelectionModel().getSelectedIndex() != -1) {
@@ -31,6 +33,7 @@ public class ControllerAddPerformance {
             String date = pDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             String time = pTime.getText();
 
+            //Checks to see if there is already a performance on at that time
             for (Show s : shows) {
                 for (int i = 0; i < s.getPerformances().getSize(); i++) {
                     if (s.getPerformances().get2(i).getDate().matches(date) && s.getPerformances().get2(i).getTime().matches(time)) {
@@ -39,6 +42,7 @@ public class ControllerAddPerformance {
                 }
             }
 
+            //if the isn't a performance already on then it continues to try to add the new performance
             if (resume) {
                 listOfShows(selected).addPerformance(new Performance(title, date, time));
                 reset();
@@ -57,6 +61,7 @@ public class ControllerAddPerformance {
         }
     }
 
+    //Used to reset fields and clean the scene
     private void reset() {
         selectShow.getSelectionModel().clearSelection();
         pTitle.setText("");
@@ -64,11 +69,13 @@ public class ControllerAddPerformance {
         pTime.setText("Select Time");
     }
 
+    //Exits to menu
     public void cancel2(ActionEvent actionEvent) {
         reset();
         Main.setMain();
     }
 
+    //Initializes class
     public void initialize() {
         addPerformanceController = this;
     }

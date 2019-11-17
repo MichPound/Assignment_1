@@ -42,6 +42,7 @@ public class ControllerViewFacilities {
     private CustomList<Button> balcony = new CustomList<Button>();
     private CustomList<String> allSeats;
 
+    //Used to set up fresh scene
     public void startView() {
         viewPerformances.getItems().clear();
         viewBookings.getItems().clear();
@@ -51,6 +52,7 @@ public class ControllerViewFacilities {
         buttonTable();
     }
 
+    //Creates a new table of buttons
     private void buttonTable() {
         int seat = 40;
         int bal = 24;
@@ -92,6 +94,7 @@ public class ControllerViewFacilities {
         }
     }
 
+    //Allows for the selection of a show, sets all show details and loads in performances
     public void showSelected(MouseEvent mouseEvent) {
         startView();
         int selected = viewShows.getSelectionModel().getSelectedIndex();
@@ -117,6 +120,8 @@ public class ControllerViewFacilities {
         }
     }
 
+    //Allows for the selection of a performance, sets all performance details and loads in bookings
+    //Sets all seat booked to red on a new table
     public void performanceSelected(MouseEvent mouseEvent) {
         buttonTable();
         resetBooking();
@@ -171,6 +176,7 @@ public class ControllerViewFacilities {
         }
     }
 
+    //Allows for the selection of a booking, sets all booking details and sets all seats in that booking to blue
     public void bookSelected(MouseEvent mouseEvent) {
         colorTable(allSeats, "-fx-background-color:#a81e13");
         try {
@@ -178,7 +184,6 @@ public class ControllerViewFacilities {
             int per = viewPerformances.getSelectionModel().getSelectedIndex();
             int book = viewBookings.getSelectionModel().getSelectedIndex();
             bookName.setText(listOfBookings(selected, per, book).getName());
-            //seats.setText("Seats: " + listOfBookings(selected, per, book).getSeats());
             seats.setText("Seats: " + listOfBookings(selected, per, book).getSeatPlan().getSize());
 
             double cost = 0;
@@ -213,6 +218,7 @@ public class ControllerViewFacilities {
         }
     }
 
+    //This is used to change the colour of the seating table
     public void colorTable(CustomList<String> list, String color) {
         for (int k = 0; k < list.getSize(); k++) {
             for (int s = 0; s < 40; s++) {
@@ -233,6 +239,7 @@ public class ControllerViewFacilities {
         }
     }
 
+    //This resets all show details
     private void resetShow() {
         showTitle.setText("Title");
         showTime.setText("Time");
@@ -243,6 +250,7 @@ public class ControllerViewFacilities {
         sCost.setText("Cost");
     }
 
+    //This resets all performance details
     private void resetPerformance() {
         performanceTitle.setText("Title");
         performanceDate.setText("Date");
@@ -251,6 +259,7 @@ public class ControllerViewFacilities {
         performanceCost.setText("Performance Total: Cost");
     }
 
+    //This resets all booking details
     private void resetBooking() {
         bookName.setText("Name");
         seats.setText("Seats");
@@ -258,6 +267,7 @@ public class ControllerViewFacilities {
         id.setText("Booking Unique Identifier");
     }
 
+    //Exits to menu
     public void cancel4(ActionEvent actionEvent) {
         Main.setMain();
     }

@@ -2,6 +2,7 @@ package Assignment;
 
 import javafx.event.ActionEvent;
 
+//Options for cancelling
 public class ControllerCancelFacility {
 
     public void cancelShow(ActionEvent actionEvent) {

@@ -13,10 +13,12 @@ public class ControllerCancelPerformance {
     public ListView<String> selectShow;
     public ListView<String> selectPerformance;
 
+    //Used to set up fresh scene
     public void startView() {
         reset();
     }
 
+    //Used to get the selected show and display performances
     public void listPerformances(MouseEvent mouseEvent) {
         selectPerformance.getItems().clear();
         int selected = selectShow.getSelectionModel().getSelectedIndex();
@@ -33,6 +35,7 @@ public class ControllerCancelPerformance {
         }
     }
 
+    //Validates all information is correct, removes the selected performance
     public void cancelPerformance(ActionEvent actionEvent) {
         if (selectShow.getSelectionModel().getSelectedIndex() == -1 || selectPerformance.getSelectionModel().getSelectedIndex() == -1) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -49,11 +52,13 @@ public class ControllerCancelPerformance {
         }
     }
 
+    //Used to reset fields and clean the scene
     private void reset() {
         selectShow.getSelectionModel().clearSelection();
         selectPerformance.getSelectionModel().clearSelection();
     }
 
+    //Exits to cancel facilities
     public void cancel7(ActionEvent actionEvent) {
         reset();
         Main.setCancelFacility();

@@ -19,7 +19,7 @@ public class ControllerCancelBooking {
     public ChoiceBox<String> circleChoice;
     public ChoiceBox<String> stallChoice;
 
-
+    //Used to set up fresh scene
     public void startView() {
         viewShows.getSelectionModel().clearSelection();
         viewPerformances.getItems().clear();
@@ -29,6 +29,7 @@ public class ControllerCancelBooking {
         stallChoice.getItems().clear();
     }
 
+    //Allows for the selection of a show and loads in performances
     public void showSelected(MouseEvent mouseEvent) {
         viewPerformances.getItems().clear();
         viewBookings.getItems().clear();
@@ -45,6 +46,7 @@ public class ControllerCancelBooking {
         }
     }
 
+    //Allows for the selection of a performance and loads in bookings
     public void performanceSelected(MouseEvent mouseEvent) {
         if (viewShows.getSelectionModel().getSelectedIndex() != -1) {
             int selected = viewShows.getSelectionModel().getSelectedIndex();
@@ -56,7 +58,7 @@ public class ControllerCancelBooking {
                     viewBookings.getItems().add(b.getName());
                 }
             }
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Data not defined");
             alert.setContentText("Please make sure you have selected a show");
@@ -64,6 +66,7 @@ public class ControllerCancelBooking {
         }
     }
 
+    //Allows for the selection of a booking and populates the choice boxes with seats
     public void bookSelected(MouseEvent mouseEvent) {
         try {
             balconyChoice.getItems().clear();
@@ -91,6 +94,7 @@ public class ControllerCancelBooking {
         }
     }
 
+    //Validates all information is correct, removes any selected seats and calls startView to refresh the scene
     public void cancelSelected(ActionEvent actionEvent) {
         if (viewShows.getSelectionModel().getSelectedIndex() != -1 && viewPerformances.getSelectionModel().getSelectedIndex() != -1 && viewBookings.getSelectionModel().getSelectedIndex() != -1) {
             int selected = viewShows.getSelectionModel().getSelectedIndex();
@@ -110,7 +114,7 @@ public class ControllerCancelBooking {
                 }
             }
             startView();
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Insufficient Data");
             alert.setContentText("Please make sure all fields are selected and a specific seat is also selected");
@@ -118,8 +122,9 @@ public class ControllerCancelBooking {
         }
     }
 
+    //Validates all information is correct, removes the selected booking
     public void cancelBooking(ActionEvent actionEvent) {
-        if(viewShows.getSelectionModel().getSelectedIndex() != -1 && viewPerformances.getSelectionModel().getSelectedIndex() != -1 && viewBookings.getSelectionModel().getSelectedIndex() != -1) {
+        if (viewShows.getSelectionModel().getSelectedIndex() != -1 && viewPerformances.getSelectionModel().getSelectedIndex() != -1 && viewBookings.getSelectionModel().getSelectedIndex() != -1) {
             int selected = viewShows.getSelectionModel().getSelectedIndex();
             int per = viewPerformances.getSelectionModel().getSelectedIndex();
             int book = viewBookings.getSelectionModel().getSelectedIndex();
@@ -127,7 +132,7 @@ public class ControllerCancelBooking {
             startView();
             Main.updateShows();
             Main.setMain();
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Insufficient Data");
             alert.setContentText("Please make sure all fields are selected");
@@ -135,10 +140,12 @@ public class ControllerCancelBooking {
         }
     }
 
+    //Exits to cancel facilities
     public void cancel8(ActionEvent actionEvent) {
         Main.setCancelFacility();
     }
 
+    //Exits to menu
     public void returnHome(ActionEvent actionEvent) {
         Main.setMain();
     }

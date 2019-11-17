@@ -11,6 +11,7 @@ public class ControllerCancelShow {
 
     public ListView<String> removeShow;
 
+    //Validates all information is correct, removes the selected show
     public void removingShow(ActionEvent actionEvent) {
         if (removeShow.getSelectionModel().getSelectedIndex() != -1) {
             int index = removeShow.getSelectionModel().getSelectedIndex();
@@ -18,7 +19,7 @@ public class ControllerCancelShow {
             removeShow.getSelectionModel().clearSelection();
             Main.updateShows();
             Main.setMain();
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Show Selected");
             alert.setContentText("Please select a show first");
@@ -26,6 +27,7 @@ public class ControllerCancelShow {
         }
     }
 
+    //Exits to cancel facilities
     public void cancel6(ActionEvent actionEvent) {
         removeShow.getSelectionModel().clearSelection();
         Main.setCancelFacility();

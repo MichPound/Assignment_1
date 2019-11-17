@@ -19,10 +19,12 @@ public class ControllerAddShow {
     public TextField circle;
     public TextField stalls;
 
+    //Changes the time text to the time selected
     public void setTime(MouseEvent mouseEvent) {
         time.setText("(" + (((int) runTime.getValue())) + ") " + "Minutes");
     }
 
+    //Validates all prices are set and all other information is correct,  adds the new show tot the linked list of shows
     public void add(ActionEvent actionEvent) {
         if (!Pattern.matches("[0-9.]+", balcony.getText()) || !Pattern.matches("[0-9.]+", circle.getText()) || !Pattern.matches("[0-9.]+", stalls.getText())) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -48,6 +50,7 @@ public class ControllerAddShow {
         }
     }
 
+    //Used to reset fields and clean the scene
     public void reset() {
         showTitle.setText("");
         startDate.setValue(null);
@@ -59,6 +62,7 @@ public class ControllerAddShow {
         stalls.setText("");
     }
 
+    //Exits to menu
     public void cancel1(ActionEvent actionEvent) {
         reset();
         Main.setMain();

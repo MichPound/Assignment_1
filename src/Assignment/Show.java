@@ -8,6 +8,7 @@ public class Show {
     private double bCost, cCost, sCost;
     private CustomList<Performance> performances = new CustomList<>();
 
+    //Constructor for Show class
     public Show(String title, String sDate, String eDate, int time, double bCost, double cCost, double sCost) {
         this.title = title;
         this.sDate = sDate;

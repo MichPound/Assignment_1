@@ -26,6 +26,7 @@ public class Main extends Application {
         setStage = primaryStage;
         primaryStage.setTitle("Assignment_1");
 
+        //Setting up each scene
         Parent root1 = FXMLLoader.load(getClass().getResource("../fxml/main.fxml"));
         main = new Scene(root1, 210, 400);
         root1.getStylesheets().add(getClass().getResource("../Style/styleSheet.css").toExternalForm());
@@ -66,6 +67,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    //These methods allow easy scene changing and also call start methods in some scenes
     static void setMain() {
         setStage.setScene(main);
     }
@@ -106,6 +108,7 @@ public class Main extends Application {
         ControllerCancelBooking.cancelBookingController.startView();
     }
 
+    //Updates listViews through out project with the newest version of shows
     static void updateShows() {
         ControllerAddPerformance.addPerformanceController.selectShow.getItems().clear();
         ControllerViewFacilities.viewFacilitiesController.viewShows.getItems().clear();
@@ -139,6 +142,7 @@ public class Main extends Application {
         return theBooking;
     }
 
+    //Saves to an xml file
     public static void save() throws Exception {
         XStream xstream = new XStream(new DomDriver());
         ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("shows.xml"));
@@ -146,6 +150,7 @@ public class Main extends Application {
         out.close();
     }
 
+    //Reads and casts xml to shows linked list
     public static void load() throws Exception {
         XStream xstream = new XStream(new DomDriver());
         ObjectInputStream is = xstream.createObjectInputStream(new FileReader("shows.xml"));

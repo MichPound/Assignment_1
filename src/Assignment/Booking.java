@@ -6,6 +6,7 @@ public class Booking {
     private String name, id;
     private CustomList<String> seatPlan;
 
+    //Constructor for Booking class
     public Booking(String name, String id, CustomList<String> seatPlan) {
         this.name = name;
         this.id = id;
