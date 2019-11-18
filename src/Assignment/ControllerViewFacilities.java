@@ -14,28 +14,9 @@ import static Assignment.Main.*;
 public class ControllerViewFacilities {
     public static ControllerViewFacilities viewFacilitiesController;
 
-    public ListView<String> viewShows;
-    public ListView<String> viewPerformances;
-    public ListView<String> viewBookings;
-    public Label showTitle;
-    public Label showTime;
-    public Label startDate;
-    public Label endDate;
-    public Label bCost;
-    public Label cCost;
-    public Label sCost;
-    public Label performanceTitle;
-    public Label performanceDate;
-    public Label performanceTime;
-    public Label bookName;
-    public Label seats;
-    public GridPane bookingGridS;
-    public GridPane bookingGridC;
-    public GridPane bookingGridB;
-    public Label bookingCost;
-    public Label id;
-    public Label performanceBooks;
-    public Label performanceCost;
+    public ListView<String> viewShows, viewPerformances, viewBookings;
+    public Label showTitle, showTime, startDate, endDate, bCost, cCost, sCost, performanceTitle, performanceDate, performanceTime, bookName, seats,  bookingCost, id, performanceBooks, performanceCost;
+    public GridPane bookingGridS, bookingGridC, bookingGridB;
 
     private CustomList<Button> stalls = new CustomList<Button>();
     private CustomList<Button> circle = new CustomList<Button>();

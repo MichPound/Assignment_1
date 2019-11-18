@@ -18,11 +18,8 @@ public class ControllerAddBooking {
     public static ControllerAddBooking addBookingController;
 
     public TextField bookName;
-    public ListView<String> bookShow;
-    public ListView<String> bookPerformance;
-    public GridPane bookingGridS;
-    public GridPane bookingGridC;
-    public GridPane bookingGridB;
+    public ListView<String> bookShow, bookPerformance;
+    public GridPane bookingGridS, bookingGridC, bookingGridB;
     private CustomList<ToggleButton> stalls = new CustomList<ToggleButton>();
     private CustomList<ToggleButton> circle = new CustomList<ToggleButton>();
     private CustomList<ToggleButton> balcony = new CustomList<ToggleButton>();
